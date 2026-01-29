@@ -9,6 +9,9 @@
   Copyright holder, funder.
   [![ROR](https://raw.githubusercontent.com/ror-community/ror-logos/main/ror-icon-rgb.svg)](https://ror.org/03wc8by49)
 
+- **Tree-sitter authors**. Copyright holder.  
+  Tree-sitter C library
+
 ## Citation
 
 Source:

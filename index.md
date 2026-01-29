@@ -15,12 +15,10 @@ tree-sitter parse trees.
 
 ## Installation
 
-You can install the development version of ts from
-[GitHub](https://github.com/) with:
+Install ts from CRAN:
 
 ``` r
-# install.packages("pak")
-pak::pak("r-lib/ts")
+install.packages("ts")
 ```
 
 ## Documentation
