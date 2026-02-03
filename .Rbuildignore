@@ -12,5 +12,6 @@
 ^about\.Rmd$
 ^README\.Rmd$
 ^README\.html$
+^man/roxygen$
 ^man/macros/eval2\.Rd$
 ^man/macros/examples\.Rd$
