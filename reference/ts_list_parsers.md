@@ -41,6 +41,7 @@ Here is an example that includes all tree-sitter parsers at this time:
 
     ts_list_parsers()
 
+
     #> # A data frame: 2 × 5
     #>   package version    title           library                    loaded
     #> * <chr>   <chr>      <chr>           <chr>                      <lgl>

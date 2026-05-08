@@ -10,11 +10,11 @@ This is the manual page of the `ts_tree_query()` S3 generic function.
 Methods in parser packages may override this generic. For the ones that
 do see the links to their manual pages in the table.
 
-|                                                                                     |             |                  |                                                                                                                        |
-|-------------------------------------------------------------------------------------|-------------|------------------|------------------------------------------------------------------------------------------------------------------------|
-| **Package**                                                                         | **Version** | **Title**        | **Method**                                                                                                             |
-| **[tsjsonc](https://gaborcsardi.github.io/tsjsonc/reference/tsjsonc-package.html)** | 0.0.0.9000  | Edit JSON Files. | [`ts_tree_query(<ts_tree_tsjsonc>)`](https://gaborcsardi.github.io/tsjsonc/reference/ts_tree_query.ts_tree_jsonc.html) |
-| **[tstoml](https://gaborcsardi.github.io/tstoml/reference/tstoml-package.html)**    | 0.0.0.9000  | Edit TOML files. | [`ts_tree_query(<ts_tree_tstoml>)`](https://gaborcsardi.github.io/tstoml/reference/ts_tree_query.ts_tree_toml.html)    |
+|  |  |  |  |
+|----|----|----|----|
+| **Package** | **Version** | **Title** | **Method** |
+| **[tsjsonc](https://gaborcsardi.github.io/tsjsonc/reference/tsjsonc-package.html)** | 0.0.0.9000 | Edit JSON Files. | [`ts_tree_query(<ts_tree_tsjsonc>)`](https://gaborcsardi.github.io/tsjsonc/reference/ts_tree_query.ts_tree_jsonc.html) |
+| **[tstoml](https://gaborcsardi.github.io/tstoml/reference/tstoml-package.html)** | 0.0.0.9000 | Edit TOML files. | [`ts_tree_query(<ts_tree_tstoml>)`](https://gaborcsardi.github.io/tstoml/reference/ts_tree_query.ts_tree_toml.html) |
 
 ## Usage
 
@@ -64,6 +64,7 @@ TOML
     )
     json |> ts_tree_query("(number) @number")
 
+
     #> $patterns
     #> # A data frame: 1 × 4
     #>      id name  pattern              match_count
@@ -95,6 +96,7 @@ TOML
       'a = 1\nb = [10.0, 20, 30]\nc = { c1 = true, c2 = 100 }'
     )
     toml |> ts_tree_query("[(float) (integer)] @number")
+
 
     #> $patterns
     #> # A data frame: 1 × 4

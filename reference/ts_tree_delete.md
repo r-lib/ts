@@ -11,11 +11,11 @@ This is the manual page of the `ts_tree_delete()` S3 generic function.
 Methods in parser packages may override this generic. For the ones that
 do see the links to their manual pages in the table.
 
-|                                                                                     |             |                  |                                                                                                                          |
-|-------------------------------------------------------------------------------------|-------------|------------------|--------------------------------------------------------------------------------------------------------------------------|
-| **Package**                                                                         | **Version** | **Title**        | **Method**                                                                                                               |
-| **[tsjsonc](https://gaborcsardi.github.io/tsjsonc/reference/tsjsonc-package.html)** | 0.0.0.9000  | Edit JSON Files. | [`ts_tree_delete(<ts_tree_tsjsonc>)`](https://gaborcsardi.github.io/tsjsonc/reference/ts_tree_delete.ts_tree_jsonc.html) |
-| **[tstoml](https://gaborcsardi.github.io/tstoml/reference/tstoml-package.html)**    | 0.0.0.9000  | Edit TOML files. | [`ts_tree_delete(<ts_tree_tstoml>)`](https://gaborcsardi.github.io/tstoml/reference/ts_tree_delete.ts_tree_toml.html)    |
+|  |  |  |  |
+|----|----|----|----|
+| **Package** | **Version** | **Title** | **Method** |
+| **[tsjsonc](https://gaborcsardi.github.io/tsjsonc/reference/tsjsonc-package.html)** | 0.0.0.9000 | Edit JSON Files. | [`ts_tree_delete(<ts_tree_tsjsonc>)`](https://gaborcsardi.github.io/tsjsonc/reference/ts_tree_delete.ts_tree_jsonc.html) |
+| **[tstoml](https://gaborcsardi.github.io/tstoml/reference/tstoml-package.html)** | 0.0.0.9000 | Edit TOML files. | [`ts_tree_delete(<ts_tree_tstoml>)`](https://gaborcsardi.github.io/tstoml/reference/ts_tree_delete.ts_tree_toml.html) |
 
 ## Usage
 
@@ -53,6 +53,7 @@ TOML
       ts::ts_tree_format()
     jsonc
 
+
     #> # jsonc (8 lines)
     #> 1 | {
     #> 2 |     "a": true,
@@ -66,6 +67,7 @@ TOML
  
 
     jsonc |> ts_tree_select("a") |> ts_tree_delete()
+
 
     #> # jsonc (7 lines)
     #> 1 | {
@@ -85,6 +87,7 @@ TOML
     ")
     toml
 
+
     #> # toml (4 lines)
     #> 1 | 
     #> 2 |   [package]
@@ -94,6 +97,7 @@ TOML
  
 
     toml |> ts_tree_select("package", "name") |> ts_tree_delete()
+
 
     #> # toml (2 lines)
     #> 1 | [package]
@@ -111,6 +115,7 @@ TOML
     jsonc <- tsjsonc::ts_parse_jsonc("{ \"a\": true, \"b\": [1, 2, 3] }")
     jsonc |> ts_tree_delete()
 
+
     #> # jsonc (0 lines)
 
  
@@ -121,6 +126,7 @@ TOML
       version = '0.1.0'
     ") |> ts::ts_tree_format()
     toml |> ts_tree_delete()
+
 
     #> # toml (0 lines)
 
@@ -136,6 +142,7 @@ TOML
     jsonc <- tsjsonc::ts_parse_jsonc("{ \"a\": true, \"b\": [1, 2, 3] }")
     jsonc |> ts_tree_select("c") |> ts_tree_delete()
 
+
     #> # jsonc (1 line)
     #> 1 | { "a": true, "b": [1, 2, 3] }
 
@@ -147,6 +154,7 @@ TOML
       version = '0.1.0'
     ") |> ts::ts_tree_format()
     toml |> ts_tree_select("nothere") |> ts_tree_delete()
+
 
     #> # toml (3 lines)
     #> 1 | [package]
@@ -168,6 +176,7 @@ TOML
     ) |> ts::ts_tree_format()
     jsonc
 
+
     #> # jsonc (11 lines)
     #>  1 | // top comment
     #>  2 | {
@@ -185,6 +194,7 @@ TOML
  
 
     jsonc |> ts_tree_select("a") |> ts_tree_delete()
+
 
     #> # jsonc (8 lines)
     #> 1 | // top comment
@@ -206,6 +216,7 @@ TOML
     ") |> ts::ts_tree_format()
     toml
 
+
     #> # toml (5 lines)
     #> 1 | # top comment
     #> 2 | 
@@ -216,6 +227,7 @@ TOML
  
 
     toml |> ts_tree_select("package", "name") |> ts_tree_delete()
+
 
     #> # toml (4 lines)
     #> 1 | # top comment

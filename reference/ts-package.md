@@ -11,11 +11,11 @@ Not applicable.
 
 ### Available tree-sitter parsers
 
-|                                                                                 |             |                  |
-|---------------------------------------------------------------------------------|-------------|------------------|
-| **Package**                                                                     | **Version** | **Title**        |
-| [tsjsonc](https://gaborcsardi.github.io/tsjsonc/reference/tsjsonc-package.html) | 0.0.0.9000  | Edit JSON Files. |
-| [tstoml](https://gaborcsardi.github.io/tstoml/reference/tstoml-package.html)    | 0.0.0.9000  | Edit TOML files. |
+|  |  |  |
+|----|----|----|
+| **Package** | **Version** | **Title** |
+| [tsjsonc](https://gaborcsardi.github.io/tsjsonc/reference/tsjsonc-package.html) | 0.0.0.9000 | Edit JSON Files. |
+| [tstoml](https://gaborcsardi.github.io/tstoml/reference/tstoml-package.html) | 0.0.0.9000 | Edit TOML files. |
 
 ## See also
 

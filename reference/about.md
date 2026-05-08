@@ -53,6 +53,7 @@ Pretty print a ts_tree object:
 
     json
 
+
     #> # jsonc (19 lines)
     #>  1 | 
     #>  2 | // this is a comment
@@ -75,6 +76,7 @@ Select element by objects key:
 
     ts_tree_select(json, "a")
 
+
     #> # jsonc (19 lines, 1 selected element)
     #>    1  | 
     #>    2  | // this is a comment
@@ -93,6 +95,7 @@ Select element inside element:
 
     ts_tree_select(json, "a", "a1")
 
+
     #> # jsonc (19 lines, 1 selected element)
     #>   2   | // this is a comment
     #>   3   | {
@@ -107,6 +110,7 @@ Select element(s) of an array:
 
     ts_tree_select(json, "a", "a1", 1:2)
 
+
     #> # jsonc (19 lines, 2 selected elements)
     #>   2   | // this is a comment
     #>   3   | {
@@ -120,6 +124,7 @@ Select element(s) of an array:
 Select multiple keys from an object:
 
     ts_tree_select(json, "a", c("a1", "a2"))
+
 
     #> # jsonc (19 lines, 2 selected elements)
     #>    2  | // this is a comment
@@ -136,6 +141,7 @@ Select multiple keys from an object:
 Select nodes that match a tree-sitter query:
 
     json |> ts_tree_select(query = "((pair value: (false) @val))")
+
 
     #> # jsonc (19 lines, 3 selected elements)
     #>   ...
@@ -157,6 +163,7 @@ Delete selected elements:
 
     ts_tree_select(json, "a", "a1") |> ts_tree_delete()
 
+
     #> # jsonc (18 lines)
     #>  1 | 
     #>  2 | // this is a comment
@@ -176,6 +183,7 @@ Delete selected elements:
 Insert element into an array:
 
     ts_tree_select(json, "a", "a1") |> ts_tree_insert(at = 2, "new")
+
 
     #> # jsonc (24 lines)
     #>  1 | 
@@ -198,6 +206,7 @@ Insert element into an object, at the specified key:
     ts_tree_select(json, "a") |>
       ts_tree_insert(key = "a0", at = 0, list("new", "element"))
 
+
     #> # jsonc (27 lines)
     #>  1 | 
     #>  2 | // this is a comment
@@ -218,6 +227,7 @@ Update existing element:
 
     ts_tree_select(json, "a", c("a1", "a2")) |> ts_tree_update("new value")
 
+
     #> # jsonc (19 lines)
     #>  1 | 
     #>  2 | // this is a comment
@@ -237,6 +247,7 @@ Inserts the element if some parents are missing:
     json <- ts_parse_jsonc(text = "{ \"a\": { \"b\": true } }")
     json
 
+
     #> Error in ts_parse_jsonc(text = "{ \"a\": { \"b\": true } }") :
     #>   could not find function "ts_parse_jsonc"
     #> # jsonc (19 lines)
@@ -254,6 +265,7 @@ Inserts the element if some parents are missing:
     #> ℹ Use `print(n = ...)` to see more lines
 
     ts_tree_select(json, "a", "x", "y") |> ts_tree_update(list(1,2,3))
+
 
     #> # jsonc (30 lines)
     #>  1 | 
@@ -275,6 +287,7 @@ Use [`stdout()`](https://rdrr.io/r/base/showConnections.html) to write
 it to the screen instread of a file:
 
     json |> ts_tree_write(stdout())
+
 
     #>
     #> // this is a comment
@@ -302,6 +315,7 @@ Format the whole document:
 
     json |> ts_tree_format()
 
+
     #> # jsonc (23 lines)
     #>  1 | 
     #>  2 | // this is a comment
@@ -320,6 +334,7 @@ Format part of the document:
 
     json |> ts_tree_select("a") |>
       ts_tree_format(options = list(format = "compact"))
+
 
     #> # jsonc (15 lines)
     #>  1 | 
@@ -340,6 +355,7 @@ Format part of the document:
 Unserialize a whole document:
 
     json |> ts_tree_unserialize()
+
 
     #> [[1]]
     #> [[1]]$a
@@ -387,6 +403,7 @@ Unserialize part(s) of the document:
 
     json |> ts_tree_select("b") |> ts_tree_unserialize()
 
+
     #> [[1]]
     #> [[1]][[1]]
     #> [[1]][[1]]$b11
@@ -418,6 +435,7 @@ tree, to help writing the right selection or tree-sitter queries.
 Print the annotated syntax tree:
 
     ts_tree_ast(json)
+
 
     #> document (1)                          2|
     #> ├─comment (2)                          |// this is a comment
@@ -511,6 +529,7 @@ Print the document object model:
 
     ts_tree_dom(json)
 
+
     #> document (1)
     #> └─object (3)
     #>   ├─object (11) # a
@@ -530,6 +549,7 @@ Print the document object model:
 Print the structural summary of a tree:
 
     ts_tree_sexpr(json)
+
 
     #> [1] "(document (comment) (object (pair key: (string (string_content)) value: (ob
     #> ject (pair key: (string (string_content)) value: (array (number) (number) (numbe

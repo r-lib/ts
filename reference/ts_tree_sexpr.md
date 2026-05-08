@@ -8,11 +8,11 @@ This is the manual page of the `ts_tree_sexpr()` S3 generic function.
 Methods in parser packages may override this generic. For the ones that
 do see the links to their manual pages in the table.
 
-|                                                                                     |             |                  |            |
-|-------------------------------------------------------------------------------------|-------------|------------------|------------|
-| **Package**                                                                         | **Version** | **Title**        | **Method** |
-| **[tsjsonc](https://gaborcsardi.github.io/tsjsonc/reference/tsjsonc-package.html)** | 0.0.0.9000  | Edit JSON Files. |            |
-| **[tstoml](https://gaborcsardi.github.io/tstoml/reference/tstoml-package.html)**    | 0.0.0.9000  | Edit TOML files. |            |
+|  |  |  |  |
+|----|----|----|----|
+| **Package** | **Version** | **Title** | **Method** |
+| **[tsjsonc](https://gaborcsardi.github.io/tsjsonc/reference/tsjsonc-package.html)** | 0.0.0.9000 | Edit JSON Files. |  |
+| **[tstoml](https://gaborcsardi.github.io/tstoml/reference/tstoml-package.html)** | 0.0.0.9000 | Edit TOML files. |  |
 
 ## Usage
 

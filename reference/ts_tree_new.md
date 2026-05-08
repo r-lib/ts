@@ -7,11 +7,11 @@ etc. using `ts_tree` methods.
 
 ### Available tree-sitter parsers
 
-|                                                                                 |             |                  |
-|---------------------------------------------------------------------------------|-------------|------------------|
-| **Package**                                                                     | **Version** | **Title**        |
-| [tsjsonc](https://gaborcsardi.github.io/tsjsonc/reference/tsjsonc-package.html) | 0.0.0.9000  | Edit JSON Files. |
-| [tstoml](https://gaborcsardi.github.io/tstoml/reference/tstoml-package.html)    | 0.0.0.9000  | Edit TOML files. |
+|  |  |  |
+|----|----|----|
+| **Package** | **Version** | **Title** |
+| [tsjsonc](https://gaborcsardi.github.io/tsjsonc/reference/tsjsonc-package.html) | 0.0.0.9000 | Edit JSON Files. |
+| [tstoml](https://gaborcsardi.github.io/tstoml/reference/tstoml-package.html) | 0.0.0.9000 | Edit TOML files. |
 
 ## Usage
 
@@ -84,6 +84,7 @@ TOML
     )
     jsonc
 
+
     #> # jsonc (2 lines)
     #> 1 | { "a": true, // comment
     #> 2 |  "b": [1, 2, 3], }
@@ -95,6 +96,7 @@ TOML
       text = "[table]\nkey = \"value\""
     )
     toml
+
 
     #> # toml (2 lines)
     #> 1 | [table]
@@ -129,6 +131,7 @@ Other ts_tree generics:
 ## Examples
 
 ``` r
+
 # JSONC example, needs the tsjsonc package -----------------------------
 json <- ts_tree_new(
   tsjsonc::ts_language_jsonc(),

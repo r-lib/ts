@@ -9,11 +9,11 @@ This is the manual page of the `ts_tree_select()` S3 generic function.
 Methods in parser packages may override this generic. For the ones that
 do see the links to their manual pages in the table.
 
-|                                                                                     |             |                  |                                                                                                                          |
-|-------------------------------------------------------------------------------------|-------------|------------------|--------------------------------------------------------------------------------------------------------------------------|
-| **Package**                                                                         | **Version** | **Title**        | **Method**                                                                                                               |
-| **[tsjsonc](https://gaborcsardi.github.io/tsjsonc/reference/tsjsonc-package.html)** | 0.0.0.9000  | Edit JSON Files. | [`ts_tree_select(<ts_tree_tsjsonc>)`](https://gaborcsardi.github.io/tsjsonc/reference/ts_tree_select.ts_tree_jsonc.html) |
-| **[tstoml](https://gaborcsardi.github.io/tstoml/reference/tstoml-package.html)**    | 0.0.0.9000  | Edit TOML files. | [`ts_tree_select(<ts_tree_tstoml>)`](https://gaborcsardi.github.io/tstoml/reference/ts_tree_select.ts_tree_toml.html)    |
+|  |  |  |  |
+|----|----|----|----|
+| **Package** | **Version** | **Title** | **Method** |
+| **[tsjsonc](https://gaborcsardi.github.io/tsjsonc/reference/tsjsonc-package.html)** | 0.0.0.9000 | Edit JSON Files. | [`ts_tree_select(<ts_tree_tsjsonc>)`](https://gaborcsardi.github.io/tsjsonc/reference/ts_tree_select.ts_tree_jsonc.html) |
+| **[tstoml](https://gaborcsardi.github.io/tstoml/reference/tstoml-package.html)** | 0.0.0.9000 | Edit TOML files. | [`ts_tree_select(<ts_tree_tstoml>)`](https://gaborcsardi.github.io/tstoml/reference/ts_tree_select.ts_tree_toml.html) |
 
 ## Usage
 
@@ -73,6 +73,7 @@ TOML
     )
     json |> ts_tree_select(c("b", "c"), TRUE)
 
+
     #> # jsonc (1 line, 5 selected elements)
     #> > 1 | { "a": 1, "b": [10, 20, 30], "c": { "c1": true, "c2": null } }
 
@@ -86,6 +87,7 @@ TOML
       c2 = []
     ')
     toml |> ts_tree_select(c("b", "c"), TRUE)
+
 
     #> # toml (6 lines, 5 selected elements)
     #>   1 | 
@@ -111,6 +113,7 @@ TOML
     )
     json |> ts_tree_select(c("a", "c"), c("c1"))
 
+
     #> # jsonc (1 line, 1 selected element)
     #> > 1 | { "a": 1, "b": [10, 20, 30], "c": { "c1": true, "c2": null } }
 
@@ -124,6 +127,7 @@ TOML
       c2 = []
     ')
     toml |> ts_tree_select(c("a", "c"), "c1")
+
 
     #> # toml (6 lines, 1 selected element)
     #>   2 |   a = 1
@@ -151,6 +155,7 @@ For other nodes nothing is selected.
     )
     json |> ts_tree_select(c("b", "c"), -1)
 
+
     #> # jsonc (1 line, 2 selected elements)
     #> > 1 | { "a": 1, "b": [10, 20, 30], "c": { "c1": true, "c2": null } }
 
@@ -164,6 +169,7 @@ For other nodes nothing is selected.
       c2 = []
     ')
     toml |> ts_tree_select(c("b", "c"), -1)
+
 
     #> # toml (6 lines, 2 selected elements)
     #>   1 | 
@@ -191,6 +197,7 @@ TOML
     )
     json |> ts_tree_select(regex = "^a")
 
+
     #> # jsonc (1 line, 2 selected elements)
     #> > 1 | { "apple": 1, "almond": 2, "banana": 3, "cherry": 4 }
 
@@ -200,6 +207,7 @@ TOML
      'apple = 1\nalmond = 2\nbanana = 3\ncherry = 4\n'
     )
     toml |> ts_tree_select(regex = "^a")
+
 
     #> # toml (4 lines, 2 selected elements)
     #> > 1 | apple = 1
@@ -236,6 +244,7 @@ This example selects all numbers in the JSON document.
     )
     json |> ts_tree_select(query = "(number) @number")
 
+
     #> # jsonc (1 line, 5 selected elements)
     #> > 1 | { "a": 1, "b": [10, 20, 30], "c": { "c1": true, "c2": 100 } }
 
@@ -251,6 +260,7 @@ This example selects all integers in the TOML document.
       'a = 1\nb = [10, 20, 30]\nc = { c1 = true, c2 = 100 }\n'
     )
     toml |> ts_tree_select(query = "(integer) @integer")
+
 
     #> # toml (3 lines, 5 selected elements)
     #> > 1 | a = 1
@@ -273,6 +283,7 @@ TOML
     )
     ts_tree_dom(json)
 
+
     #> document (1)
     #> └─object (2)
     #>   ├─number (10) # a
@@ -288,6 +299,7 @@ TOML
 
     json |> ts_tree_select(I(18))
 
+
     #> # jsonc (1 line, 1 selected element)
     #> > 1 | { "a": 1, "b": [10, 20, 30], "c": { "c1": true, "c2": null } }
 
@@ -297,6 +309,7 @@ TOML
       'a = 1\nb = [10, 20, 30]\nc = { c1 = true, c2 = [] }\n'
     )
     ts_tree_dom(toml)
+
 
     #> document (1)
     #> ├─value (5) # a
@@ -311,6 +324,7 @@ TOML
  
 
     toml |> ts_tree_select(I(9))
+
 
     #> # toml (3 lines, 1 selected element)
     #>   1 | a = 1
@@ -338,12 +352,14 @@ TOML
 
     json |> ts_tree_select(1:2)
 
+
     #> # jsonc (1 line, 2 selected elements)
     #> > 1 | { "a": 1, "b": [10, 20, 30], "c": { "c1": true, "c2": null } }
 
  
 
     json |> ts_tree_select(1:2, refine = TRUE)
+
 
     #> # jsonc (1 line, 4 selected elements)
     #> > 1 | { "a": 1, "b": [10, 20, 30], "c": { "c1": true, "c2": null } }
@@ -360,6 +376,7 @@ TOML
     # selects the first two elements in the document node, ie. "table"
     toml |> ts_tree_select(1:2)
 
+
     #> # toml (4 lines, 1 selected element)
     #> > 1 | [table]
     #> > 2 | a = 1
@@ -370,6 +387,7 @@ TOML
 
     # selects the first two elements inside "table" and "b"
     toml |> ts_tree_select(1:2, refine = TRUE)
+
 
     #> # toml (4 lines, 2 selected elements)
     #>   1 | [table]
@@ -397,12 +415,14 @@ TOML
     )
     json
 
+
     #> # jsonc (1 line)
     #> 1 | { "a": 1, "b": [10, 20, 30], "c": { "c1": true, "c2": null } }
 
  
 
     json |> ts_tree_select("b", 1)
+
 
     #> # jsonc (1 line, 1 selected element)
     #> > 1 | { "a": 1, "b": [10, 20, 30], "c": { "c1": true, "c2": null } }
@@ -411,6 +431,7 @@ TOML
 
     ts_tree_select(json, "b", 1) <- 100
     json
+
 
     #> # jsonc (1 line)
     #> 1 | { "a": 1, "b": [100, 20, 30], "c": { "c1": true, "c2": null } }
@@ -422,6 +443,7 @@ TOML
     )
     toml
 
+
     #> # toml (4 lines)
     #> 1 | [table]
     #> 2 | a = 1
@@ -431,6 +453,7 @@ TOML
  
 
     toml |> ts_tree_select("table", "b", 1)
+
 
     #> # toml (4 lines, 1 selected element)
     #>   1 | [table]
@@ -442,6 +465,7 @@ TOML
 
     ts_tree_select(toml, "table", "b", 1) <- 100
     toml
+
 
     #> # toml (4 lines)
     #> 1 | [table]
@@ -467,12 +491,14 @@ TOML
     )
     json |> ts_tree_select("b", 1)
 
+
     #> # jsonc (1 line, 1 selected element)
     #> > 1 | { "a": 1, "b": [10, 20, 30], "c": { "c1": true, "c2": null } }
 
  
 
     json[[list("b", 1)]]
+
 
     #> [[1]]
     #> [1] 10
@@ -485,6 +511,7 @@ TOML
     )
     toml |> ts_tree_select("table", "b", 1)
 
+
     #> # toml (4 lines, 1 selected element)
     #>   1 | [table]
     #>   2 | a = 1
@@ -494,6 +521,7 @@ TOML
  
 
     toml[[list("table", "b", 1)]]
+
 
     #> [[1]]
     #> [1] 10
@@ -517,12 +545,14 @@ TOML
     )
     json
 
+
     #> # jsonc (1 line)
     #> 1 | { "a": 1, "b": [10, 20, 30], "c": { "c1": true, "c2": null } }
 
  
 
     json |> ts_tree_select("b", 1)
+
 
     #> # jsonc (1 line, 1 selected element)
     #> > 1 | { "a": 1, "b": [10, 20, 30], "c": { "c1": true, "c2": null } }
@@ -531,6 +561,7 @@ TOML
 
     json[[list("b", 1)]] <- 100
     json
+
 
     #> # jsonc (1 line)
     #> 1 | { "a": 1, "b": [100, 20, 30], "c": { "c1": true, "c2": null } }
@@ -542,6 +573,7 @@ TOML
     )
     toml
 
+
     #> # toml (4 lines)
     #> 1 | [table]
     #> 2 | a = 1
@@ -551,6 +583,7 @@ TOML
  
 
     toml |> ts_tree_select("table", "b", 1)
+
 
     #> # toml (4 lines, 1 selected element)
     #>   1 | [table]
@@ -562,6 +595,7 @@ TOML
 
     toml[[list("table", "b", 1)]] <- 100
     toml
+
 
     #> # toml (4 lines)
     #> 1 | [table]

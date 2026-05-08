@@ -18,6 +18,7 @@ tree-sitter parse trees.
 Install ts from CRAN:
 
 ``` r
+
 install.packages("ts")
 ```
 
@@ -43,6 +44,7 @@ In this document I show examples with the `tsjsonc` package.
 Create a ts_tree (ts_tree_jsonc) object from a string:
 
 ``` r
+
 txt <- r"(
 // this is a comment
 {
@@ -70,8 +72,10 @@ json <- tsjsonc::ts_parse_jsonc(txt)
 Pretty print a ts_tree object:
 
 ``` r
+
 json
 ```
+
 
     #> # jsonc (19 lines)
     #>  1 | 
@@ -94,8 +98,10 @@ Selecting nodes is the basis of editing and querying tree-sitter trees.
 Select element by objects key:
 
 ``` r
+
 ts_tree_select(json, "a")
 ```
+
 
     #> # jsonc (19 lines, 1 selected element)
     #>    1  | 
@@ -114,8 +120,10 @@ ts_tree_select(json, "a")
 Select element inside element:
 
 ``` r
+
 ts_tree_select(json, "a", "a1")
 ```
+
 
     #> # jsonc (19 lines, 1 selected element)
     #>   2   | // this is a comment
@@ -130,8 +138,10 @@ ts_tree_select(json, "a", "a1")
 Select element(s) of an array:
 
 ``` r
+
 ts_tree_select(json, "a", "a1", 1:2)
 ```
+
 
     #> # jsonc (19 lines, 2 selected elements)
     #>   2   | // this is a comment
@@ -146,8 +156,10 @@ ts_tree_select(json, "a", "a1", 1:2)
 Select multiple keys from an object:
 
 ``` r
+
 ts_tree_select(json, "a", c("a1", "a2"))
 ```
+
 
     #> # jsonc (19 lines, 2 selected elements)
     #>    2  | // this is a comment
@@ -164,8 +176,10 @@ ts_tree_select(json, "a", c("a1", "a2"))
 Select nodes that match a tree-sitter query:
 
 ``` r
+
 json |> ts_tree_select(query = "((pair value: (false) @val))")
 ```
+
 
     #> # jsonc (19 lines, 3 selected elements)
     #>   ...
@@ -186,8 +200,10 @@ json |> ts_tree_select(query = "((pair value: (false) @val))")
 Delete selected elements:
 
 ``` r
+
 ts_tree_select(json, "a", "a1") |> ts_tree_delete()
 ```
+
 
     #> # jsonc (18 lines)
     #>  1 | 
@@ -208,8 +224,10 @@ ts_tree_select(json, "a", "a1") |> ts_tree_delete()
 Insert element into an array:
 
 ``` r
+
 ts_tree_select(json, "a", "a1") |> ts_tree_insert(at = 2, "new")
 ```
+
 
     #> # jsonc (24 lines)
     #>  1 | 
@@ -230,9 +248,11 @@ Inserting into an array reformats the array.
 Insert element into an object, at the specified key:
 
 ``` r
+
 ts_tree_select(json, "a") |>
   ts_tree_insert(key = "a0", at = 0, list("new", "element"))
 ```
+
 
     #> # jsonc (27 lines)
     #>  1 | 
@@ -253,8 +273,10 @@ ts_tree_select(json, "a") |>
 Update existing element:
 
 ``` r
+
 ts_tree_select(json, "a", c("a1", "a2")) |> ts_tree_update("new value")
 ```
+
 
     #> # jsonc (19 lines)
     #>  1 | 
@@ -273,9 +295,11 @@ ts_tree_select(json, "a", c("a1", "a2")) |> ts_tree_update("new value")
 Inserts the element if some parents are missing:
 
 ``` r
+
 json <- ts_parse_jsonc(text = "{ \"a\": { \"b\": true } }")
 json
 ```
+
 
     #> Error in ts_parse_jsonc(text = "{ \"a\": { \"b\": true } }") :
     #>   could not find function "ts_parse_jsonc"
@@ -294,8 +318,10 @@ json
     #> ℹ Use `print(n = ...)` to see more lines
 
 ``` r
+
 ts_tree_select(json, "a", "x", "y") |> ts_tree_update(list(1,2,3))
 ```
+
 
     #> # jsonc (30 lines)
     #>  1 | 
@@ -317,8 +343,10 @@ Use [`stdout()`](https://rdrr.io/r/base/showConnections.html) to write
 it to the screen instread of a file:
 
 ``` r
+
 json |> ts_tree_write(stdout())
 ```
+
 
     #>
     #> // this is a comment
@@ -345,8 +373,10 @@ json |> ts_tree_write(stdout())
 Format the whole document:
 
 ``` r
+
 json |> ts_tree_format()
 ```
+
 
     #> # jsonc (23 lines)
     #>  1 | 
@@ -365,9 +395,11 @@ json |> ts_tree_format()
 Format part of the document:
 
 ``` r
+
 json |> ts_tree_select("a") |>
   ts_tree_format(options = list(format = "compact"))
 ```
+
 
     #> # jsonc (15 lines)
     #>  1 | 
@@ -388,8 +420,10 @@ json |> ts_tree_select("a") |>
 Unserialize a whole document:
 
 ``` r
+
 json |> ts_tree_unserialize()
 ```
+
 
     #> [[1]]
     #> [[1]]$a
@@ -436,8 +470,10 @@ document.
 Unserialize part(s) of the document:
 
 ``` r
+
 json |> ts_tree_select("b") |> ts_tree_unserialize()
 ```
+
 
     #> [[1]]
     #> [[1]][[1]]
@@ -470,8 +506,10 @@ tree, to help writing the right selection or tree-sitter queries.
 Print the annotated syntax tree:
 
 ``` r
+
 ts_tree_ast(json)
 ```
+
 
     #> document (1)                          2|
     #> ├─comment (2)                          |// this is a comment
@@ -564,8 +602,10 @@ ts_tree_ast(json)
 Print the document object model:
 
 ``` r
+
 ts_tree_dom(json)
 ```
+
 
     #> document (1)
     #> └─object (3)
@@ -586,8 +626,10 @@ ts_tree_dom(json)
 Print the structural summary of a tree:
 
 ``` r
+
 ts_tree_sexpr(json)
 ```
+
 
     #> [1] "(document (comment) (object (pair key: (string (string_content)) value: (ob
     #> ject (pair key: (string (string_content)) value: (array (number) (number) (numbe

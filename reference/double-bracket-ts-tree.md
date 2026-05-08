@@ -58,12 +58,14 @@ TOML
     )
     json |> ts_tree_select("b", 1)
 
+
     #> # jsonc (1 line, 1 selected element)
     #> > 1 | { "a": 1, "b": [10, 20, 30], "c": { "c1": true, "c2": null } }
 
  
 
     json[[list("b", 1)]]
+
 
     #> [[1]]
     #> [1] 10
@@ -76,6 +78,7 @@ TOML
     )
     toml |> ts_tree_select("table", "b", 1)
 
+
     #> # toml (4 lines, 1 selected element)
     #>   1 | [table]
     #>   2 | a = 1
@@ -85,6 +88,7 @@ TOML
  
 
     toml[[list("table", "b", 1)]]
+
 
     #> [[1]]
     #> [1] 10
@@ -111,12 +115,14 @@ TOML
     )
     json
 
+
     #> # jsonc (1 line)
     #> 1 | { "a": 1, "b": [10, 20, 30], "c": { "c1": true, "c2": null } }
 
  
 
     json |> ts_tree_select("b", 1)
+
 
     #> # jsonc (1 line, 1 selected element)
     #> > 1 | { "a": 1, "b": [10, 20, 30], "c": { "c1": true, "c2": null } }
@@ -125,6 +131,7 @@ TOML
 
     json[[list("b", 1)]] <- 100
     json
+
 
     #> # jsonc (1 line)
     #> 1 | { "a": 1, "b": [100, 20, 30], "c": { "c1": true, "c2": null } }
@@ -136,6 +143,7 @@ TOML
     )
     toml
 
+
     #> # toml (4 lines)
     #> 1 | [table]
     #> 2 | a = 1
@@ -145,6 +153,7 @@ TOML
  
 
     toml |> ts_tree_select("table", "b", 1)
+
 
     #> # toml (4 lines, 1 selected element)
     #>   1 | [table]
@@ -156,6 +165,7 @@ TOML
 
     toml[[list("table", "b", 1)]] <- 100
     toml
+
 
     #> # toml (4 lines)
     #> 1 | [table]

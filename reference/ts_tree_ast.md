@@ -10,11 +10,11 @@ This is the manual page of the `ts_tree_ast()` S3 generic function.
 Methods in parser packages may override this generic. For the ones that
 do see the links to their manual pages in the table.
 
-|                                                                                     |             |                  |            |
-|-------------------------------------------------------------------------------------|-------------|------------------|------------|
-| **Package**                                                                         | **Version** | **Title**        | **Method** |
-| **[tsjsonc](https://gaborcsardi.github.io/tsjsonc/reference/tsjsonc-package.html)** | 0.0.0.9000  | Edit JSON Files. |            |
-| **[tstoml](https://gaborcsardi.github.io/tstoml/reference/tstoml-package.html)**    | 0.0.0.9000  | Edit TOML files. |            |
+|  |  |  |  |
+|----|----|----|----|
+| **Package** | **Version** | **Title** | **Method** |
+| **[tsjsonc](https://gaborcsardi.github.io/tsjsonc/reference/tsjsonc-package.html)** | 0.0.0.9000 | Edit JSON Files. |  |
+| **[tstoml](https://gaborcsardi.github.io/tstoml/reference/tstoml-package.html)** | 0.0.0.9000 | Edit TOML files. |  |
 
 ## Usage
 
@@ -61,6 +61,7 @@ TOML
 
     ts_tree_ast(tree)
 
+
     #> document (1)                   1|
     #> └─object (2)                    |
     #>   ├─{ (3)                       |{
@@ -92,6 +93,7 @@ TOML
 
     ts_tree_dom(tree)
 
+
     #> document (1)
     #> └─object (2)
     #>   ├─true (10) # a
@@ -111,6 +113,7 @@ TOML
  
 
     ts_tree_ast(tree)
+
 
     #> document (1)                             1|
     #> └─table (2)                              2|
@@ -137,6 +140,7 @@ TOML
  
 
     ts_tree_dom(tree)
+
 
     #> document (1)
     #> └─table (2) # package

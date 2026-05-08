@@ -9,11 +9,11 @@ This is the manual page of the `ts_tree_unserialize()` S3 generic
 function. Methods in parser packages may override this generic. For the
 ones that do see the links to their manual pages in the table.
 
-|                                                                                     |             |                  |                                                                                                                                    |
-|-------------------------------------------------------------------------------------|-------------|------------------|------------------------------------------------------------------------------------------------------------------------------------|
-| **Package**                                                                         | **Version** | **Title**        | **Method**                                                                                                                         |
-| **[tsjsonc](https://gaborcsardi.github.io/tsjsonc/reference/tsjsonc-package.html)** | 0.0.0.9000  | Edit JSON Files. | [`ts_tree_unserialize(<ts_tree_tsjsonc>)`](https://gaborcsardi.github.io/tsjsonc/reference/ts_tree_unserialize.ts_tree_jsonc.html) |
-| **[tstoml](https://gaborcsardi.github.io/tstoml/reference/tstoml-package.html)**    | 0.0.0.9000  | Edit TOML files. |                                                                                                                                    |
+|  |  |  |  |
+|----|----|----|----|
+| **Package** | **Version** | **Title** | **Method** |
+| **[tsjsonc](https://gaborcsardi.github.io/tsjsonc/reference/tsjsonc-package.html)** | 0.0.0.9000 | Edit JSON Files. | [`ts_tree_unserialize(<ts_tree_tsjsonc>)`](https://gaborcsardi.github.io/tsjsonc/reference/ts_tree_unserialize.ts_tree_jsonc.html) |
+| **[tstoml](https://gaborcsardi.github.io/tstoml/reference/tstoml-package.html)** | 0.0.0.9000 | Edit TOML files. |  |
 
 ## Usage
 
@@ -48,6 +48,7 @@ TOML
 
     ts_tree_unserialize(tree)
 
+
     #> [[1]]
     #> [[1]]$a
     #> [1] TRUE
@@ -74,6 +75,7 @@ TOML
  
 
     ts_tree_unserialize(tree)
+
 
     #> [[1]]
     #> [[1]]$a
@@ -114,6 +116,7 @@ TOML
 
     tree |> ts_tree_select("nope") |> ts_tree_unserialize()
 
+
     #> list()
 
  
@@ -125,6 +128,7 @@ TOML
  
 
     tree |> ts_tree_select("nope") |> ts_tree_unserialize()
+
 
     #> list()
 
@@ -145,12 +149,14 @@ TOML
     )
     json |> ts_tree_select("b", 1)
 
+
     #> # jsonc (1 line, 1 selected element)
     #> > 1 | { "a": 1, "b": [10, 20, 30], "c": { "c1": true, "c2": null } }
 
  
 
     json[[list("b", 1)]]
+
 
     #> [[1]]
     #> [1] 10
@@ -163,6 +169,7 @@ TOML
     )
     toml |> ts_tree_select("table", "b", 1)
 
+
     #> # toml (4 lines, 1 selected element)
     #>   1 | [table]
     #>   2 | a = 1
@@ -172,6 +179,7 @@ TOML
  
 
     toml[[list("table", "b", 1)]]
+
 
     #> [[1]]
     #> [1] 10

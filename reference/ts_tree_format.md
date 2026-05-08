@@ -9,11 +9,11 @@ This is the manual page of the `ts_tree_format()` S3 generic function.
 Methods in parser packages may override this generic. For the ones that
 do see the links to their manual pages in the table.
 
-|                                                                                     |             |                  |                                                                                                                          |
-|-------------------------------------------------------------------------------------|-------------|------------------|--------------------------------------------------------------------------------------------------------------------------|
-| **Package**                                                                         | **Version** | **Title**        | **Method**                                                                                                               |
-| **[tsjsonc](https://gaborcsardi.github.io/tsjsonc/reference/tsjsonc-package.html)** | 0.0.0.9000  | Edit JSON Files. | [`ts_tree_format(<ts_tree_tsjsonc>)`](https://gaborcsardi.github.io/tsjsonc/reference/ts_tree_format.ts_tree_jsonc.html) |
-| **[tstoml](https://gaborcsardi.github.io/tstoml/reference/tstoml-package.html)**    | 0.0.0.9000  | Edit TOML files. | [`ts_tree_format(<ts_tree_tstoml>)`](https://gaborcsardi.github.io/tstoml/reference/ts_tree_format.ts_tree_toml.html)    |
+|  |  |  |  |
+|----|----|----|----|
+| **Package** | **Version** | **Title** | **Method** |
+| **[tsjsonc](https://gaborcsardi.github.io/tsjsonc/reference/tsjsonc-package.html)** | 0.0.0.9000 | Edit JSON Files. | [`ts_tree_format(<ts_tree_tsjsonc>)`](https://gaborcsardi.github.io/tsjsonc/reference/ts_tree_format.ts_tree_jsonc.html) |
+| **[tstoml](https://gaborcsardi.github.io/tstoml/reference/tstoml-package.html)** | 0.0.0.9000 | Edit TOML files. | [`ts_tree_format(<ts_tree_tstoml>)`](https://gaborcsardi.github.io/tstoml/reference/ts_tree_format.ts_tree_toml.html) |
 
 ## Usage
 
@@ -55,6 +55,7 @@ TOML
     jsonc <- tsjsonc::ts_parse_jsonc("{ \"a\": [1,2,3] }")
     jsonc |> ts_tree_format()
 
+
     #> # jsonc (7 lines)
     #> 1 | {
     #> 2 |     "a": [
@@ -68,6 +69,7 @@ TOML
 
     toml <- tstoml::ts_parse_toml("a = [1,2,3]")
     toml |> ts_tree_format()
+
 
     #> # toml (1 line)
     #> 1 | a = [ 1, 2, 3 ]
@@ -83,6 +85,7 @@ TOML
     jsonc <- tsjsonc::ts_parse_jsonc("{ \"a\": [1,2,3] }")
     jsonc |> ts_tree_select("c") |> ts_tree_format()
 
+
     #> # jsonc (1 line)
     #> 1 | { "a": [1,2,3] }
 
@@ -90,6 +93,7 @@ TOML
 
     toml <- tstoml::ts_parse_toml("a = [1,2,3]")
     toml |> ts_tree_select("c") |> ts_tree_format()
+
 
     #> # toml (1 line)
     #> 1 | a = [1,2,3]
@@ -108,6 +112,7 @@ JSONC
 
     jsonc |> ts_tree_select(TRUE) |>
       ts_tree_format(options = list(format = "oneline"))
+
 
     #> # jsonc (3 lines)
     #> 1 | {

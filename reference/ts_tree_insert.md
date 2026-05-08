@@ -8,11 +8,11 @@ This is the manual page of the `ts_tree_insert()` S3 generic function.
 Methods in parser packages may override this generic. For the ones that
 do see the links to their manual pages in the table.
 
-|                                                                                     |             |                  |                                                                                                                          |
-|-------------------------------------------------------------------------------------|-------------|------------------|--------------------------------------------------------------------------------------------------------------------------|
-| **Package**                                                                         | **Version** | **Title**        | **Method**                                                                                                               |
-| **[tsjsonc](https://gaborcsardi.github.io/tsjsonc/reference/tsjsonc-package.html)** | 0.0.0.9000  | Edit JSON Files. | [`ts_tree_insert(<ts_tree_tsjsonc>)`](https://gaborcsardi.github.io/tsjsonc/reference/ts_tree_insert.ts_tree_jsonc.html) |
-| **[tstoml](https://gaborcsardi.github.io/tstoml/reference/tstoml-package.html)**    | 0.0.0.9000  | Edit TOML files. |                                                                                                                          |
+|  |  |  |  |
+|----|----|----|----|
+| **Package** | **Version** | **Title** | **Method** |
+| **[tsjsonc](https://gaborcsardi.github.io/tsjsonc/reference/tsjsonc-package.html)** | 0.0.0.9000 | Edit JSON Files. | [`ts_tree_insert(<ts_tree_tsjsonc>)`](https://gaborcsardi.github.io/tsjsonc/reference/ts_tree_insert.ts_tree_jsonc.html) |
+| **[tstoml](https://gaborcsardi.github.io/tstoml/reference/tstoml-package.html)** | 0.0.0.9000 | Edit TOML files. |  |
 
 ## Usage
 
@@ -87,6 +87,7 @@ TOML
     json <- tsjsonc::ts_parse_jsonc("{ \"a\": true, \"b\": [1, 2, 3] }")
     json |> ts_tree_select("a") |> ts_tree_insert("foo")
 
+
     #>   Cannot insert into a 'true' JSON element. Can only insert into 'array' and 'ob
     #> ject' elements and empty JSON documents.
 
@@ -94,6 +95,7 @@ TOML
 
     toml <- tstoml::ts_parse_toml("a = true\nb = [1, 2, 3]")
     toml |> ts_tree_select("a") |> ts_tree_insert("foo")
+
 
     #> Error in FUN(X[[i]], ...) : Cannot insert into a `value` TOML element.
 
@@ -108,6 +110,7 @@ TOML
 
     json <- tsjsonc::ts_parse_jsonc("{ \"a\": true, \"b\": [1, 2, 3] }")
     json |> ts_tree_insert(key = "c", new = "foo")
+
 
     #> # jsonc (9 lines)
     #> 1 | {
@@ -124,6 +127,7 @@ TOML
 
     toml <- tstoml::ts_parse_toml("a = true\nb = [1, 2, 3]")
     toml |> ts_tree_insert(key = "c", new = "foo")
+
 
     #> # toml (3 lines)
     #> 1 | a = true
@@ -142,6 +146,7 @@ TOML
     json <- tsjsonc::ts_parse_jsonc("{ \"a\": true, \"b\": [1, 2, 3] }")
     json |> ts_tree_select("nonexistent") |> ts_tree_insert("foo")
 
+
     #> # jsonc (1 line, 0 selected elements)
     #> 1 | { "a": true, "b": [1, 2, 3] }
 
@@ -149,6 +154,7 @@ TOML
 
     toml <- tstoml::ts_parse_toml("a = true\nb = [1, 2, 3]")
     toml |> ts_tree_select("nonexistent") |> ts_tree_insert("foo")
+
 
     #> # toml (2 lines, 0 selected elements)
     #> 1 | a = true
