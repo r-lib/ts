@@ -63,6 +63,10 @@ operator.
 
 ## Exploring
 
+- [`as.character(`*`<ts_tree>`*`)`](https://r-lib.github.io/ts/reference/as.character.ts_tree.md)
+  : The document of a tree-sitter tree as a character scalar
+- [`as.raw(`*`<ts_tree>`*`)`](https://r-lib.github.io/ts/reference/as.raw.ts_tree.md)
+  : Raw bytes of a document of a tree-sitter tree
 - [`` `[`( ``*`<ts_tree>`*`)`](https://r-lib.github.io/ts/reference/ts_tree-brackets.md)
   : Convert ts_tree object to a data frame
 - [`ts_tree_ast()`](https://r-lib.github.io/ts/reference/ts_tree_ast.md)

@@ -36,6 +36,8 @@ Other contributors:
 - Posit Software, PBC ([ROR](https://ror.org/03wc8by49)) \[copyright
   holder, funder\]
 
+- Tree-sitter authors (Tree-sitter C library) \[copyright holder\]
+
 ## Examples
 
 ``` r
