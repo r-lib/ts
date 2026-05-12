@@ -64,6 +64,8 @@ reference:
 
 - title: Exploring
   contents:
+  - as.character.ts_tree
+  - as.raw.ts_tree
   - "[.ts_tree"
   - ts_tree_ast
   - ts_tree_dom
