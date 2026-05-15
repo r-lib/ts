@@ -1,6 +1,6 @@
 redact_tempfile <- function(x) {
-  x <- sub(tempdir(), "<tempdir>", x, fixed = TRUE)
   x <- sub(normalizePath(tempdir()), "<tempdir>", x, fixed = TRUE)
+  x <- sub(tempdir(), "<tempdir>", x, fixed = TRUE)
   x <- sub(
     normalizePath(tempdir(), winslash = "/"),
     "<tempdir>",
