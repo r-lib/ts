@@ -10,10 +10,10 @@
 \item{x}{A \code{ts_tree} object.}
 
 \item{i, j}{Incides, passed to the regular data.frame indexing method, see
-\code{\link[base:Extract]{'Extract'}}.}
+\code{\link[base:Extract]{Extract}}.}
 
 \item{drop}{Passed to the regular data.frame indexing method, see
-\code{\link[base:Extract]{'Extract'}}.}
+\code{\link[base:Extract]{Extract}}.}
 }
 \value{
 A data frame with one row per token, and columns:

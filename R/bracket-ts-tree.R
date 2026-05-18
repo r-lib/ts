@@ -29,10 +29,10 @@
 #' A `ts_tree` object.
 #' @param i,j
 #' Incides, passed to the regular data.frame indexing method, see
-#' \code{\link[base:Extract]{'Extract'}}.
+#' \code{\link[base:Extract]{Extract}}.
 #' @param drop
 #' Passed to the regular data.frame indexing method, see
-#' \code{\link[base:Extract]{'Extract'}}.
+#' \code{\link[base:Extract]{Extract}}.
 #'
 #' @return
 #' A data frame with one row per token, and columns:
