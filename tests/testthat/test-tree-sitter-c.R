@@ -62,6 +62,7 @@ test_that("new_lookahead_sym", {
 })
 
 test_that("ts_xtree_free", {
+  skip_if_not_installed("tsjsonc")
   ts_tree_new(tsjsonc::ts_language_jsonc(), text = '{"a": 1}')
   gc()
   gc()

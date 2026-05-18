@@ -1,4 +1,6 @@
 test_that("ts_list_parsers", {
+  skip_if_not_installed("tsjsonc")
+  skip_if_not_installed("tstoml")
   skip("noy yet")
   withr::local_options(width = 500)
   loadNamespace("tsjsonc")

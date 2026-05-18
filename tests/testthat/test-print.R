@@ -40,7 +40,7 @@ test_that("format.ts_tree", {
 })
 
 test_that("end_column == 0", {
-  skip_if_not_installed("tsjtoml")
+  skip_if_not_installed("tstoml")
   library(magrittr)
   expect_snapshot({
     tree <- tstoml::ts_parse_toml(tstoml::toml_example_text())
