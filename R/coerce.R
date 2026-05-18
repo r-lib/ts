@@ -5,7 +5,7 @@
 #'
 #' @export
 #' @seealso [as.character.ts_tree()] to get the document as a character scalar.
-#' @examples
+#' @examplesIf requireNamespace("tsjsonc", quietly = TRUE)
 #' # Create a parse tree with tsjsonc -------------------------------------
 #' tree <- tsjsonc::ts_parse_jsonc('{"foo": 42, "bar": [1, 2, 3]}')
 #'
@@ -24,7 +24,7 @@ as.raw.ts_tree <- function(x) {
 #'
 #' @export
 #' @seealso [as.raw.ts_tree()] to get the document as a raw vector.
-#' @examples
+#' @examplesIf requireNamespace("tsjsonc", quietly = TRUE)
 #' # Create a parse tree with tsjsonc -------------------------------------
 #' tree <- tsjsonc::ts_parse_jsonc('{"foo": 42, "bar": [1, 2, 3]}')
 #'

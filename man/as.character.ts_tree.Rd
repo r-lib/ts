@@ -18,11 +18,13 @@ A character scalar containing the document of the tree.
 The document of a tree-sitter tree as a character scalar
 }
 \examples{
+\dontshow{if (requireNamespace("tsjsonc", quietly = TRUE)) withAutoprint(\{ # examplesIf}
 # Create a parse tree with tsjsonc -------------------------------------
 tree <- tsjsonc::ts_parse_jsonc('{"foo": 42, "bar": [1, 2, 3]}')
 
 tree
 as.character(tree)
+\dontshow{\}) # examplesIf}
 }
 \seealso{
 \code{\link[=as.raw.ts_tree]{as.raw.ts_tree()}} to get the document as a raw vector.
