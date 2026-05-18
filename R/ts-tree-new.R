@@ -10,13 +10,13 @@
 #' @details
 #' A package that implements a tree-sitter parser provides a function that
 #' creates a `ts_language` object for that parser. E.g.
-#' [tsjsonc][tsjsonc::tsjsonc-package] has [tsjsonc::ts_language_jsonc()].
+#' tsjsonc has `tsjsonc::ts_language_jsonc()`.
 #' You need to use the returned `ts_language` object as the `language`
 #' argument of \code{\link[tsitter:ts_tree_new]{ts_tree_new()}}.
 #'
 #' @param language
-#' Language of the file or string, a `ts_language` object,e.g. the return
-#' value of [tsjsonc::ts_language_jsonc()].
+#' Language of the file or string, a `ts_language` object, e.g. the return
+#' value of `tsjsonc::ts_language_jsonc()`.
 #' @param file
 #' Path of a file to parse. Use either `file` or `text`, but not both.
 #' @param text
@@ -39,7 +39,7 @@
 #' @family ts_tree generics
 #' @seealso The tree-sitter parser packages typically include shortcuts to
 #'   create parse trees from strings and file, e.g.
-#'   [tsjsonc::ts_parse_jsonc()] and [tsjsonc::ts_read_jsonc()].
+#'   `tsjsonc::ts_parse_jsonc()` and `tsjsonc::ts_read_jsonc()`.
 #'
 #' @examplesIf requireNamespace("tsjsonc", quietly = TRUE)
 #'
