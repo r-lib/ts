@@ -16,11 +16,13 @@ A raw vector containing the bytes of the document of the tree.
 Raw bytes of a document of a tree-sitter tree
 }
 \examples{
+\dontshow{if (requireNamespace("tsjsonc", quietly = TRUE)) withAutoprint(\{ # examplesIf}
 # Create a parse tree with tsjsonc -------------------------------------
 tree <- tsjsonc::ts_parse_jsonc('{"foo": 42, "bar": [1, 2, 3]}')
 
 tree
 as.raw(tree)
+\dontshow{\}) # examplesIf}
 }
 \seealso{
 \code{\link[=as.character.ts_tree]{as.character.ts_tree()}} to get the document as a character scalar.
