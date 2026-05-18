@@ -378,9 +378,9 @@ Authors@R: c(
     person("zimbatm", email = "zimbatm@zimbatm.com", role = "ctb", comment = "Tree-sitter library"),
     person("zyoshoka", email = "107108195+zyoshoka@users.noreply.github.com", role = "ctb", comment = "Tree-sitter library")
   )
-Description: Common tree-sitter parsing tools for R. It is meant to be
-    used by other packages that specialize in particular languages and
-    file formats.
+Description: Common tree-sitter (<https://tree-sitter.github.io/tree-sitter/>)
+    parsing tools for R. It is meant to be used by other packages that
+    specialize in particular languages and file formats.
 License: MIT + file LICENSE
 Depends: R (>= 3.5.0)
 Imports:
