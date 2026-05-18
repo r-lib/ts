@@ -11,7 +11,7 @@ etc. using `ts_tree` methods.
 |----|----|----|
 | **Package** | **Version** | **Title** |
 | [tsjsonc](https://gaborcsardi.github.io/tsjsonc/reference/tsjsonc-package.html) | 0.0.0.9000 | Edit JSON Files. |
-| [tstoml](https://gaborcsardi.github.io/tstoml/reference/tstoml-package.html) | 0.0.0.9000 | Edit TOML files. |
+| [tstoml](https://gaborcsardi.github.io/tstoml/reference/tstoml-package.html) | 0.0.0.9000 | Edit TOML Files. |
 
 ## Usage
 
@@ -91,7 +91,7 @@ TOML
 
  
 
-    toml <- ts::ts_tree_new(
+    toml <- tsitter::ts_tree_new(
       tstoml::ts_language_toml(),
       text = "[table]\nkey = \"value\""
     )

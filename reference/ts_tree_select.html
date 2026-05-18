@@ -8,7 +8,7 @@ Methods in parser packages may override this generic.
 For the ones that do see the links to their manual pages in the table.
 PackageVersionTitleMethod
 tsjsonc0.0.0.9000Edit JSON Files.ts_tree_select(&amp;lt;ts_tree_tsjsonc&amp;gt;)
-tstoml0.0.0.9000Edit TOML files.ts_tree_select(&amp;lt;ts_tree_tstoml&amp;gt;)
+tstoml0.0.0.9000Edit TOML Files.ts_tree_select(&amp;lt;ts_tree_tstoml&amp;gt;)
 "><meta property="og:description" content="This function is the heart of ts. To edit a tree-sitter tree, you first
 need to select the parts you want to delete or update.
 
@@ -18,7 +18,7 @@ Methods in parser packages may override this generic.
 For the ones that do see the links to their manual pages in the table.
 PackageVersionTitleMethod
 tsjsonc0.0.0.9000Edit JSON Files.ts_tree_select(&amp;lt;ts_tree_tsjsonc&amp;gt;)
-tstoml0.0.0.9000Edit TOML files.ts_tree_select(&amp;lt;ts_tree_tstoml&amp;gt;)
+tstoml0.0.0.9000Edit TOML Files.ts_tree_select(&amp;lt;ts_tree_tstoml&amp;gt;)
 "></head><body>
     <a href="#container" class="visually-hidden-focusable">Skip to content</a>
 
@@ -61,7 +61,7 @@ need to select the parts you want to delete or update.</p>
 <h3 id="available-tree-sitter-parsers">Available tree-sitter parsers<a class="anchor" aria-label="anchor" href="#available-tree-sitter-parsers"></a></h3>
 <p>This is the manual page of the <code>ts_tree_select()</code> S3 generic function.
 Methods in parser packages may override this generic.
-For the ones that do see the links to their manual pages in the table.</p><table class="table table"><tr><td><strong>Package</strong></td><td><strong>Version</strong></td><td><strong>Title</strong></td><td><strong>Method</strong></td></tr><tr><td><strong><a href="https://gaborcsardi.github.io/tsjsonc/reference/tsjsonc-package.html" class="external-link">tsjsonc</a></strong></td><td>0.0.0.9000</td><td>Edit JSON Files.</td><td><code><a href="https://gaborcsardi.github.io/tsjsonc/reference/ts_tree_select.ts_tree_jsonc.html" class="external-link">ts_tree_select(&lt;ts_tree_tsjsonc&gt;)</a></code></td></tr><tr><td><strong><a href="https://gaborcsardi.github.io/tstoml/reference/tstoml-package.html" class="external-link">tstoml</a></strong></td><td>0.0.0.9000</td><td>Edit TOML files.</td><td><code><a href="https://gaborcsardi.github.io/tstoml/reference/ts_tree_select.ts_tree_toml.html" class="external-link">ts_tree_select(&lt;ts_tree_tstoml&gt;)</a></code></td></tr></table></div>
+For the ones that do see the links to their manual pages in the table.</p><table class="table table"><tr><td><strong>Package</strong></td><td><strong>Version</strong></td><td><strong>Title</strong></td><td><strong>Method</strong></td></tr><tr><td><strong><a href="https://gaborcsardi.github.io/tsjsonc/reference/tsjsonc-package.html" class="external-link">tsjsonc</a></strong></td><td>0.0.0.9000</td><td>Edit JSON Files.</td><td><code><a href="https://gaborcsardi.github.io/tsjsonc/reference/ts_tree_select.ts_tree_jsonc.html" class="external-link">ts_tree_select(&lt;ts_tree_tsjsonc&gt;)</a></code></td></tr><tr><td><strong><a href="https://gaborcsardi.github.io/tstoml/reference/tstoml-package.html" class="external-link">tstoml</a></strong></td><td>0.0.0.9000</td><td>Edit TOML Files.</td><td><code><a href="https://gaborcsardi.github.io/tstoml/reference/ts_tree_select.ts_tree_toml.html" class="external-link">ts_tree_select(&lt;ts_tree_tstoml&gt;)</a></code></td></tr></table></div>
     </div>
 
     <div class="section level2">
@@ -349,7 +349,9 @@ simultanously), instead of starting from the document element.</p>
 <span>  <span class="st">'[table]\na = 1\nb = [10, 20, 30]\nc = { c1 = true, c2 = [] }\n'</span></span>
 <span><span class="op">)</span></span>
 <span><span class="va">toml</span> <span class="op">&lt;-</span> <span class="va">toml</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/ts_tree_select.html">ts_tree_select</a></span><span class="op">(</span><span class="st">"table"</span>, <span class="st">"b"</span><span class="op">)</span></span></code></pre><p></p></div>
-<p></p><div class="sourceCode r"><p style="display:none"> </p><pre><code><span><span class="co"># selects the first two elements in the document node, ie. "table"</span></span>
+<div class="asciicast" style="color: #B9C0CB;font-family: 'Fira Code',Monaco,Consolas,Menlo,'Bitstream Vera Sans Mono','Powerline Symbols',monospace;line-height: 1.300000"><div class="sourceCode"><pre>
+#&gt;
+</pre></div></div><p></p><div class="sourceCode r"><p style="display:none"> </p><pre><code><span><span class="co"># selects the first two elements in the document node, ie. "table"</span></span>
 <span><span class="va">toml</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/ts_tree_select.html">ts_tree_select</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">2</span><span class="op">)</span></span></code></pre><p></p></div>
 <div class="asciicast" style="color: #B9C0CB;font-family: 'Fira Code',Monaco,Consolas,Menlo,'Bitstream Vera Sans Mono','Powerline Symbols',monospace;line-height: 1.300000"><div class="sourceCode"><pre>
 #&gt; <span style="color: #6F7783;"># toml (4 lines, 1 selected element)</span>

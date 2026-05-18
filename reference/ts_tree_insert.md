@@ -12,7 +12,7 @@ do see the links to their manual pages in the table.
 |----|----|----|----|
 | **Package** | **Version** | **Title** | **Method** |
 | **[tsjsonc](https://gaborcsardi.github.io/tsjsonc/reference/tsjsonc-package.html)** | 0.0.0.9000 | Edit JSON Files. | [`ts_tree_insert(<ts_tree_tsjsonc>)`](https://gaborcsardi.github.io/tsjsonc/reference/ts_tree_insert.ts_tree_jsonc.html) |
-| **[tstoml](https://gaborcsardi.github.io/tstoml/reference/tstoml-package.html)** | 0.0.0.9000 | Edit TOML files. |  |
+| **[tstoml](https://gaborcsardi.github.io/tstoml/reference/tstoml-package.html)** | 0.0.0.9000 | Edit TOML Files. |  |
 
 ## Usage
 

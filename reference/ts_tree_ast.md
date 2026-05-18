@@ -14,7 +14,7 @@ do see the links to their manual pages in the table.
 |----|----|----|----|
 | **Package** | **Version** | **Title** | **Method** |
 | **[tsjsonc](https://gaborcsardi.github.io/tsjsonc/reference/tsjsonc-package.html)** | 0.0.0.9000 | Edit JSON Files. |  |
-| **[tstoml](https://gaborcsardi.github.io/tstoml/reference/tstoml-package.html)** | 0.0.0.9000 | Edit TOML files. |  |
+| **[tstoml](https://gaborcsardi.github.io/tstoml/reference/tstoml-package.html)** | 0.0.0.9000 | Edit TOML Files. |  |
 
 ## Usage
 
@@ -109,6 +109,9 @@ TOML
       name = 'tstoml'
       version = '0.1.0'"
     )
+
+
+    #>
 
  
 

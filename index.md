@@ -27,7 +27,7 @@ install.packages("tsitter")
 See at
 [`https://r-lib.github.io/tsitter/`](https://r-lib.github.io/tsitter/reference/index.html)
 and also in the installed package:
-[`help(package = "tsitter")`](https://r-lib.github.io/ts/reference).
+[`help(package = "tsitter")`](https://r-lib.github.io/tsitter/reference).
 
 ## Parsers that use tsitter
 

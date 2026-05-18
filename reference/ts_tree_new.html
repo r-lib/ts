@@ -7,7 +7,7 @@ edited, formatted, written to file, etc. using ts_tree methods.
 Available tree-sitter parsers
 PackageVersionTitle
  tsjsonc0.0.0.9000Edit JSON Files.
- tstoml0.0.0.9000Edit TOML files.
+ tstoml0.0.0.9000Edit TOML Files.
 "><meta property="og:description" content="This is the main function to create a tree-sitter parse tree, using a
 ts parser implemented in another package.
 The result is a ts_tree object. A ts_tree object may be queried,
@@ -16,7 +16,7 @@ edited, formatted, written to file, etc. using ts_tree methods.
 Available tree-sitter parsers
 PackageVersionTitle
  tsjsonc0.0.0.9000Edit JSON Files.
- tstoml0.0.0.9000Edit TOML files.
+ tstoml0.0.0.9000Edit TOML Files.
 "></head><body>
     <a href="#container" class="visually-hidden-focusable">Skip to content</a>
 
@@ -58,7 +58,7 @@ ts parser implemented in another package.
 The result is a <code>ts_tree</code> object. A <code>ts_tree</code> object may be queried,
 edited, formatted, written to file, etc. using <code>ts_tree</code> methods.</p>
 <p></p><div class="section">
-<h3 id="available-tree-sitter-parsers">Available tree-sitter parsers<a class="anchor" aria-label="anchor" href="#available-tree-sitter-parsers"></a></h3><table class="table table"><tr><td><strong>Package</strong></td><td><strong>Version</strong></td><td><strong>Title</strong></td></tr><tr><td><a href="https://gaborcsardi.github.io/tsjsonc/reference/tsjsonc-package.html" class="external-link"> tsjsonc</a></td><td>0.0.0.9000</td><td>Edit JSON Files.</td></tr><tr><td><a href="https://gaborcsardi.github.io/tstoml/reference/tstoml-package.html" class="external-link"> tstoml</a></td><td>0.0.0.9000</td><td>Edit TOML files.</td></tr></table></div>
+<h3 id="available-tree-sitter-parsers">Available tree-sitter parsers<a class="anchor" aria-label="anchor" href="#available-tree-sitter-parsers"></a></h3><table class="table table"><tr><td><strong>Package</strong></td><td><strong>Version</strong></td><td><strong>Title</strong></td></tr><tr><td><a href="https://gaborcsardi.github.io/tsjsonc/reference/tsjsonc-package.html" class="external-link"> tsjsonc</a></td><td>0.0.0.9000</td><td>Edit JSON Files.</td></tr><tr><td><a href="https://gaborcsardi.github.io/tstoml/reference/tstoml-package.html" class="external-link"> tstoml</a></td><td>0.0.0.9000</td><td>Edit TOML Files.</td></tr></table></div>
     </div>
 
     <div class="section level2">
@@ -133,7 +133,7 @@ argument of <code>ts_tree_new()</code>.</p>
 #&gt; <span style="color: #6F7783;"># jsonc (2 lines)</span>
 #&gt; <span style="color: #6F7783;">1 | </span>{ "a": true, // comment
 #&gt; <span style="color: #6F7783;">2 | </span> "b": [1, 2, 3], }
-</pre></div></div></div>  <div class="ts-package-toml w3-container w3-border ts-package" style="display:none">  <div class="sourceCode r"><p style="display:none"> </p><pre><code><span><span class="va">toml</span> <span class="op">&lt;-</span> <span class="fu">ts</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/ts/man/ts_tree_new.html" class="external-link">ts_tree_new</a></span><span class="op">(</span></span>
+</pre></div></div></div>  <div class="ts-package-toml w3-container w3-border ts-package" style="display:none">  <div class="sourceCode r"><p style="display:none"> </p><pre><code><span><span class="va">toml</span> <span class="op">&lt;-</span> <span class="fu">tsitter</span><span class="fu">::</span><span class="fu"><a href="../reference/ts_tree_new.html">ts_tree_new</a></span><span class="op">(</span></span>
 <span>  <span class="fu">tstoml</span><span class="fu">::</span><span class="fu"><a href="https://gaborcsardi.github.io/tstoml/reference/ts_language_toml.html" class="external-link">ts_language_toml</a></span><span class="op">(</span><span class="op">)</span>,</span>
 <span>  text <span class="op">=</span> <span class="st">"[table]\nkey = \"value\""</span></span>
 <span><span class="op">)</span></span>

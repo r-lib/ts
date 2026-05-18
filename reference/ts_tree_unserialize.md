@@ -13,7 +13,7 @@ ones that do see the links to their manual pages in the table.
 |----|----|----|----|
 | **Package** | **Version** | **Title** | **Method** |
 | **[tsjsonc](https://gaborcsardi.github.io/tsjsonc/reference/tsjsonc-package.html)** | 0.0.0.9000 | Edit JSON Files. | [`ts_tree_unserialize(<ts_tree_tsjsonc>)`](https://gaborcsardi.github.io/tsjsonc/reference/ts_tree_unserialize.ts_tree_jsonc.html) |
-| **[tstoml](https://gaborcsardi.github.io/tstoml/reference/tstoml-package.html)** | 0.0.0.9000 | Edit TOML files. |  |
+| **[tstoml](https://gaborcsardi.github.io/tstoml/reference/tstoml-package.html)** | 0.0.0.9000 | Edit TOML Files. |  |
 
 ## Usage
 
@@ -72,6 +72,9 @@ TOML
     "a = 1\nb = [10.0, 20, 30]\nc = { c1 = true, c2 = [] }"
     )
 
+
+    #>
+
  
 
     ts_tree_unserialize(tree)
@@ -124,6 +127,9 @@ TOML
     tree <- tstoml::ts_parse_toml(
       "a = 1\nb = [10.0, 20, 30]\nc = { c1 = true, c2 = [] }"
     )
+
+
+    #>
 
  
 
