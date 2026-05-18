@@ -7,23 +7,118 @@
 ts_tree_select(tree, ..., refine = FALSE)
 }
 \arguments{
-\item{tree}{\eval{tsitter:::doc_insert("ts_tree_select_param_tree")}}
+\item{tree}{A \code{ts_tree} object as returned by
+\code{\link[tsitter:ts_tree_new]{ts_tree_new()}}.}
 
-\item{...}{\eval{tsitter:::doc_insert("ts_tree_select_param_dots")}}
+\item{...}{Selection expressions, see details.}
 
-\item{refine}{\eval{tsitter:::doc_insert("ts_tree_select_param_refine")}}
+\item{refine}{Logical, whether to refine the current selection or start
+a new selection.}
 }
 \value{
-\eval{tsitter:::doc_insert("tsitter::ts_tree_select_return")}
+A \code{ts_tree} object with the selected parts.
 }
 \description{
-\eval{tsitter:::doc_insert("tsitter::ts_tree_select_description")}
-
-\eval{tsitter:::format_rd_parser_list(tsitter:::ts_list_parsers(), "ts_tree_select")}
+This function is the heart of ts. To edit a tree-sitter tree, you first
+need to select the parts you want to delete or update.
 }
 \details{
-\eval{tsitter:::doc_insert("tsitter::ts_tree_select_details")}
-\eval{tsitter:::doc_extra()}
+The selection process is iterative. Selection expressions (selectors)
+are applied one by one, and each selector selects nodes from the
+currently selected nodes. For each selector, it is applied individually
+to each currently selected node, and the results are concatenated.\if{html}{\out{
+</p><p><!-- ------------------------------------------------------>
+}}
+
+
+The selection process starts from the root of the DOM tree, the document
+node (see \code{\link[tsitter:ts_tree_dom]{ts_tree_dom()}}), unless
+\code{refine = TRUE} is set, in which case it starts from the current
+selection.\if{html}{\out{
+</p><p><!-- ------------------------------------------------------>
+}}
+
+
+See the various types of selection expressions below.
+\subsection{Selectors}{
+\subsection{All elements: \code{TRUE}}{
+
+Selects all child nodes of the current nodes.
+}
+
+\subsection{Specific keys: character vector}{
+
+Selects child nodes with the given names from nodes with named children.
+If a node has no named children, it selects nothing from that node.
+}
+
+\subsection{By position: integer vector}{
+
+Selects child nodes by position. Positive indices count from the start,
+negative indices count from the end. Zero indices are not allowed.
+}
+
+\subsection{Matching keys: regular expression}{
+
+A character scalar named \code{regex} can be used to select child nodes
+whose names match the given regular expression, from nodes with named
+children. If a node has no named children, it selects nothing from that
+node.
+}
+
+\subsection{Tree sitter query matches}{
+
+A character scalar named \code{query} can be used to select nodes matching
+a tree-sitter query. See \code{\link[tsitter:ts_tree_query]{ts_tree_query()}}
+for details on tree-sitter queries.\if{html}{\out{
+</p><p><!-- ------------------------------------------------------>
+}}
+
+
+Instead of a character scalar this can also be a two-element list, where
+the first element is the query string and the second element is a
+character vector of capture names to select. In this case only nodes
+matching the given capture names will be selected.
+}
+
+\subsection{Explicit node ids}{
+
+You can use \code{I(c(...))} to select nodes by their ids directly. This is
+for advanced use cases only.
+}
+
+}
+
+\subsection{Refining selections}{
+
+If the \code{refine} argument of
+\code{\link[tsitter:ts_tree_select]{ts_tree_select()}} is \code{TRUE}, then
+the selection starts from the already selected elements (all of them
+simultanously), instead of starting from the document element.
+}
+
+\subsection{The \verb{ts_tree_select<-()} replacement function}{
+
+The \code{\link[tsitter:ts_tree_select<-]{ts_tree_select<-()}} replacement
+function works similarly to the combination of
+\code{\link[tsitter:ts_tree_select]{ts_tree_select()}} and
+\code{\link[tsitter:ts_tree_update]{ts_tree_update()}}, but it might be more
+readable.
+}
+
+\subsection{The \code{[[} and \verb{[[<-} operators}{
+
+The \code{[[} operator works similarly to the combination of
+\code{\link[tsitter:ts_tree_select]{ts_tree_select()}} and
+\code{\link[tsitter:ts_tree_unserialize]{ts_tree_unserialize()}}, but it
+might be more readable.
+
+The \verb{[[<-} operator works similarly to the combination of
+\code{\link[tsitter:ts_tree_select]{ts_tree_select()}} and
+\code{\link[tsitter:ts_tree_update]{ts_tree_update()}}, (and also to the
+replacement function \code{\link[tsitter:ts_tree_select<-]{ts_tree_select<-()}}),
+but it might be more readable.
+}
 }
 \examples{
 \dontshow{if (requireNamespace("tsjsonc", quietly = TRUE)) withAutoprint(\{ # examplesIf}
@@ -49,8 +144,6 @@ toml |> ts_tree_select("servers", TRUE, "ip")
 \dontshow{\}) # examplesIf}
 }
 \seealso{
-\eval{tsitter:::doc_seealso("ts_tree_select")}
-
 Other ts_tree generics:
 \code{\link[=[[.ts_tree]{[[.ts_tree()}},
 \code{\link[=[[<-.ts_tree]{[[<-.ts_tree()}},

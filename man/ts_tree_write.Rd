@@ -7,19 +7,36 @@
 ts_tree_write(tree, file = NULL)
 }
 \arguments{
-\item{tree}{\eval{tsitter:::doc_insert("tsitter::ts_tree_write_param_tree")}}
+\item{tree}{A \code{ts_tree} object as returned by
+\code{\link[tsitter:ts_tree_new]{ts_tree_new()}}.}
 
-\item{file}{\eval{tsitter:::doc_insert("tsitter::ts_tree_write_param_file")}}
+\item{file}{Character string, connection, or \code{NULL}. The file or connection
+to write to. By default it writes to the same file that was used in
+\code{\link[tsitter:ts_tree_new]{ts_tree_new()}}, if \code{tree} was read from a
+file.}
 }
 \value{
-\eval{tsitter:::doc_insert("tsitter::ts_tree_write_return")}
+Invisibly returns \code{NULL}.
 }
 \description{
-\eval{tsitter:::doc_insert("ts_tree_write_description")}
+Writes the document of a ts \code{ts_tree} object to a file or connection.
 }
 \details{
-\eval{tsitter:::doc_insert("tsitter::ts_tree_write_details")}
-\eval{tsitter:::doc_extra()}
+If \code{tree} was created from a file, then \code{ts_tree_write()} by default
+writes it back to the same file. Otherwise, the \code{file} argument must be
+specified.
+
+To write to a connection, pass a connection object to the \code{file}
+argument. If the connection is opened in binary mode, the raw bytes
+are written using \code{\link[base:writeBin]{base::writeBin()}}. Otherwise, the raw bytes are
+converted to characters using the system encoding before writing using
+\code{\link[base:rawToChar]{base::rawToChar()}}.\if{html}{\out{
+</p><p><!-- ------------------------------------------------------>
+}}
+
+
+Use \code{file = stdout()} to write to the standard output, i.e. to the
+console in an interactive R session.
 }
 \examples{
 \dontshow{if (Sys.getenv("IN_PKGDOWN") == "true") withAutoprint(\{ # examplesIf}
@@ -31,8 +48,6 @@ tree |> ts_tree_format() |> ts_tree_write("example.json")
 \dontshow{\}) # examplesIf}
 }
 \seealso{
-\eval{tsitter:::doc_seealso("ts_tree_write")}
-
 Other ts_tree generics:
 \code{\link[=[[.ts_tree]{[[.ts_tree()}},
 \code{\link[=[[<-.ts_tree]{[[<-.ts_tree()}},

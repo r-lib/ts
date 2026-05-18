@@ -1,53 +1,31 @@
 #' Delete selected elements from a tree-sitter tree
 #'
-#' @ts ts_tree_delete_description
+#' @description
 #' Use \code{\link[tsitter:ts_tree_select]{ts_tree_select()}} to select the
 #' elements to be deleted, and then call `ts_tree_delete()` to remove them
 #' from the tree.
 #'
-#' @ts ts_tree_delete_details
+#' @details
 #' The formatting of the rest of the document is left as is.
-#'
-#' \eval{tsitter:::doc_tabs("ts_tree_delete_details_formatting")}
 #'
 #' If the tree does not have a selection, the tree corresponding to the
 #' empty document is returned, i.e. the whole content is deleted.
 #'
-#' \eval{tsitter:::doc_tabs("ts_tree_delete_details_no_selection")}
-#'
 #' If the tree has a selection, but it is the empty selection, then
 #' the tree is returned unchanged.
-#'
-#' \eval{tsitter:::doc_tabs("ts_tree_delete_details_empty_selection")}
 #'
 #' For parsers that support comments, deleting elements that include
 #' comments typically delete the comments as well. Other comments are
 #' kept as is. See details in the manual of the specific parser.
 #'
-#' \eval{tsitter:::doc_tabs("ts_tree_delete_details_comments")}
-#'
-#' @description
-#' \eval{tsitter:::doc_insert("ts_tree_delete_description")}
-#'
-#' \eval{tsitter:::format_rd_parser_list(tsitter:::ts_list_parsers(), "ts_tree_delete")}
-#'
-#' @details
-#' \eval{tsitter:::doc_insert("tsitter::ts_tree_delete_details")}
-#' \eval{tsitter:::doc_extra()}
-#'
-#' @ts ts_tree_delete_param_tree
-#' A `ts_tree` object.
-#'
 #' @param tree
-#' \eval{tsitter:::doc_insert("tsitter::ts_tree_delete_param_tree")}
+#' A `ts_tree` object.
 #' @param ... Extra arguments for methods.
 #'
-#' @ts ts_tree_delete_return
+#' @return
 #' The modified `ts_tree` object with the selected elements removed.
-#' @return \eval{tsitter:::doc_insert("tsitter::ts_tree_delete_return")}
 #'
 #' @family ts_tree generics
-#' @seealso \eval{tsitter:::doc_seealso("ts_tree_delete")}
 #' @export
 #' @examplesIf requireNamespace("tsjsonc", quietly = TRUE)
 #' # Create a parse tree with tsjsonc -------------------------------------

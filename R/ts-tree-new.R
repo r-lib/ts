@@ -1,17 +1,11 @@
 #' Create tree-sitter tree from file or string
 #'
-#' @ts ts_tree_new_description
-#' The result is a `ts_tree` object. A `ts_tree` object may be queried,
-#' edited, formatted, written to file, etc. using `ts_tree` methods.
 #' @description
 #' This is the main function to create a tree-sitter parse tree, using a
 #' ts parser implemented in another package.
-#' \eval{tsitter:::doc_insert("ts_tree_new_description")}
 #'
-#' \eval{tsitter:::format_rd_parser_list(tsitter:::ts_list_parsers())}
-#'
-#' @ts ts_tree_new_details
-#' \eval{tsitter:::doc_tabs("ts_tree_new_examples")}
+#' The result is a `ts_tree` object. A `ts_tree` object may be queried,
+#' edited, formatted, written to file, etc. using `ts_tree` methods.
 #'
 #' @details
 #' A package that implements a tree-sitter parser provides a function that
@@ -20,50 +14,32 @@
 #' You need to use the returned `ts_language` object as the `language`
 #' argument of \code{\link[tsitter:ts_tree_new]{ts_tree_new()}}.
 #'
-#' \eval{tsitter:::doc_insert("ts_tree_new_details")}
-#' \eval{tsitter:::doc_extra()}
-#'
-#' @ts ts_tree_new_param_language
+#' @param language
 #' Language of the file or string, a `ts_language` object,e.g. the return
 #' value of [tsjsonc::ts_language_jsonc()].
-#' @ts ts_tree_new_param_file
+#' @param file
 #' Path of a file to parse. Use either `file` or `text`, but not both.
-#' @ts ts_tree_new_param_text
+#' @param text
 #' String to parse. Use either `file` or `text`, but not both.
-#' @ts ts_tree_new_param_ranges
+#' @param ranges
 #' Can be used to parse part(s) of the input. It must be a data frame with
 #' integer columns `start_row`, `start_col`, `end_row`, `end_col`,
 #' `start_byte`, `end_byte`, in this order.
-#' @ts ts_tree_new_param_fail_on_parse_error
+#' @param fail_on_parse_error
 #' Logical, whether to error if there are parse errors in the document.
 #' Default is `TRUE`.
-#'
-#' @param language
-#' \eval{tsitter:::doc_insert("tsitter::ts_tree_new_param_language", "ts")}
-#' @param file
-#' \eval{tsitter:::doc_insert("tsitter::ts_tree_new_param_file", "ts")}
-#' @param text
-#' \eval{tsitter:::doc_insert("tsitter::ts_tree_new_param_text", "ts")}
-#' @param ranges
-#' \eval{tsitter:::doc_insert("tsitter::ts_tree_new_param_ranges", "ts")}
-#' @param fail_on_parse_error
-#' \eval{tsitter:::doc_insert("tsitter::ts_tree_new_param_fail_on_parse_error", "ts")}
 #' @param ... Additional arguments for methods.
 #'
-#' @ts ts_tree_new_return
-#' A `ts_tree` object representing the parse tree of the input. You can
-#' use the single bracket \code{\link[tsitter::ts_tree-brackets]{`[`}}
-#' operator to convert it to a data frame.
 #' @return
-#' \eval{tsitter:::doc_insert("tsitter::ts_tree_new_return", "ts")}
+#' A `ts_tree` object representing the parse tree of the input. You can
+#' use the single bracket \code{\link[tsitter:ts_tree-brackets]{`[`}}
+#' operator to convert it to a data frame.
 #'
 #' @export
 #' @family ts_tree generics
 #' @seealso The tree-sitter parser packages typically include shortcuts to
 #'   create parse trees from strings and file, e.g.
 #'   [tsjsonc::ts_parse_jsonc()] and [tsjsonc::ts_read_jsonc()].
-#'
-#'   \eval{tsitter:::doc_seealso("ts_tree_new")}
 #'
 #' @examplesIf requireNamespace("tsjsonc", quietly = TRUE)
 #'

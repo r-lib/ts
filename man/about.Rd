@@ -48,7 +48,7 @@ Create a ts_tree (ts_tree_jsonc) object from a string:
 json <- tsjsonc::ts_parse_jsonc(txt)
 }\if{html}{\out{</div>}}\if{html}{\out{
 <div class="asciicast" style="color: #B9C0CB;font-family: 'Fira Code',Monaco,Consolas,Menlo,'Bitstream Vera Sans Mono','Powerline Symbols',monospace;line-height: 1.300000"><pre>
-#>                                                                                 
+#>
 </pre></div>
 }}
 
@@ -58,19 +58,19 @@ Pretty print a ts_tree object:
 \if{html}{\out{<div class="sourceCode r">}}\preformatted{json
 }\if{html}{\out{</div>}}\if{html}{\out{
 <div class="asciicast" style="color: #B9C0CB;font-family: 'Fira Code',Monaco,Consolas,Menlo,'Bitstream Vera Sans Mono','Powerline Symbols',monospace;line-height: 1.300000"><pre>
-#> <span style="color: #6F7783;"># jsonc (19 lines)</span>                                                              
-#> <span style="color: #6F7783;"> 1 | </span>                                                                           
-#> <span style="color: #6F7783;"> 2 | </span>// this is a comment                                                       
-#> <span style="color: #6F7783;"> 3 | </span>\{                                                                          
-#> <span style="color: #6F7783;"> 4 | </span>  "a": \{                                                                   
-#> <span style="color: #6F7783;"> 5 | </span>    "a1": [1, 2, 3],                                                       
-#> <span style="color: #6F7783;"> 6 | </span>    // comment                                                             
-#> <span style="color: #6F7783;"> 7 | </span>    "a2": "string"                                                         
-#> <span style="color: #6F7783;"> 8 | </span>  \},                                                                       
-#> <span style="color: #6F7783;"> 9 | </span>  "b": [                                                                   
-#> <span style="color: #6F7783;">10 | </span>    \{                                                                      
-#> <span style="color: #6F7783;">ℹ 9 more lines</span>                                                                  
-#> <span style="color: #6F7783;">ℹ Use `print(n = ...)` to see more lines</span>                                        
+#> <span style="color: #6F7783;"># jsonc (19 lines)</span>
+#> <span style="color: #6F7783;"> 1 | </span>
+#> <span style="color: #6F7783;"> 2 | </span>// this is a comment
+#> <span style="color: #6F7783;"> 3 | </span>\{
+#> <span style="color: #6F7783;"> 4 | </span>  "a": \{
+#> <span style="color: #6F7783;"> 5 | </span>    "a1": [1, 2, 3],
+#> <span style="color: #6F7783;"> 6 | </span>    // comment
+#> <span style="color: #6F7783;"> 7 | </span>    "a2": "string"
+#> <span style="color: #6F7783;"> 8 | </span>  \},
+#> <span style="color: #6F7783;"> 9 | </span>  "b": [
+#> <span style="color: #6F7783;">10 | </span>    \{
+#> <span style="color: #6F7783;">ℹ 9 more lines</span>
+#> <span style="color: #6F7783;">ℹ Use `print(n = ...)` to see more lines</span>
 </pre></div>
 }}
 
@@ -85,8 +85,19 @@ Select element by objects key:
 \if{html}{\out{<div class="sourceCode r">}}\preformatted{ts_tree_select(json, "a")
 }\if{html}{\out{</div>}}\if{html}{\out{
 <div class="asciicast" style="color: #B9C0CB;font-family: 'Fira Code',Monaco,Consolas,Menlo,'Bitstream Vera Sans Mono','Powerline Symbols',monospace;line-height: 1.300000"><pre>
-#> Error in ts_tree_select(json, "a") :                                            
-#>   could not find function "ts_tree_select"                                      
+#> <span style="color: #6F7783;"># jsonc (19 lines, 1 selected element)</span>
+#>   <span style="color: #6F7783;"> 1  | </span>
+#>   <span style="color: #6F7783;"> 2  | </span>// this is a comment
+#>   <span style="color: #6F7783;"> 3  | </span>\{
+#> <span style="background-color: #66C2CD;">&gt;</span> <span style="color: #6F7783;"> 4  | </span>  "a": <span style="color: #66C2CD;">\{</span>
+#> <span style="background-color: #66C2CD;">&gt;</span> <span style="color: #6F7783;"> 5  | </span><span style="color: #66C2CD;">    "a1": [1, 2, 3],</span>
+#> <span style="background-color: #66C2CD;">&gt;</span> <span style="color: #6F7783;"> 6  | </span><span style="color: #66C2CD;">    // comment</span>
+#> <span style="background-color: #66C2CD;">&gt;</span> <span style="color: #6F7783;"> 7  | </span><span style="color: #66C2CD;">    "a2": "string"</span>
+#> <span style="background-color: #66C2CD;">&gt;</span> <span style="color: #6F7783;"> 8  | </span><span style="color: #66C2CD;">  \}</span>,
+#>   <span style="color: #6F7783;"> 9  | </span>  "b": [
+#>   <span style="color: #6F7783;">10  | </span>    \{
+#>   <span style="color: #6F7783;">11  | </span>      "b11": true,
+#>   <span style="color: #6F7783;">...</span>
 </pre></div>
 }}
 
@@ -96,8 +107,15 @@ Select element inside element:
 \if{html}{\out{<div class="sourceCode r">}}\preformatted{ts_tree_select(json, "a", "a1")
 }\if{html}{\out{</div>}}\if{html}{\out{
 <div class="asciicast" style="color: #B9C0CB;font-family: 'Fira Code',Monaco,Consolas,Menlo,'Bitstream Vera Sans Mono','Powerline Symbols',monospace;line-height: 1.300000"><pre>
-#> Error in ts_tree_select(json, "a", "a1") :                                      
-#>   could not find function "ts_tree_select"                                      
+#> <span style="color: #6F7783;"># jsonc (19 lines, 1 selected element)</span>
+#>   <span style="color: #6F7783;">2   | </span>// this is a comment
+#>   <span style="color: #6F7783;">3   | </span>\{
+#>   <span style="color: #6F7783;">4   | </span>  "a": \{
+#> <span style="background-color: #66C2CD;">&gt;</span> <span style="color: #6F7783;">5   | </span>    "a1": <span style="color: #66C2CD;">[1, 2, 3]</span>,
+#>   <span style="color: #6F7783;">6   | </span>    // comment
+#>   <span style="color: #6F7783;">7   | </span>    "a2": "string"
+#>   <span style="color: #6F7783;">8   | </span>  \},
+#>   <span style="color: #6F7783;">...</span>
 </pre></div>
 }}
 
@@ -107,8 +125,15 @@ Select element(s) of an array:
 \if{html}{\out{<div class="sourceCode r">}}\preformatted{ts_tree_select(json, "a", "a1", 1:2)
 }\if{html}{\out{</div>}}\if{html}{\out{
 <div class="asciicast" style="color: #B9C0CB;font-family: 'Fira Code',Monaco,Consolas,Menlo,'Bitstream Vera Sans Mono','Powerline Symbols',monospace;line-height: 1.300000"><pre>
-#> Error in ts_tree_select(json, "a", "a1", 1:2) :                                 
-#>   could not find function "ts_tree_select"                                      
+#> <span style="color: #6F7783;"># jsonc (19 lines, 2 selected elements)</span>
+#>   <span style="color: #6F7783;">2   | </span>// this is a comment
+#>   <span style="color: #6F7783;">3   | </span>\{
+#>   <span style="color: #6F7783;">4   | </span>  "a": \{
+#> <span style="background-color: #66C2CD;">&gt;</span> <span style="color: #6F7783;">5   | </span>    "a1": [<span style="color: #66C2CD;">1</span>, <span style="color: #66C2CD;">2</span>, 3],
+#>   <span style="color: #6F7783;">6   | </span>    // comment
+#>   <span style="color: #6F7783;">7   | </span>    "a2": "string"
+#>   <span style="color: #6F7783;">8   | </span>  \},
+#>   <span style="color: #6F7783;">...</span>
 </pre></div>
 }}
 
@@ -118,8 +143,17 @@ Select multiple keys from an object:
 \if{html}{\out{<div class="sourceCode r">}}\preformatted{ts_tree_select(json, "a", c("a1", "a2"))
 }\if{html}{\out{</div>}}\if{html}{\out{
 <div class="asciicast" style="color: #B9C0CB;font-family: 'Fira Code',Monaco,Consolas,Menlo,'Bitstream Vera Sans Mono','Powerline Symbols',monospace;line-height: 1.300000"><pre>
-#> Error in ts_tree_select(json, "a", c("a1", "a2")) :                             
-#>   could not find function "ts_tree_select"                                      
+#> <span style="color: #6F7783;"># jsonc (19 lines, 2 selected elements)</span>
+#>   <span style="color: #6F7783;"> 2  | </span>// this is a comment
+#>   <span style="color: #6F7783;"> 3  | </span>\{
+#>   <span style="color: #6F7783;"> 4  | </span>  "a": \{
+#> <span style="background-color: #66C2CD;">&gt;</span> <span style="color: #6F7783;"> 5  | </span>    "a1": <span style="color: #66C2CD;">[1, 2, 3]</span>,
+#>   <span style="color: #6F7783;"> 6  | </span>    // comment
+#> <span style="background-color: #66C2CD;">&gt;</span> <span style="color: #6F7783;"> 7  | </span>    "a2": <span style="color: #66C2CD;">"string"</span>
+#>   <span style="color: #6F7783;"> 8  | </span>  \},
+#>   <span style="color: #6F7783;"> 9  | </span>  "b": [
+#>   <span style="color: #6F7783;">10  | </span>    \{
+#>   <span style="color: #6F7783;">...</span>
 </pre></div>
 }}
 
@@ -129,8 +163,19 @@ Select nodes that match a tree-sitter query:
 \if{html}{\out{<div class="sourceCode r">}}\preformatted{json |> ts_tree_select(query = "((pair value: (false) @val))")
 }\if{html}{\out{</div>}}\if{html}{\out{
 <div class="asciicast" style="color: #B9C0CB;font-family: 'Fira Code',Monaco,Consolas,Menlo,'Bitstream Vera Sans Mono','Powerline Symbols',monospace;line-height: 1.300000"><pre>
-#> Error in ts_tree_select(json, query = "((pair value: (false) @val))") :         
-#>   could not find function "ts_tree_select"                                      
+#> <span style="color: #6F7783;"># jsonc (19 lines, 3 selected elements)</span>
+#>   <span style="color: #6F7783;">...</span>
+#>   <span style="color: #6F7783;"> 9  | </span>  "b": [
+#>   <span style="color: #6F7783;">10  | </span>    \{
+#>   <span style="color: #6F7783;">11  | </span>      "b11": true,
+#> <span style="background-color: #66C2CD;">&gt;</span> <span style="color: #6F7783;">12  | </span>      "b12": <span style="color: #66C2CD;">false</span>
+#>   <span style="color: #6F7783;">13  | </span>    \},
+#>   <span style="color: #6F7783;">14  | </span>    \{
+#> <span style="background-color: #66C2CD;">&gt;</span> <span style="color: #6F7783;">15  | </span>      "b21": <span style="color: #66C2CD;">false</span>,
+#> <span style="background-color: #66C2CD;">&gt;</span> <span style="color: #6F7783;">16  | </span>      "b22": <span style="color: #66C2CD;">false</span>
+#>   <span style="color: #6F7783;">17  | </span>    \}
+#>   <span style="color: #6F7783;">18  | </span>  ]
+#>   <span style="color: #6F7783;">19  | </span>\}
 </pre></div>
 }}
 
@@ -143,8 +188,19 @@ Delete selected elements:
 \if{html}{\out{<div class="sourceCode r">}}\preformatted{ts_tree_select(json, "a", "a1") |> ts_tree_delete()
 }\if{html}{\out{</div>}}\if{html}{\out{
 <div class="asciicast" style="color: #B9C0CB;font-family: 'Fira Code',Monaco,Consolas,Menlo,'Bitstream Vera Sans Mono','Powerline Symbols',monospace;line-height: 1.300000"><pre>
-#> Error in ts_tree_delete(ts_tree_select(json, "a", "a1")) :                      
-#>   could not find function "ts_tree_delete"                                      
+#> <span style="color: #6F7783;"># jsonc (18 lines)</span>
+#> <span style="color: #6F7783;"> 1 | </span>
+#> <span style="color: #6F7783;"> 2 | </span>// this is a comment
+#> <span style="color: #6F7783;"> 3 | </span>\{
+#> <span style="color: #6F7783;"> 4 | </span>  "a": \{
+#> <span style="color: #6F7783;"> 5 | </span>    // comment
+#> <span style="color: #6F7783;"> 6 | </span>    "a2": "string"
+#> <span style="color: #6F7783;"> 7 | </span>  \},
+#> <span style="color: #6F7783;"> 8 | </span>  "b": [
+#> <span style="color: #6F7783;"> 9 | </span>    \{
+#> <span style="color: #6F7783;">10 | </span>      "b11": true,
+#> <span style="color: #6F7783;">ℹ 8 more lines</span>
+#> <span style="color: #6F7783;">ℹ Use `print(n = ...)` to see more lines</span>
 </pre></div>
 }}
 
@@ -157,8 +213,19 @@ Insert element into an array:
 \if{html}{\out{<div class="sourceCode r">}}\preformatted{ts_tree_select(json, "a", "a1") |> ts_tree_insert(at = 2, "new")
 }\if{html}{\out{</div>}}\if{html}{\out{
 <div class="asciicast" style="color: #B9C0CB;font-family: 'Fira Code',Monaco,Consolas,Menlo,'Bitstream Vera Sans Mono','Powerline Symbols',monospace;line-height: 1.300000"><pre>
-#> Error in ts_tree_insert(ts_tree_select(json, "a", "a1"), at = 2, "new") :       
-#>   could not find function "ts_tree_insert"                                      
+#> <span style="color: #6F7783;"># jsonc (24 lines)</span>
+#> <span style="color: #6F7783;"> 1 | </span>
+#> <span style="color: #6F7783;"> 2 | </span>// this is a comment
+#> <span style="color: #6F7783;"> 3 | </span>\{
+#> <span style="color: #6F7783;"> 4 | </span>  "a": \{
+#> <span style="color: #6F7783;"> 5 | </span>    "a1": [
+#> <span style="color: #6F7783;"> 6 | </span>        1,
+#> <span style="color: #6F7783;"> 7 | </span>        2,
+#> <span style="color: #6F7783;"> 8 | </span>        "new",
+#> <span style="color: #6F7783;"> 9 | </span>        3
+#> <span style="color: #6F7783;">10 | </span>    ],
+#> <span style="color: #6F7783;">ℹ 14 more lines</span>
+#> <span style="color: #6F7783;">ℹ Use `print(n = ...)` to see more lines</span>
 </pre></div>
 }}
 
@@ -171,8 +238,19 @@ Insert element into an object, at the specified key:
   ts_tree_insert(key = "a0", at = 0, list("new", "element"))
 }\if{html}{\out{</div>}}\if{html}{\out{
 <div class="asciicast" style="color: #B9C0CB;font-family: 'Fira Code',Monaco,Consolas,Menlo,'Bitstream Vera Sans Mono','Powerline Symbols',monospace;line-height: 1.300000"><pre>
-#> Error in ts_tree_insert(ts_tree_select(json, "a"), key = "a0", at = 0,  :       
-#>   could not find function "ts_tree_insert"                                      
+#> <span style="color: #6F7783;"># jsonc (27 lines)</span>
+#> <span style="color: #6F7783;"> 1 | </span>
+#> <span style="color: #6F7783;"> 2 | </span>// this is a comment
+#> <span style="color: #6F7783;"> 3 | </span>\{
+#> <span style="color: #6F7783;"> 4 | </span>  "a": \{
+#> <span style="color: #6F7783;"> 5 | </span>      "a0": [
+#> <span style="color: #6F7783;"> 6 | </span>          "new",
+#> <span style="color: #6F7783;"> 7 | </span>          "element"
+#> <span style="color: #6F7783;"> 8 | </span>      ],
+#> <span style="color: #6F7783;"> 9 | </span>      "a1": [
+#> <span style="color: #6F7783;">10 | </span>          1,
+#> <span style="color: #6F7783;">ℹ 17 more lines</span>
+#> <span style="color: #6F7783;">ℹ Use `print(n = ...)` to see more lines</span>
 </pre></div>
 }}
 
@@ -185,8 +263,19 @@ Update existing element:
 \if{html}{\out{<div class="sourceCode r">}}\preformatted{ts_tree_select(json, "a", c("a1", "a2")) |> ts_tree_update("new value")
 }\if{html}{\out{</div>}}\if{html}{\out{
 <div class="asciicast" style="color: #B9C0CB;font-family: 'Fira Code',Monaco,Consolas,Menlo,'Bitstream Vera Sans Mono','Powerline Symbols',monospace;line-height: 1.300000"><pre>
-#>                                                                                 
-#>   could not find function "ts_tree_update"                                      
+#> <span style="color: #6F7783;"># jsonc (19 lines)</span>
+#> <span style="color: #6F7783;"> 1 | </span>
+#> <span style="color: #6F7783;"> 2 | </span>// this is a comment
+#> <span style="color: #6F7783;"> 3 | </span>\{
+#> <span style="color: #6F7783;"> 4 | </span>  "a": \{
+#> <span style="color: #6F7783;"> 5 | </span>    "a1": "new value",
+#> <span style="color: #6F7783;"> 6 | </span>    // comment
+#> <span style="color: #6F7783;"> 7 | </span>    "a2": "new value"
+#> <span style="color: #6F7783;"> 8 | </span>  \},
+#> <span style="color: #6F7783;"> 9 | </span>  "b": [
+#> <span style="color: #6F7783;">10 | </span>    \{
+#> <span style="color: #6F7783;">ℹ 9 more lines</span>
+#> <span style="color: #6F7783;">ℹ Use `print(n = ...)` to see more lines</span>
 </pre></div>
 }}
 
@@ -197,21 +286,21 @@ Inserts the element if some parents are missing:
 json
 }\if{html}{\out{</div>}}\if{html}{\out{
 <div class="asciicast" style="color: #B9C0CB;font-family: 'Fira Code',Monaco,Consolas,Menlo,'Bitstream Vera Sans Mono','Powerline Symbols',monospace;line-height: 1.300000"><pre>
-#> Error in ts_parse_jsonc(text = "\{ \\"a\\": \{ \\"b\\": true \} \}") :                  
-#>   could not find function "ts_parse_jsonc"                                      
-#> <span style="color: #6F7783;"># jsonc (19 lines)</span>                                                              
-#> <span style="color: #6F7783;"> 1 | </span>                                                                           
-#> <span style="color: #6F7783;"> 2 | </span>// this is a comment                                                       
-#> <span style="color: #6F7783;"> 3 | </span>\{                                                                          
-#> <span style="color: #6F7783;"> 4 | </span>  "a": \{                                                                   
-#> <span style="color: #6F7783;"> 5 | </span>    "a1": [1, 2, 3],                                                       
-#> <span style="color: #6F7783;"> 6 | </span>    // comment                                                             
-#> <span style="color: #6F7783;"> 7 | </span>    "a2": "string"                                                         
-#> <span style="color: #6F7783;"> 8 | </span>  \},                                                                       
-#> <span style="color: #6F7783;"> 9 | </span>  "b": [                                                                   
-#> <span style="color: #6F7783;">10 | </span>    \{                                                                      
-#> <span style="color: #6F7783;">ℹ 9 more lines</span>                                                                  
-#> <span style="color: #6F7783;">ℹ Use `print(n = ...)` to see more lines</span>                                        
+#> Error in ts_parse_jsonc(text = "\{ \\"a\\": \{ \\"b\\": true \} \}") :
+#>   could not find function "ts_parse_jsonc"
+#> <span style="color: #6F7783;"># jsonc (19 lines)</span>
+#> <span style="color: #6F7783;"> 1 | </span>
+#> <span style="color: #6F7783;"> 2 | </span>// this is a comment
+#> <span style="color: #6F7783;"> 3 | </span>\{
+#> <span style="color: #6F7783;"> 4 | </span>  "a": \{
+#> <span style="color: #6F7783;"> 5 | </span>    "a1": [1, 2, 3],
+#> <span style="color: #6F7783;"> 6 | </span>    // comment
+#> <span style="color: #6F7783;"> 7 | </span>    "a2": "string"
+#> <span style="color: #6F7783;"> 8 | </span>  \},
+#> <span style="color: #6F7783;"> 9 | </span>  "b": [
+#> <span style="color: #6F7783;">10 | </span>    \{
+#> <span style="color: #6F7783;">ℹ 9 more lines</span>
+#> <span style="color: #6F7783;">ℹ Use `print(n = ...)` to see more lines</span>
 </pre></div>
 }}
 
@@ -219,8 +308,19 @@ json
 \if{html}{\out{<div class="sourceCode r">}}\preformatted{ts_tree_select(json, "a", "x", "y") |> ts_tree_update(list(1,2,3))
 }\if{html}{\out{</div>}}\if{html}{\out{
 <div class="asciicast" style="color: #B9C0CB;font-family: 'Fira Code',Monaco,Consolas,Menlo,'Bitstream Vera Sans Mono','Powerline Symbols',monospace;line-height: 1.300000"><pre>
-#> Error in ts_tree_update(ts_tree_select(json, "a", "x", "y"), list(1, 2,  :      
-#>   could not find function "ts_tree_update"                                      
+#> <span style="color: #6F7783;"># jsonc (30 lines)</span>
+#> <span style="color: #6F7783;"> 1 | </span>
+#> <span style="color: #6F7783;"> 2 | </span>// this is a comment
+#> <span style="color: #6F7783;"> 3 | </span>\{
+#> <span style="color: #6F7783;"> 4 | </span>  "a": \{
+#> <span style="color: #6F7783;"> 5 | </span>      "a1": [
+#> <span style="color: #6F7783;"> 6 | </span>          1,
+#> <span style="color: #6F7783;"> 7 | </span>          2,
+#> <span style="color: #6F7783;"> 8 | </span>          3
+#> <span style="color: #6F7783;"> 9 | </span>      ],
+#> <span style="color: #6F7783;">10 | </span>      // comment
+#> <span style="color: #6F7783;">ℹ 20 more lines</span>
+#> <span style="color: #6F7783;">ℹ Use `print(n = ...)` to see more lines</span>
 </pre></div>
 }}
 
@@ -233,8 +333,25 @@ Use \code{stdout()} to write it to the screen instread of a file:
 \if{html}{\out{<div class="sourceCode r">}}\preformatted{json |> ts_tree_write(stdout())
 }\if{html}{\out{</div>}}\if{html}{\out{
 <div class="asciicast" style="color: #B9C0CB;font-family: 'Fira Code',Monaco,Consolas,Menlo,'Bitstream Vera Sans Mono','Powerline Symbols',monospace;line-height: 1.300000"><pre>
-#> Error in ts_tree_write(json, stdout()) :                                        
-#>   could not find function "ts_tree_write"                                       
+#>
+#> // this is a comment
+#> \{
+#>   "a": \{
+#>     "a1": [1, 2, 3],
+#>     // comment
+#>     "a2": "string"
+#>   \},
+#>   "b": [
+#>     \{
+#>       "b11": true,
+#>       "b12": false
+#>     \},
+#>     \{
+#>       "b21": false,
+#>       "b22": false
+#>     \}
+#>   ]
+#> \}
 </pre></div>
 }}
 
@@ -247,7 +364,19 @@ Format the whole document:
 \if{html}{\out{<div class="sourceCode r">}}\preformatted{json |> ts_tree_format()
 }\if{html}{\out{</div>}}\if{html}{\out{
 <div class="asciicast" style="color: #B9C0CB;font-family: 'Fira Code',Monaco,Consolas,Menlo,'Bitstream Vera Sans Mono','Powerline Symbols',monospace;line-height: 1.300000"><pre>
-#> Error in ts_tree_format(json) : could not find function "ts_tree_format"        
+#> <span style="color: #6F7783;"># jsonc (23 lines)</span>
+#> <span style="color: #6F7783;"> 1 | </span>
+#> <span style="color: #6F7783;"> 2 | </span>// this is a comment
+#> <span style="color: #6F7783;"> 3 | </span>\{
+#> <span style="color: #6F7783;"> 4 | </span>    "a": \{
+#> <span style="color: #6F7783;"> 5 | </span>        "a1": [
+#> <span style="color: #6F7783;"> 6 | </span>            1,
+#> <span style="color: #6F7783;"> 7 | </span>            2,
+#> <span style="color: #6F7783;"> 8 | </span>            3
+#> <span style="color: #6F7783;"> 9 | </span>        ],
+#> <span style="color: #6F7783;">10 | </span>        // comment
+#> <span style="color: #6F7783;">ℹ 13 more lines</span>
+#> <span style="color: #6F7783;">ℹ Use `print(n = ...)` to see more lines</span>
 </pre></div>
 }}
 
@@ -258,8 +387,19 @@ Format part of the document:
   ts_tree_format(options = list(format = "compact"))
 }\if{html}{\out{</div>}}\if{html}{\out{
 <div class="asciicast" style="color: #B9C0CB;font-family: 'Fira Code',Monaco,Consolas,Menlo,'Bitstream Vera Sans Mono','Powerline Symbols',monospace;line-height: 1.300000"><pre>
-#> act")) :                                                                        
-#>   could not find function "ts_tree_format"                                      
+#> <span style="color: #6F7783;"># jsonc (15 lines)</span>
+#> <span style="color: #6F7783;"> 1 | </span>
+#> <span style="color: #6F7783;"> 2 | </span>// this is a comment
+#> <span style="color: #6F7783;"> 3 | </span>\{
+#> <span style="color: #6F7783;"> 4 | </span>  "a": \{"a1":[1,2,3],"a2":"string"\},
+#> <span style="color: #6F7783;"> 5 | </span>  "b": [
+#> <span style="color: #6F7783;"> 6 | </span>    \{
+#> <span style="color: #6F7783;"> 7 | </span>      "b11": true,
+#> <span style="color: #6F7783;"> 8 | </span>      "b12": false
+#> <span style="color: #6F7783;"> 9 | </span>    \},
+#> <span style="color: #6F7783;">10 | </span>    \{
+#> <span style="color: #6F7783;">ℹ 5 more lines</span>
+#> <span style="color: #6F7783;">ℹ Use `print(n = ...)` to see more lines</span>
 </pre></div>
 }}
 
@@ -272,8 +412,42 @@ Unserialize a whole document:
 \if{html}{\out{<div class="sourceCode r">}}\preformatted{json |> ts_tree_unserialize()
 }\if{html}{\out{</div>}}\if{html}{\out{
 <div class="asciicast" style="color: #B9C0CB;font-family: 'Fira Code',Monaco,Consolas,Menlo,'Bitstream Vera Sans Mono','Powerline Symbols',monospace;line-height: 1.300000"><pre>
-#> Error in ts_tree_unserialize(json) :                                            
-#>   could not find function "ts_tree_unserialize"                                 
+#> [[1]]
+#> [[1]]$a
+#> [[1]]$a$a1
+#> [[1]]$a$a1[[1]]
+#> [1] 1
+#>
+#> [[1]]$a$a1[[2]]
+#> [1] 2
+#>
+#> [[1]]$a$a1[[3]]
+#> [1] 3
+#>
+#>
+#> [[1]]$a$a2
+#> [1] "string"
+#>
+#>
+#> [[1]]$b
+#> [[1]]$b[[1]]
+#> [[1]]$b[[1]]$b11
+#> [1] TRUE
+#>
+#> [[1]]$b[[1]]$b12
+#> [1] FALSE
+#>
+#>
+#> [[1]]$b[[2]]
+#> [[1]]$b[[2]]$b21
+#> [1] FALSE
+#>
+#> [[1]]$b[[2]]$b22
+#> [1] FALSE
+#>
+#>
+#>
+#>
 </pre></div>
 }}
 
@@ -286,8 +460,24 @@ Unserialize part(s) of the document:
 \if{html}{\out{<div class="sourceCode r">}}\preformatted{json |> ts_tree_select("b") |> ts_tree_unserialize()
 }\if{html}{\out{</div>}}\if{html}{\out{
 <div class="asciicast" style="color: #B9C0CB;font-family: 'Fira Code',Monaco,Consolas,Menlo,'Bitstream Vera Sans Mono','Powerline Symbols',monospace;line-height: 1.300000"><pre>
-#> Error in ts_tree_unserialize(ts_tree_select(json, "b")) :                       
-#>   could not find function "ts_tree_unserialize"                                 
+#> [[1]]
+#> [[1]][[1]]
+#> [[1]][[1]]$b11
+#> [1] TRUE
+#>
+#> [[1]][[1]]$b12
+#> [1] FALSE
+#>
+#>
+#> [[1]][[2]]
+#> [[1]][[2]]$b21
+#> [1] FALSE
+#>
+#> [[1]][[2]]$b22
+#> [1] FALSE
+#>
+#>
+#>
 </pre></div>
 }}
 
@@ -306,7 +496,93 @@ Print the annotated syntax tree:
 \if{html}{\out{<div class="sourceCode r">}}\preformatted{ts_tree_ast(json)
 }\if{html}{\out{</div>}}\if{html}{\out{
 <div class="asciicast" style="color: #B9C0CB;font-family: 'Fira Code',Monaco,Consolas,Menlo,'Bitstream Vera Sans Mono','Powerline Symbols',monospace;line-height: 1.300000"><pre>
-#> Error in ts_tree_ast(json) : could not find function "ts_tree_ast"              
+#> document (1)                          2|
+#> ├─comment (2)                          |// this is a comment
+#> └─object (3)                          3|
+#>   ├─\{ (4)                              |\{
+#>   ├─pair (5)                          4|
+#>   │ ├─string (6)                       |
+#>   │ │ ├─" (7)                          |  "
+#>   │ │ ├─string_content (8)             |   a
+#>   │ │ └─" (9)                          |    "
+#>   │ ├─: (10)                           |     :
+#>   │ └─object (11)                      |
+#>   │   ├─\{ (12)                         |       \{
+#>   │   ├─pair (13)                     5|
+#>   │   │ ├─string (14)                  |
+#>   │   │ │ ├─" (15)                     |    "
+#>   │   │ │ ├─string_content (16)        |     a1
+#>   │   │ │ └─" (17)                     |       "
+#>   │   │ ├─: (18)                       |        :
+#>   │   │ └─array (19)                   |
+#>   │   │   ├─[ (20)                     |          [
+#>   │   │   ├─number (21)                |           1
+#>   │   │   ├─, (22)                     |            ,
+#>   │   │   ├─number (23)                |              2
+#>   │   │   ├─, (24)                     |               ,
+#>   │   │   ├─number (25)                |                 3
+#>   │   │   └─] (26)                     |                  ]
+#>   │   ├─, (27)                         |                   ,
+#>   │   ├─comment (28)                  6|    // comment
+#>   │   ├─pair (29)                     7|
+#>   │   │ ├─string (30)                  |
+#>   │   │ │ ├─" (31)                     |    "
+#>   │   │ │ ├─string_content (32)        |     a2
+#>   │   │ │ └─" (33)                     |       "
+#>   │   │ ├─: (34)                       |        :
+#>   │   │ └─string (35)                  |
+#>   │   │   ├─" (36)                     |          "
+#>   │   │   ├─string_content (37)        |           string
+#>   │   │   └─" (38)                     |                 "
+#>   │   └─\} (39)                        8|  \}
+#>   ├─, (40)                             |   ,
+#>   ├─pair (41)                         9|
+#>   │ ├─string (42)                      |
+#>   │ │ ├─" (43)                         |  "
+#>   │ │ ├─string_content (44)            |   b
+#>   │ │ └─" (45)                         |    "
+#>   │ ├─: (46)                           |     :
+#>   │ └─array (47)                       |
+#>   │   ├─[ (48)                         |       [
+#>   │   ├─object (49)                  10|
+#>   │   │ ├─\{ (50)                       |    \{
+#>   │   │ ├─pair (51)                  11|
+#>   │   │ │ ├─string (52)                |
+#>   │   │ │ │ ├─" (53)                   |      "
+#>   │   │ │ │ ├─string_content (54)      |       b11
+#>   │   │ │ │ └─" (55)                   |          "
+#>   │   │ │ ├─: (56)                     |           :
+#>   │   │ │ └─true (57)                  |             true
+#>   │   │ ├─, (58)                       |                 ,
+#>   │   │ ├─pair (59)                  12|
+#>   │   │ │ ├─string (60)                |
+#>   │   │ │ │ ├─" (61)                   |      "
+#>   │   │ │ │ ├─string_content (62)      |       b12
+#>   │   │ │ │ └─" (63)                   |          "
+#>   │   │ │ ├─: (64)                     |           :
+#>   │   │ │ └─false (65)                 |             false
+#>   │   │ └─\} (66)                     13|    \}
+#>   │   ├─, (67)                         |     ,
+#>   │   ├─object (68)                  14|
+#>   │   │ ├─\{ (69)                       |    \{
+#>   │   │ ├─pair (70)                  15|
+#>   │   │ │ ├─string (71)                |
+#>   │   │ │ │ ├─" (72)                   |      "
+#>   │   │ │ │ ├─string_content (73)      |       b21
+#>   │   │ │ │ └─" (74)                   |          "
+#>   │   │ │ ├─: (75)                     |           :
+#>   │   │ │ └─false (76)                 |             false
+#>   │   │ ├─, (77)                       |                  ,
+#>   │   │ ├─pair (78)                  16|
+#>   │   │ │ ├─string (79)                |
+#>   │   │ │ │ ├─" (80)                   |      "
+#>   │   │ │ │ ├─string_content (81)      |       b22
+#>   │   │ │ │ └─" (82)                   |          "
+#>   │   │ │ ├─: (83)                     |           :
+#>   │   │ │ └─false (84)                 |             false
+#>   │   │ └─\} (85)                     17|    \}
+#>   │   └─] (86)                       18|  ]
+#>   └─\} (87)                           19|\}
 </pre></div>
 }}
 
@@ -316,7 +592,21 @@ Print the document object model:
 \if{html}{\out{<div class="sourceCode r">}}\preformatted{ts_tree_dom(json)
 }\if{html}{\out{</div>}}\if{html}{\out{
 <div class="asciicast" style="color: #B9C0CB;font-family: 'Fira Code',Monaco,Consolas,Menlo,'Bitstream Vera Sans Mono','Powerline Symbols',monospace;line-height: 1.300000"><pre>
-#> Error in ts_tree_dom(json) : could not find function "ts_tree_dom"              
+#> document (1)
+#> └─object (3)
+#>   ├─object (11)<span style="color: #6F7783;"> # a</span>
+#>   │ ├─array (19)<span style="color: #6F7783;"> # a1</span>
+#>   │ │ ├─number (21)
+#>   │ │ ├─number (23)
+#>   │ │ └─number (25)
+#>   │ └─string (35)<span style="color: #6F7783;"> # a2</span>
+#>   └─array (47)<span style="color: #6F7783;"> # b</span>
+#>     ├─object (49)
+#>     │ ├─true (57)<span style="color: #6F7783;"> # b11</span>
+#>     │ └─false (65)<span style="color: #6F7783;"> # b12</span>
+#>     └─object (68)
+#>       ├─false (76)<span style="color: #6F7783;"> # b21</span>
+#>       └─false (84)<span style="color: #6F7783;"> # b22</span>
 </pre></div>
 }}
 
@@ -326,15 +616,16 @@ Print the structural summary of a tree:
 \if{html}{\out{<div class="sourceCode r">}}\preformatted{ts_tree_sexpr(json)
 }\if{html}{\out{</div>}}\if{html}{\out{
 <div class="asciicast" style="color: #B9C0CB;font-family: 'Fira Code',Monaco,Consolas,Menlo,'Bitstream Vera Sans Mono','Powerline Symbols',monospace;line-height: 1.300000"><pre>
-#> Error in ts_tree_sexpr(json) : could not find function "ts_tree_sexpr"          
-#>                                                                                 
-#>                                                                                 
-#>                                                                                 
-#>                                                                                 
-#>                                                                                 
-#>                                                                                 
+#> [1] "(document (comment) (object (pair key: (string (string_content)) value: (ob
+#> ject (pair key: (string (string_content)) value: (array (number) (number) (numbe
+#> r))) (comment) (pair key: (string (string_content)) value: (string (string_conte
+#> nt))))) (pair key: (string (string_content)) value: (array (object (pair key: (s
+#> tring (string_content)) value: (true)) (pair key: (string (string_content)) valu
+#> e: (false))) (object (pair key: (string (string_content)) value: (false)) (pair
+#> key: (string (string_content)) value: (false)))))))"
 </pre></div>
 }}
+
 
 }
 }

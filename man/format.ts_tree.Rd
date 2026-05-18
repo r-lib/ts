@@ -7,21 +7,31 @@
 \method{format}{ts_tree}(x, n = 10, ...)
 }
 \arguments{
-\item{x}{\eval{tsitter:::doc_insert("tsitter::format_param_x")}}
+\item{x}{\code{ts_tree} object.}
 
-\item{n}{\eval{tsitter:::doc_insert("tsitter::format_param_n")}}
+\item{n}{Number of lines, or number of selections to print.}
 
-\item{...}{\eval{tsitter:::doc_insert("tsitter::format_param_dots")}}
+\item{...}{Currently ignored.}
 }
 \value{
-\eval{tsitter:::doc_insert("tsitter::format_return")}
+Character vector of lines to print.
 }
 \description{
-\eval{tsitter:::doc_insert("tsitter::format_description")}
+Format a \code{ts_tree} object for printing.
 }
 \details{
-\eval{tsitter:::doc_insert("tsitter::format_details")}
-\eval{tsitter:::doc_extra()}
+This is the engine of \code{\link[tsitter:print.ts_tree]{print.ts_tree()}},
+possibly useful to obtain a printed representation without doing the
+actual printing.\if{html}{\out{
+</p><p><!-- ------------------------------------------------------>
+}}
+
+
+If there are selected nodes in the tree, those will be highlighted
+in the output. See \code{\link[tsitter:ts_tree_select]{ts_tree_select()}} to
+select nodes in a tree.\if{html}{\out{
+</p><p><!-- ------------------------------------------------------>
+}}
 }
 \examples{
 \dontshow{if (requireNamespace("tsjsonc", quietly = TRUE)) withAutoprint(\{ # examplesIf}

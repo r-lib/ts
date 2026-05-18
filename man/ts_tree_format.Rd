@@ -7,25 +7,29 @@
 ts_tree_format(tree, options, ...)
 }
 \arguments{
-\item{tree}{\eval{tsitter:::doc_insert("tsitter::ts_tree_format_param_tree")}}
+\item{tree}{A \code{ts_tree} object.}
 
-\item{options}{\eval{tsitter:::doc_insert("tsitter::ts_tree_format_param_options")}
+\item{options}{A list of options for the formatting.
 
 See details in the manual of the specific parser.}
 
 \item{...}{Extra arguments for methods.}
 }
 \value{
-\eval{tsitter:::doc_insert("tsitter::ts_tree_format_return")}
+A \code{ts_tree} object representing the reformatted document.
 }
 \description{
-\eval{tsitter:::doc_insert("ts_tree_format_description")}
-
-\eval{tsitter:::format_rd_parser_list(tsitter:::ts_list_parsers(), "ts_tree_format")}
+(Re)format the selected elements of the document represented by a
+tree-sitter tree, if the tree-sitter parser supports formatting.
 }
 \details{
-\eval{tsitter:::doc_insert("tsitter::ts_tree_format_details")}
-\eval{tsitter:::doc_extra()}
+If \code{tree} does not have a selection, then the whole document is
+formatted.
+
+If \code{tree} has an empty selection, then it is returned unchanged.
+
+Some parsers support options to customize the formatting.
+See details in the manual of the specific parser.
 }
 \examples{
 \dontshow{if (requireNamespace("tsjsonc", quietly = TRUE)) withAutoprint(\{ # examplesIf}
@@ -56,8 +60,6 @@ tree |> ts_tree_format()
 \dontshow{\}) # examplesIf}
 }
 \seealso{
-\eval{tsitter:::doc_seealso("ts_tree_format")}
-
 Other ts_tree generics:
 \code{\link[=[[.ts_tree]{[[.ts_tree()}},
 \code{\link[=[[<-.ts_tree]{[[<-.ts_tree()}},

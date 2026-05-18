@@ -7,21 +7,30 @@
 ts_tree_delete(tree, ...)
 }
 \arguments{
-\item{tree}{\eval{tsitter:::doc_insert("tsitter::ts_tree_delete_param_tree")}}
+\item{tree}{A \code{ts_tree} object.}
 
 \item{...}{Extra arguments for methods.}
 }
 \value{
-\eval{tsitter:::doc_insert("tsitter::ts_tree_delete_return")}
+The modified \code{ts_tree} object with the selected elements removed.
 }
 \description{
-\eval{tsitter:::doc_insert("ts_tree_delete_description")}
-
-\eval{tsitter:::format_rd_parser_list(tsitter:::ts_list_parsers(), "ts_tree_delete")}
+Use \code{\link[tsitter:ts_tree_select]{ts_tree_select()}} to select the
+elements to be deleted, and then call \code{ts_tree_delete()} to remove them
+from the tree.
 }
 \details{
-\eval{tsitter:::doc_insert("tsitter::ts_tree_delete_details")}
-\eval{tsitter:::doc_extra()}
+The formatting of the rest of the document is left as is.
+
+If the tree does not have a selection, the tree corresponding to the
+empty document is returned, i.e. the whole content is deleted.
+
+If the tree has a selection, but it is the empty selection, then
+the tree is returned unchanged.
+
+For parsers that support comments, deleting elements that include
+comments typically delete the comments as well. Other comments are
+kept as is. See details in the manual of the specific parser.
 }
 \examples{
 \dontshow{if (requireNamespace("tsjsonc", quietly = TRUE)) withAutoprint(\{ # examplesIf}
@@ -51,8 +60,6 @@ tree |> ts_tree_select("servers", TRUE, "dc") |> ts_tree_delete()
 \dontshow{\}) # examplesIf}
 }
 \seealso{
-\eval{tsitter:::doc_seealso("ts_tree_delete")}
-
 Other ts_tree generics:
 \code{\link[=[[.ts_tree]{[[.ts_tree()}},
 \code{\link[=[[<-.ts_tree]{[[<-.ts_tree()}},

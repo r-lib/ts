@@ -7,21 +7,41 @@
 ts_tree_query(tree, query)
 }
 \arguments{
-\item{tree}{\eval{tsitter:::doc_insert("tsitter::ts_tree_query_param_tree")}}
+\item{tree}{A \code{ts_tree} object.}
 
-\item{query}{\eval{tsitter:::doc_insert("tsitter::ts_tree_query_param_query")}}
+\item{query}{Character string, the tree-sitter query to run.}
 }
 \value{
-\eval{tsitter:::doc_insert("tsitter::ts_tree_query_return")}
+A list with entries \code{patterns} and \code{matched_captures}.\if{html}{\out{
+</p><p><!-- ------------------------------------------------------>
+}}
+
+
+\code{patterns} contains information about all patterns in the queries and
+it is a data frame with columns: \code{id}, \code{name}, \code{pattern}, \code{match_count}.\if{html}{\out{
+</p><p><!-- ------------------------------------------------------>
+}}
+
+
+\code{matched_captures} contains information about all matches, and it has
+columns \code{id}, \code{pattern}, \code{match}, \code{start_byte}, \code{end_byte}, \code{start_row},
+\code{start_column}, \code{end_row}, \code{end_column}, \code{name}, \code{code}.\if{html}{\out{
+</p><p><!-- ------------------------------------------------------>
+}}
+
+
+The \code{pattern} column of \code{matched_captured} refers to the \code{id} column of
+\code{patterns}.
 }
 \description{
-\eval{tsitter:::doc_insert("ts_tree_query_description")}
-\eval{tsitter:::format_rd_parser_list(tsitter:::ts_list_parsers(), "ts_tree_query")}
+Use \href{https://tree-sitter.github.io/tree-sitter/}{
+tree-sitter's query language} to find nodes in a tree-sitter tree.
 }
 \details{
-\eval{tsitter:::doc_insert("tsitter::ts_tree_query_details")}
-\eval{tsitter:::doc_tabs("ts_tree_query_details_examples")}
-\eval{tsitter:::doc_extra()}
+You probably need to know some details about the specific tree-sitter
+parser you are using, to write effective queries. See the documentation
+of the parser package you are using for details about the node types
+and the query language support. See links below.
 }
 \examples{
 \dontshow{if (requireNamespace("tsjsonc", quietly = TRUE)) withAutoprint(\{ # examplesIf}
@@ -35,10 +55,8 @@ json |> ts_tree_query("(number) @number")
 \seealso{
 \code{\link[=ts_tree_select]{ts_tree_select()}} to select the nodes matching a query.
 
-\eval{tsitter:::doc_seealso("ts_tree_query")}
-
 Other ts_tree exploration:
-\code{\link{ts_tree-brackets}},
+\code{\link[=[.ts_tree]{[.ts_tree()}},
 \code{\link[=ts_tree_ast]{ts_tree_ast()}},
 \code{\link[=ts_tree_dom]{ts_tree_dom()}},
 \code{\link[=ts_tree_sexpr]{ts_tree_sexpr()}}

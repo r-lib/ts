@@ -14,27 +14,33 @@ ts_tree_new(
 )
 }
 \arguments{
-\item{language}{\eval{tsitter:::doc_insert("tsitter::ts_tree_new_param_language", "ts")}}
+\item{language}{Language of the file or string, a \code{ts_language} object,e.g. the return
+value of \code{\link[tsjsonc:ts_language_jsonc]{tsjsonc::ts_language_jsonc()}}.}
 
-\item{file}{\eval{tsitter:::doc_insert("tsitter::ts_tree_new_param_file", "ts")}}
+\item{file}{Path of a file to parse. Use either \code{file} or \code{text}, but not both.}
 
-\item{text}{\eval{tsitter:::doc_insert("tsitter::ts_tree_new_param_text", "ts")}}
+\item{text}{String to parse. Use either \code{file} or \code{text}, but not both.}
 
-\item{ranges}{\eval{tsitter:::doc_insert("tsitter::ts_tree_new_param_ranges", "ts")}}
+\item{ranges}{Can be used to parse part(s) of the input. It must be a data frame with
+integer columns \code{start_row}, \code{start_col}, \code{end_row}, \code{end_col},
+\code{start_byte}, \code{end_byte}, in this order.}
 
-\item{fail_on_parse_error}{\eval{tsitter:::doc_insert("tsitter::ts_tree_new_param_fail_on_parse_error", "ts")}}
+\item{fail_on_parse_error}{Logical, whether to error if there are parse errors in the document.
+Default is \code{TRUE}.}
 
 \item{...}{Additional arguments for methods.}
 }
 \value{
-\eval{tsitter:::doc_insert("tsitter::ts_tree_new_return", "ts")}
+A \code{ts_tree} object representing the parse tree of the input. You can
+use the single bracket \code{\link[tsitter:ts_tree-brackets]{`[`}}
+operator to convert it to a data frame.
 }
 \description{
 This is the main function to create a tree-sitter parse tree, using a
 ts parser implemented in another package.
-\eval{tsitter:::doc_insert("ts_tree_new_description")}
 
-\eval{tsitter:::format_rd_parser_list(tsitter:::ts_list_parsers())}
+The result is a \code{ts_tree} object. A \code{ts_tree} object may be queried,
+edited, formatted, written to file, etc. using \code{ts_tree} methods.
 }
 \details{
 A package that implements a tree-sitter parser provides a function that
@@ -42,9 +48,6 @@ creates a \code{ts_language} object for that parser. E.g.
 \link[tsjsonc:tsjsonc-package]{tsjsonc} has \code{\link[tsjsonc:ts_language_jsonc]{tsjsonc::ts_language_jsonc()}}.
 You need to use the returned \code{ts_language} object as the \code{language}
 argument of \code{\link[tsitter:ts_tree_new]{ts_tree_new()}}.
-
-\eval{tsitter:::doc_insert("ts_tree_new_details")}
-\eval{tsitter:::doc_extra()}
 }
 \examples{
 \dontshow{if (requireNamespace("tsjsonc", quietly = TRUE)) withAutoprint(\{ # examplesIf}
@@ -76,8 +79,6 @@ toml |> ts_tree_format()
 The tree-sitter parser packages typically include shortcuts to
 create parse trees from strings and file, e.g.
 \code{\link[tsjsonc:ts_parse_jsonc]{tsjsonc::ts_parse_jsonc()}} and \code{\link[tsjsonc:ts_read_jsonc]{tsjsonc::ts_read_jsonc()}}.
-
-\eval{tsitter:::doc_seealso("ts_tree_new")}
 
 Other ts_tree generics:
 \code{\link[=[[.ts_tree]{[[.ts_tree()}},

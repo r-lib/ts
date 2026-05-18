@@ -7,21 +7,34 @@
 \method{[[}{ts_tree}(x, i) <- value
 }
 \arguments{
-\item{x}{\eval{tsitter:::doc_insert("tsitter::ts_tree_double_bracket_set_param_x")}}
+\item{x}{A \code{ts_tree} object.}
 
-\item{i}{\eval{tsitter:::doc_insert("tsitter::ts_tree_double_bracket_set_param_i")}}
+\item{i}{A list with selection expressions, see
+\code{\link[tsitter:ts_tree_select]{ts_tree_select()}} for details.}
 
-\item{value}{\eval{tsitter:::doc_insert("tsitter::ts_tree_double_bracket_set_param_value")}}
+\item{value}{An R expression to serialize or
+\code{\link[tsitter:ts_tree_deleted]{ts_tree_deleted()}}.}
 }
 \value{
-\eval{tsitter:::doc_insert("tsitter::ts_tree_double_bracket_set_return")}
+The modified \code{ts_tree} object.
 }
 \description{
-\eval{tsitter:::doc_insert("ts_tree_double_bracket_set_description")}
+The \verb{[[<-} operator works similarly to the combination of
+\code{\link[tsitter:ts_tree_select]{ts_tree_select()}} and
+\code{\link[tsitter:ts_tree_update]{ts_tree_update()}}, (and also to the
+replacement function \code{\link[tsitter:ts_tree_select<-]{ts_tree_select<-()}}),
+but it might be more readable.
 }
 \details{
-\eval{tsitter:::doc_insert("tsitter::ts_tree_double_bracket_set_details")}
-\eval{tsitter:::doc_extra()}
+The following two expressions are equivalent:
+
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{tree <- ts_tree_select(tree, <selectors>) |> ts_tree_update(value)
+}\if{html}{\out{</div>}}
+
+and
+
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{tree[[list(<selectors>)]] <- value
+}\if{html}{\out{</div>}}
 }
 \examples{
 \dontshow{if (requireNamespace("tsjsonc", quietly = TRUE)) withAutoprint(\{ # examplesIf}

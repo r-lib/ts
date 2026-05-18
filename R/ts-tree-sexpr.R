@@ -1,23 +1,17 @@
 #' Show the syntax tree of a tree-sitter tree
 #'
-#' @ts ts_tree_sexpr_description
+#' @description
 #' Show the structure of a tree-sitter tree as an S-expression.
-#' @description \eval{tsitter:::doc_insert("ts_tree_sexpr_description")}
-#' \eval{tsitter:::format_rd_parser_list(tsitter:::ts_list_parsers(), "ts_tree_sexpr")}
 #'
-#' @ts ts_tree_sexpr_details
+#' @details
 #' This function returns a nested list representation of the syntax tree,
 #' where each node is represented as a list with its type and children.
-#' @details \eval{tsitter:::doc_insert("ts_tree_sexpr_details")}
 #'
-#' @ts ts_tree_sexpr_param_tree
+#' @param tree
 #' A `ts_tree` object.
 #'
-#' @param tree \eval{tsitter:::doc_insert("tsitter::ts_tree_sexpr_param_tree")}
-#'
-#' @ts ts_tree_sexpr_return
+#' @return
 #' A string representing the S-expression of the syntax tree.
-#' @return \eval{tsitter:::doc_insert("tsitter::ts_tree_sexpr_return")}
 #'
 #' @export
 #' @family ts_tree exploration

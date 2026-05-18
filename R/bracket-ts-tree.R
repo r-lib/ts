@@ -1,12 +1,11 @@
 #' Convert ts_tree object to a data frame
 #'
-#' @ts ts_tree_brackets_description
+#' @description
 #' Create a data frame for the syntax tree of a JSON document, by indexing
 #' a ts_tree object with single brackets. This is occasionally useful for
 #' exploration and debugging.
-#' @description \eval{tsitter:::doc_insert("ts_tree_brackets_description")}
 #'
-#' @ts ts_tree_brackets_details
+#' @details
 #' A tree-sitter tree object has at least four classes:
 #' * `ts_tree_<parser_name>`, e.g. `ts_tree_tsjsonc`,
 #' * `ts_tree`,
@@ -26,22 +25,16 @@
 #' row per token, and various columns with information about the tokens.
 #' See details in the 'Value' section or this page.
 #'
-#' @details \eval{tsitter:::doc_insert("tsitter::ts_tree_brackets_details")}
-#'
-#' @ts ts_tree_brackets_param_x
+#' @param x
 #' A `ts_tree` object.
-#' @ts ts_tree_brackets_param_ij
+#' @param i,j
 #' Incides, passed to the regular data.frame indexing method, see
 #' \code{\link[base:Extract]{'Extract'}}.
-#' @ts ts_tree_brackets_param_drop
+#' @param drop
 #' Passed to the regular data.frame indexing method, see
 #' \code{\link[base:Extract]{'Extract'}}.
 #'
-#' @param x \eval{tsitter:::doc_insert("tsitter::ts_tree_brackets_param_x")}
-#' @param i,j \eval{tsitter:::doc_insert("tsitter::ts_tree_brackets_param_ij")}
-#' @param drop \eval{tsitter:::doc_insert("tsitter::ts_tree_brackets_param_drop")}
-#'
-#' @ts ts_tree_brackets_return
+#' @return
 #' A data frame with one row per token, and columns:
 #' * `id`: integer, the id of the token. The (root) document node has id 1.
 #' * `parent`: integer, the id of the parent token. The root token has
@@ -68,11 +61,9 @@
 #'
 #' Other, undocumented columns may also be present, these are considered
 #' internal and may change without notice.
-#' @return \eval{tsitter:::doc_insert("tsitter::ts_tree_brackets_return")}
 #'
-#' @name ts_tree-brackets
+#' @rdname ts_tree-brackets
 #' @family ts_tree exploration
-#' @seealso \eval{tsitter:::doc_seealso("[")}
 #' @export
 #' @examplesIf requireNamespace("tsjsonc", quietly = TRUE)
 #' # Create a parse tree with tsjsonc -------------------------------------

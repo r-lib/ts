@@ -1,12 +1,3 @@
-#' @details
-#' \eval{tsitter:::format_rd_parser_list(tsitter:::ts_list_parsers())}
-#' @keywords internal
-#' @return
-#' Not applicable.
-#' @examples
-#' # See help("about", package = "tsitter")
-"_PACKAGE"
-
 ## usethis namespace: start
 #' @useDynLib tsitter, .registration = TRUE, .fixes = "c_"
 ## usethis namespace: end

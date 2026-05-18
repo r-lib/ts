@@ -7,21 +7,41 @@
 \method{[[}{ts_tree}(x, i, ...)
 }
 \arguments{
-\item{x}{\eval{tsitter:::doc_insert("tsitter::ts_tree_double_bracket_param_x")}}
+\item{x}{A \code{ts_tree} object.}
 
-\item{i}{\eval{tsitter:::doc_insert("tsitter::ts_tree_double_bracket_param_i")}}
+\item{i}{Selection expressions in a list, see details in
+\code{\link[tsitter:ts_tree_select]{ts_tree_select()}}.}
 
-\item{...}{\eval{tsitter:::doc_insert("tsitter::ts_tree_double_bracket_param_dots")}}
+\item{...}{Additional arguments, passed to
+\code{\link[tsitter:ts_tree_select]{ts_tree_select()}}.}
 }
 \value{
-\eval{tsitter:::doc_insert("tsitter::ts_tree_double_bracket_return")}
+List of R objects, with one entry for each selected element.
 }
 \description{
-\eval{tsitter:::doc_insert("ts_tree_double_bracket_description")}
+The \code{[[} operator works similarly to the combination of
+\code{\link[tsitter:ts_tree_select]{ts_tree_select()}} and
+\code{\link[tsitter:ts_tree_unserialize]{ts_tree_unserialize()}}, but it
+might be more readable.
 }
 \details{
-\eval{tsitter:::doc_insert("tsitter::ts_tree_double_bracket_details")}
-\eval{tsitter:::doc_extra()}
+The following two expressions are equivalent:
+
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{ts_tree_select(tree, <selectors>) |> ts_tree_unserialize()
+}\if{html}{\out{</div>}}
+
+and
+
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{tree[[list(<selectors>)]]
+}\if{html}{\out{</div>}}
+\subsection{The \verb{[[<-} replacement operator}{
+
+The \verb{[[<-} operator works similarly to the combination of
+\code{\link[tsitter:ts_tree_select]{ts_tree_select()}} and
+\code{\link[tsitter:ts_tree_update]{ts_tree_update()}}, (and also to the
+replacement function \code{\link[tsitter:ts_tree_select<-]{ts_tree_select<-()}}),
+but it might be more readable.
+}
 }
 \examples{
 \dontshow{if (requireNamespace("tsjsonc", quietly = TRUE)) withAutoprint(\{ # examplesIf}

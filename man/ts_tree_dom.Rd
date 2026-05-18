@@ -7,19 +7,26 @@
 ts_tree_dom(tree)
 }
 \arguments{
-\item{tree}{\eval{tsitter:::doc_insert("tsitter::ts_tree_dom_param_tree")}}
+\item{tree}{A \code{ts_tree} object.}
 }
 \value{
-\eval{tsitter:::doc_insert("tsitter::ts_tree_dom_return")}
+Character vector, the formatted annotated syntax tree, line by
+line. It has class \link[cli:tree]{cli_tree}, from the cli package. It
+may contain ANSI escape sequences for coloring and hyperlinks.
 }
 \description{
-\eval{tsitter:::doc_insert("ts_tree_dom_description")}
-
-\eval{tsitter:::format_rd_parser_list(tsitter:::ts_list_parsers(), "ts_tree_dom")}
+\code{ts_tree_dom()} prints the document object model (DOM) tree of a ts_tree
+object. This tree only includes semantic elements. E.g. for a JSON(C)
+document it includes objects, arrays and various value types, but not
+the syntax elements like brackets, commas or colons.
 }
 \details{
-\eval{tsitter:::doc_insert("tsitter::ts_tree_dom_details")}
-\eval{tsitter:::doc_extra()}
+\subsection{The syntax tree and the DOM tree}{
+
+See \code{\link[tsitter:ts_tree_ast]{ts_tree_ast()}} for the complete
+tree-sitter syntax tree that includes all nodes, including syntax
+elements like brackets and commas.
+}
 }
 \examples{
 \dontshow{if (requireNamespace("tsjsonc", quietly = TRUE)) withAutoprint(\{ # examplesIf}
@@ -53,10 +60,8 @@ ts_tree_dom(tree)
 \code{\link[=ts_tree_ast]{ts_tree_ast()}} to show the annotated syntax tree of a
 ts_tree object.
 
-\eval{tsitter:::doc_seealso("ts_tree_dom")}
-
 Other ts_tree exploration:
-\code{\link{ts_tree-brackets}},
+\code{\link[=[.ts_tree]{[.ts_tree()}},
 \code{\link[=ts_tree_ast]{ts_tree_ast()}},
 \code{\link[=ts_tree_query]{ts_tree_query()}},
 \code{\link[=ts_tree_sexpr]{ts_tree_sexpr()}}

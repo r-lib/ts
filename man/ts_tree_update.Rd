@@ -7,28 +7,30 @@
 ts_tree_update(tree, new, options, ...)
 }
 \arguments{
-\item{tree}{\eval{tsitter:::doc_insert("tsitter::ts_tree_update_param_tree")}}
+\item{tree}{A \code{ts_tree} object.}
 
-\item{new}{\eval{tsitter:::doc_insert("tsitter::ts_tree_update_param_new")}
+\item{new}{The new element to replace the selected elements with.
 
 The type of \code{new} depends on the parser and the method that implements
 the insertion. See details in the manual of the specific parser.}
 
-\item{options}{\eval{tsitter:::doc_insert("tsitter::ts_tree_update_param_options")}
-
-See details in the manual of the specific parser.}
+\item{options}{A list of options for the update.}
 
 \item{...}{Extra arguments for methods.}
 }
 \value{
-\eval{tsitter:::doc_insert("tsitter::ts_tree_update_return")}
+The modified \code{ts_tree} object with the selected elements replaced
+by the new element.
 }
 \description{
-\eval{tsitter:::doc_insert("ts_tree_update_description")}
+Replace all selected elements with a new element.
 }
 \details{
-\eval{tsitter:::doc_insert("tsitter::ts_tree_update_details")}
-\eval{tsitter:::doc_extra()}
+If the tree does not have a selection, the new element replaces the
+whole document.
+
+If the tree has an empty selection, the new element is inserted at the
+position of where the selected elements would be.
 }
 \examples{
 \dontshow{if (requireNamespace("tsjsonc", quietly = TRUE)) withAutoprint(\{ # examplesIf}
@@ -58,8 +60,6 @@ tree |> ts_tree_select("package", "version") |> ts_tree_update("2.0.0")
 \dontshow{\}) # examplesIf}
 }
 \seealso{
-\eval{tsitter:::doc_seealso("ts_tree_update")}
-
 Other ts_tree generics:
 \code{\link[=[[.ts_tree]{[[.ts_tree()}},
 \code{\link[=[[<-.ts_tree]{[[<-.ts_tree()}},

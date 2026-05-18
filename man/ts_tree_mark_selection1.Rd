@@ -19,7 +19,7 @@ ts_tree_mark_selection1(tree, node)
 Integer vector of node ids to highlight.
 }
 \description{
-This function are for packages implementing new parsers based on the ts
+This function is for packages implementing new parsers based on the ts
 package. It is very unlikely that you will need to call this function
 directly.
 }

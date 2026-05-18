@@ -7,20 +7,22 @@
 \method{print}{ts_tree}(x, n = 10, ...)
 }
 \arguments{
-\item{x}{\eval{tsitter:::doc_insert("tsitter::print_param_x")}}
+\item{x}{\code{ts_tree} object to print.}
 
-\item{n}{\eval{tsitter:::doc_insert("tsitter::format_param_n")}}
+\item{n}{Number of lines, or number of selections to print.}
 
-\item{...}{\eval{tsitter:::doc_insert("tsitter::print_param_dots")}}
+\item{...}{Not used currently.}
 }
 \value{
-\eval{tsitter:::doc_insert("tsitter::print_return")}
+Invisibly returns the original \code{ts_tree} object.
 }
 \description{
-\eval{tsitter:::doc_insert("tsitter::print_description")}
+Print a \code{ts_tree} object to the screen.
 }
 \details{
-\eval{tsitter:::doc_insert("tsitter::print_details")}
+Calls \code{\link[tsitter:format.ts_tree]{format.ts_tree()}} to format the
+ts_tree object, writes the formatted object to the standard output, and
+returns the original object invisibly.
 }
 \examples{
 \dontshow{if (requireNamespace("tsjsonc", quietly = TRUE)) withAutoprint(\{ # examplesIf}

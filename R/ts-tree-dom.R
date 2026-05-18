@@ -1,45 +1,30 @@
 #' Print the document object model (DOM) of a tree-sitter tree
 #'
-#' @ts ts_tree_dom_description
+#' @description
 #' `ts_tree_dom()` prints the document object model (DOM) tree of a ts_tree
 #' object. This tree only includes semantic elements. E.g. for a JSON(C)
 #' document it includes objects, arrays and various value types, but not
 #' the syntax elements like brackets, commas or colons.
-#' @description
-#' \eval{tsitter:::doc_insert("ts_tree_dom_description")}
 #'
-#' \eval{tsitter:::format_rd_parser_list(tsitter:::ts_list_parsers(), "ts_tree_dom")}
-#'
-#' @ts ts_tree_dom_details
+#' @details
 #' ## The syntax tree and the DOM tree
 #'
 #' See \code{\link[tsitter:ts_tree_ast]{ts_tree_ast()}} for the complete
 #' tree-sitter syntax tree that includes all nodes, including syntax
 #' elements like brackets and commas.
 #'
-#' \eval{tsitter:::doc_tabs("ts_tree_ast_details_syntax_vs_dom")}
-#'
-#' @details
-#' \eval{tsitter:::doc_insert("tsitter::ts_tree_dom_details")}
-#' \eval{tsitter:::doc_extra()}
-#'
-#' @ts ts_tree_dom_param_tree
+#' @param tree
 #' A `ts_tree` object.
-#' @param tree \eval{tsitter:::doc_insert("tsitter::ts_tree_dom_param_tree")}
 #'
-#' @ts ts_tree_dom_return
+#' @return
 #' Character vector, the formatted annotated syntax tree, line by
 #' line. It has class [cli_tree][cli::tree()], from the cli package. It
 #' may contain ANSI escape sequences for coloring and hyperlinks.
-#' @return
-#' \eval{tsitter:::doc_insert("tsitter::ts_tree_dom_return")}
 #'
 #' @family ts_tree exploration
 #' @family ts_tree generics
 #' @seealso [ts_tree_ast()] to show the annotated syntax tree of a
 #'   ts_tree object.
-#'
-#'   \eval{tsitter:::doc_seealso("ts_tree_dom")}
 #' @export
 #' @examplesIf requireNamespace("tsjsonc", quietly = TRUE)
 #' # Create a parse tree with tsjsonc -------------------------------------

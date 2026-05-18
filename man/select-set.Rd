@@ -9,25 +9,38 @@
 ts_tree_select(tree, ...) <- value
 }
 \arguments{
-\item{tree}{\eval{tsitter:::doc_insert("ts_tree_select_set_param_tree")}}
+\item{tree}{A \code{ts_tree} object as returned by
+\code{\link[tsitter:ts_tree_new]{ts_tree_new()}}.}
 
-\item{...}{\eval{tsitter:::doc_insert("ts_tree_select_set_param_dots")}}
+\item{...}{Selection expressions, see \code{\link[tsitter:ts_tree_select]{ts_tree_select()}}.}
 
-\item{value}{\eval{tsitter:::doc_insert("ts_tree_select_set_param_value")}}
+\item{value}{An R expression to serialize or
+\code{\link[tsitter:ts_tree_deleted]{ts_tree_deleted()}}.}
 }
 \value{
-\eval{tsitter:::doc_insert("tsitter::ts_tree_select_set_return")}
+A \code{ts_tree} object with the selected parts updated.
 
 \code{ts_tree_deleted()} returns a marker object to be used at the right
 hand side of the \verb{ts_tree_select<-} or the double bracket replacement
 functions, see examples below.
 }
 \description{
-\eval{tsitter:::doc_insert("ts_tree_select_set_description")}
+The \code{\link[tsitter:ts_tree_select<-]{ts_tree_select<-()}} replacement
+function works similarly to the combination of
+\code{\link[tsitter:ts_tree_select]{ts_tree_select()}} and
+\code{\link[tsitter:ts_tree_update]{ts_tree_update()}}, but
+it might be more readable.
 }
 \details{
-\eval{tsitter:::doc_insert("tsitter::ts_tree_select_set_details")}
-\eval{tsitter:::doc_extra()}
+The following two expressions are equivalent:
+
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{tree <- ts_tree_select(tree, <selectors>) |> ts_tree_update(value)
+}\if{html}{\out{</div>}}
+
+and
+
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{ts_tree_select(tree, <selectors>) <- value
+}\if{html}{\out{</div>}}
 
 \code{ts_tree_deleted()} is a special marker to delete elements from a
 ts_tree object with \verb{ts_tree_select<-} or the double bracket operator.

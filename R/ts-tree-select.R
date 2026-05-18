@@ -1,4 +1,10 @@
-#' @ts ts_tree_select_details
+#' Select elements of a tree-sitter tree
+#'
+#' @description
+#' This function is the heart of ts. To edit a tree-sitter tree, you first
+#' need to select the parts you want to delete or update.
+#'
+#' @details
 #' The selection process is iterative. Selection expressions (selectors)
 #' are applied one by one, and each selector selects nodes from the
 #' currently selected nodes. For each selector, it is applied individually
@@ -21,21 +27,15 @@
 #'
 #' Selects all child nodes of the current nodes.
 #'
-#' \eval{tsitter:::doc_tabs("ts_tree_select_true")}
-#'
 #' ### Specific keys: character vector
 #'
 #' Selects child nodes with the given names from nodes with named children.
 #' If a node has no named children, it selects nothing from that node.
 #'
-#' \eval{tsitter:::doc_tabs("ts_tree_select_character")}
-#'
 #' ### By position: integer vector
 #'
 #' Selects child nodes by position. Positive indices count from the start,
 #' negative indices count from the end. Zero indices are not allowed.
-#'
-#' \eval{tsitter:::doc_tabs("ts_tree_select_integer")}
 #'
 #' ### Matching keys: regular expression
 #'
@@ -43,8 +43,6 @@
 #' whose names match the given regular expression, from nodes with named
 #' children. If a node has no named children, it selects nothing from that
 #' node.
-#'
-#' \eval{tsitter:::doc_tabs("ts_tree_select_regex")}
 #'
 #' ### Tree sitter query matches
 #'
@@ -59,14 +57,10 @@
 #' character vector of capture names to select. In this case only nodes
 #' matching the given capture names will be selected.
 #'
-#' \eval{tsitter:::doc_tabs("ts_tree_select_tsquery")}
-#'
 #' ### Explicit node ids
 #'
 #' You can use `I(c(...))` to select nodes by their ids directly. This is
 #' for advanced use cases only.
-#'
-#' \eval{tsitter:::doc_tabs("ts_tree_select_ids")}
 #'
 #' ## Refining selections
 #'
@@ -74,8 +68,6 @@
 #' \code{\link[tsitter:ts_tree_select]{ts_tree_select()}} is `TRUE`, then
 #' the selection starts from the already selected elements (all of them
 #' simultanously), instead of starting from the document element.
-#'
-#' \eval{tsitter:::doc_tabs("ts_tree_select_refine")}
 #'
 #' ## The `ts_tree_select<-()` replacement function
 #'
@@ -85,8 +77,6 @@
 #' \code{\link[tsitter:ts_tree_update]{ts_tree_update()}}, but it might be more
 #' readable.
 #'
-#' \eval{tsitter:::doc_tabs("ts_tree_select_set")}
-#'
 #' ## The `[[` and `[[<-` operators
 #
 #' The `[[` operator works similarly to the combination of
@@ -94,48 +84,25 @@
 #' \code{\link[tsitter:ts_tree_unserialize]{ts_tree_unserialize()}}, but it
 #' might be more readable.
 #'
-#' \eval{tsitter:::doc_tabs("ts_tree_select_brackets")}
-#'
 #' The `[[<-` operator works similarly to the combination of
 #' \code{\link[tsitter:ts_tree_select]{ts_tree_select()}} and
 #' \code{\link[tsitter:ts_tree_update]{ts_tree_update()}}, (and also to the
 #' replacement function \code{\link[tsitter:ts_tree_select<-]{ts_tree_select<-()}}),
 #' but it might be more readable.
 #'
-#' \eval{tsitter:::doc_tabs("ts_tree_select_brackets_set")}
-NULL
-
-#' Select elements of a tree-sitter tree
-#'
-#' @ts ts_tree_select_description
-#' This function is the heart of ts. To edit a tree-sitter tree, you first
-#' need to select the parts you want to delete or update.
-#' @description
-#' \eval{tsitter:::doc_insert("tsitter::ts_tree_select_description")}
-#'
-#' \eval{tsitter:::format_rd_parser_list(tsitter:::ts_list_parsers(), "ts_tree_select")}
-#'
-#' @details
-#' \eval{tsitter:::doc_insert("tsitter::ts_tree_select_details")}
-#' \eval{tsitter:::doc_extra()}
-#'
-#' @ts ts_tree_select_param_tree
+#' @param tree
 #' A `ts_tree` object as returned by
 #' \code{\link[tsitter:ts_tree_new]{ts_tree_new()}}.
-#' @ts ts_tree_select_param_dots
+#' @param ...
 #' Selection expressions, see details.
-#' @ts ts_tree_select_param_refine
+#' @param refine
 #' Logical, whether to refine the current selection or start
 #' a new selection.
-#' @param tree \eval{tsitter:::doc_insert("ts_tree_select_param_tree")}
-#' @param ... \eval{tsitter:::doc_insert("ts_tree_select_param_dots")}
-#' @param refine \eval{tsitter:::doc_insert("ts_tree_select_param_refine")}
-#' @ts ts_tree_select_return
+#'
+#' @return
 #' A `ts_tree` object with the selected parts.
-#' @return \eval{tsitter:::doc_insert("tsitter::ts_tree_select_return")}
 #'
 #' @family ts_tree generics
-#' @seealso \eval{tsitter:::doc_seealso("ts_tree_select")}
 #' @export
 #' @examplesIf requireNamespace("tsjsonc", quietly = TRUE)
 #' # ----------------------------------------------------------------------
@@ -456,15 +423,13 @@ ts_tree_select1.ts_tree.logical <- function(tree, node, slt) {
 
 #' Unserialize parts of a tree-sitter tree
 #'
-#' @ts ts_tree_double_bracket_description
+#' @description
 #' The `[[` operator works similarly to the combination of
 #' \code{\link[tsitter:ts_tree_select]{ts_tree_select()}} and
 #' \code{\link[tsitter:ts_tree_unserialize]{ts_tree_unserialize()}}, but it
 #' might be more readable.
-#' @description
-#' \eval{tsitter:::doc_insert("ts_tree_double_bracket_description")}
 #'
-#' @ts ts_tree_double_bracket_details
+#' @details
 #' The following two expressions are equivalent:
 #' ```r
 #' ts_tree_select(tree, <selectors>) |> ts_tree_unserialize()
@@ -474,8 +439,6 @@ ts_tree_select1.ts_tree.logical <- function(tree, node, slt) {
 #' tree[[list(<selectors>)]]
 #' ```
 #'
-#' \eval{tsitter:::doc_tabs("ts_tree_select_brackets")}
-#'
 #' ## The `[[<-` replacement operator
 #'
 #' The `[[<-` operator works similarly to the combination of
@@ -484,30 +447,17 @@ ts_tree_select1.ts_tree.logical <- function(tree, node, slt) {
 #' replacement function \code{\link[tsitter:ts_tree_select<-]{ts_tree_select<-()}}),
 #' but it might be more readable.
 #'
-#' \eval{tsitter:::doc_tabs("ts_tree_select_brackets_set")}
-#'
-#' @details
-#' \eval{tsitter:::doc_insert("tsitter::ts_tree_double_bracket_details")}
-#' \eval{tsitter:::doc_extra()}
-#'
-#' @ts ts_tree_double_bracket_param_x
+#' @param x
 #' A `ts_tree` object.
-#' @ts ts_tree_double_bracket_param_i
+#' @param i
 #' Selection expressions in a list, see details in
 #' \code{\link[tsitter:ts_tree_select]{ts_tree_select()}}.
-#' @ts ts_tree_double_bracket_param_dots
+#' @param ...
 #' Additional arguments, passed to
 #' \code{\link[tsitter:ts_tree_select]{ts_tree_select()}}.
 #'
-#'
-#' @param x \eval{tsitter:::doc_insert("tsitter::ts_tree_double_bracket_param_x")}
-#' @param i \eval{tsitter:::doc_insert("tsitter::ts_tree_double_bracket_param_i")}
-#' @param ...
-#' \eval{tsitter:::doc_insert("tsitter::ts_tree_double_bracket_param_dots")}
-#'
-#' @ts ts_tree_double_bracket_return
+#' @return
 #' List of R objects, with one entry for each selected element.
-#' @return \eval{tsitter:::doc_insert("tsitter::ts_tree_double_bracket_return")}
 #'
 #' @family ts_tree generics
 #' @family serialization functions
@@ -651,15 +601,14 @@ ts_tree_selector_default <- function(tree) {
 
 #' Edit parts of a tree-sitter tree
 #'
-#' @ts ts_tree_select_set_description
+#' @description
 #' The \code{\link[tsitter:ts_tree_select<-]{ts_tree_select<-()}} replacement
 #' function works similarly to the combination of
 #' \code{\link[tsitter:ts_tree_select]{ts_tree_select()}} and
 #' \code{\link[tsitter:ts_tree_update]{ts_tree_update()}}, but
 #' it might be more readable.
-#' @description \eval{tsitter:::doc_insert("ts_tree_select_set_description")}
 #'
-#' @ts ts_tree_select_set_details
+#' @details
 #' The following two expressions are equivalent:
 #' ```r
 #' tree <- ts_tree_select(tree, <selectors>) |> ts_tree_update(value)
@@ -668,25 +617,19 @@ ts_tree_selector_default <- function(tree) {
 #' ```r
 #' ts_tree_select(tree, <selectors>) <- value
 #' ```
-#' \eval{tsitter:::doc_tabs("ts_tree_select_set")}
-#' @details \eval{tsitter:::doc_insert("tsitter::ts_tree_select_set_details")}
-#' \eval{tsitter:::doc_extra()}
 #'
-#' @ts ts_tree_select_set_param_tree
+#' @param tree
 #' A `ts_tree` object as returned by
 #' \code{\link[tsitter:ts_tree_new]{ts_tree_new()}}.
-#' @ts ts_tree_select_set_param_dots
+#' @param ...
 #' Selection expressions, see \code{\link[tsitter:ts_tree_select]{ts_tree_select()}}.
-#' @ts ts_tree_select_set_param_value
+#'
+#' @param value
 #' An R expression to serialize or
 #' \code{\link[tsitter:ts_tree_deleted]{ts_tree_deleted()}}.
-#' @param tree \eval{tsitter:::doc_insert("ts_tree_select_set_param_tree")}
-#' @param ... \eval{tsitter:::doc_insert("ts_tree_select_set_param_dots")}
-#' @param value \eval{tsitter:::doc_insert("ts_tree_select_set_param_value")}
 #'
-#' @ts ts_tree_select_set_return
+#' @return
 #' A `ts_tree` object with the selected parts updated.
-#' @return \eval{tsitter:::doc_insert("tsitter::ts_tree_select_set_return")}
 #'
 #' @name select-set
 #' @rdname select-set
@@ -723,16 +666,14 @@ ts_tree_selector_default <- function(tree) {
 
 #' Edit parts of a tree-sitter tree
 #'
-#' @ts ts_tree_double_bracket_set_description
+#' @description
 #' The `[[<-` operator works similarly to the combination of
 #' \code{\link[tsitter:ts_tree_select]{ts_tree_select()}} and
 #' \code{\link[tsitter:ts_tree_update]{ts_tree_update()}}, (and also to the
 #' replacement function \code{\link[tsitter:ts_tree_select<-]{ts_tree_select<-()}}),
 #' but it might be more readable.
-#' @description
-#' \eval{tsitter:::doc_insert("ts_tree_double_bracket_set_description")}
 #'
-#' @ts ts_tree_double_bracket_set_details
+#' @details
 #' The following two expressions are equivalent:
 #' ```r
 #' tree <- ts_tree_select(tree, <selectors>) |> ts_tree_update(value)
@@ -741,30 +682,18 @@ ts_tree_selector_default <- function(tree) {
 #' ```r
 #' tree[[list(<selectors>)]] <- value
 #' ```
-#' \eval{tsitter:::doc_tabs("ts_tree_double_brackets_set")}
-#' @details
-#' \eval{tsitter:::doc_insert("tsitter::ts_tree_double_bracket_set_details")}
-#' \eval{tsitter:::doc_extra()}
 #'
-#' @ts ts_tree_double_bracket_set_param_x
+#' @param x
 #' A `ts_tree` object.
-#' @ts ts_tree_double_bracket_set_param_i
+#' @param i
 #' A list with selection expressions, see
 #' \code{\link[tsitter:ts_tree_select]{ts_tree_select()}} for details.
-#' @ts ts_tree_double_bracket_set_param_value
+#' @param value
 #' An R expression to serialize or
 #' \code{\link[tsitter:ts_tree_deleted]{ts_tree_deleted()}}.
 #'
-#' @param x
-#' \eval{tsitter:::doc_insert("tsitter::ts_tree_double_bracket_set_param_x")}
-#' @param i
-#' \eval{tsitter:::doc_insert("tsitter::ts_tree_double_bracket_set_param_i")}
-#' @param value
-#' \eval{tsitter:::doc_insert("tsitter::ts_tree_double_bracket_set_param_value")}
-#'
-#' @ts ts_tree_double_bracket_set_return
+#' @return
 #' The modified `ts_tree` object.
-#' @return \eval{tsitter:::doc_insert("tsitter::ts_tree_double_bracket_set_return")}
 #' @rdname double-bracket-set-ts-tree
 #' @family ts_tree generics
 #' @export

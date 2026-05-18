@@ -7,18 +7,18 @@
 ts_tree_insert(tree, new, key, at, options, ...)
 }
 \arguments{
-\item{tree}{\eval{tsitter:::doc_insert("tsitter::ts_tree_insert_param_tree")}}
+\item{tree}{A \code{ts_tree} object.}
 
-\item{new}{\eval{tsitter:::doc_insert("tsitter::ts_tree_insert_param_new")}
+\item{new}{The new element to insert.
 
 The type of \code{new} depends on the parser and the method that implements
 the insertion. See details in the manual of the specific parser.}
 
-\item{key}{\eval{tsitter:::doc_insert("tsitter::ts_tree_insert_param_key")}
+\item{key}{The key of the new element, if inserting into a keyed element.
 
 For example a JSON(C) object or a TOML table are keyed elements.}
 
-\item{at}{\eval{tsitter:::doc_insert("tsitter::ts_tree_insert_param_at")}
+\item{at}{The position to insert the new element at.
 
 The interpretation of this argument depends on the method that
 implements the insertion. Typically the followings are supported:
@@ -32,23 +32,29 @@ in keyed elements.
 
 See the details in the manual of the specific parser.}
 
-\item{options}{\eval{tsitter:::doc_insert("tsitter::ts_tree_insert_param_options")}
+\item{options}{A list of options for the insertion.
 
 See details in the manual of the specific parser.}
 
 \item{...}{Extra arguments for methods.}
 }
 \value{
-\eval{tsitter:::doc_insert("tsitter::ts_tree_insert_return")}
+A \code{ts_tree} object representing the modified parse tree.
 }
 \description{
-\eval{tsitter:::doc_insert("ts_tree_insert_description")}
-
-\eval{tsitter:::format_rd_parser_list(tsitter:::ts_list_parsers(), "ts_tree_insert")}
+Insert a new element into each selected element.
 }
 \details{
-\eval{tsitter:::doc_insert("tsitter::ts_tree_insert_details")}
-\eval{tsitter:::doc_extra()}
+It is not always possible to insert a new element into a selected
+element. For example in a JSONC document you can only insert a new
+element into an array or an object, but not into scalar elements.
+If the insertion is not possible, an error is raised.
+
+If \code{tree} does not have a selection, the new element is inserted into
+at the top level.
+
+If \code{tree} has an empty selection, then it is returned unchanged, i.e.
+no new element is inserted.
 }
 \examples{
 \dontshow{if (requireNamespace("tsjsonc", quietly = TRUE)) withAutoprint(\{ # examplesIf}
@@ -72,8 +78,6 @@ tree |>
 \dontshow{\}) # examplesIf}
 }
 \seealso{
-\eval{tsitter:::doc_seealso("ts_tree_insert")}
-
 Other ts_tree generics:
 \code{\link[=[[.ts_tree]{[[.ts_tree()}},
 \code{\link[=[[<-.ts_tree]{[[<-.ts_tree()}},

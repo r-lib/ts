@@ -1,16 +1,12 @@
 #' Write a tree-sitter tree to a file
 #'
-#' @ts ts_tree_write_description
-#' Writes the document of a ts `ts_tree` object to a file or connection.
 #' @description
-#' \eval{tsitter:::doc_insert("ts_tree_write_description")}
+#' Writes the document of a ts `ts_tree` object to a file or connection.
 #'
-#' @ts ts_tree_write_details
+#' @details
 #' If `tree` was created from a file, then `ts_tree_write()` by default
 #' writes it back to the same file. Otherwise, the `file` argument must be
 #' specified.
-#'
-#' \eval{tsitter:::doc_tabs("ts_tree_write_details_file")}
 #'
 #' To write to a connection, pass a connection object to the `file`
 #' argument. If the connection is opened in binary mode, the raw bytes
@@ -23,28 +19,19 @@
 #' Use `file = stdout()` to write to the standard output, i.e. to the
 #' console in an interactive R session.
 #'
-#' @details
-#' \eval{tsitter:::doc_insert("tsitter::ts_tree_write_details")}
-#' \eval{tsitter:::doc_extra()}
-#'
-#' @ts ts_tree_write_param_tree
-#' A `ts_tree` object as returned by
+#' @param tree
+#'  A `ts_tree` object as returned by
 #' \code{\link[tsitter:ts_tree_new]{ts_tree_new()}}.
-#' @ts ts_tree_write_param_file
+#' @param file
 #' Character string, connection, or `NULL`. The file or connection
 #' to write to. By default it writes to the same file that was used in
 #' \code{\link[tsitter:ts_tree_new]{ts_tree_new()}}, if `tree` was read from a
 #' file.
 #'
-#' @param tree \eval{tsitter:::doc_insert("tsitter::ts_tree_write_param_tree")}
-#' @param file \eval{tsitter:::doc_insert("tsitter::ts_tree_write_param_file")}
-#'
-#' @ts ts_tree_write_return
+#' @return
 #' Invisibly returns `NULL`.
-#' @return \eval{tsitter:::doc_insert("tsitter::ts_tree_write_return")}
 #'
 #' @family ts_tree generics
-#' @seealso \eval{tsitter:::doc_seealso("ts_tree_write")}
 #' @export
 #' @examplesIf Sys.getenv("IN_PKGDOWN") == "true"
 #' # Create a parse tree with tsjsonc -------------------------------------

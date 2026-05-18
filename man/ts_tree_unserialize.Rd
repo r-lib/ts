@@ -7,22 +7,30 @@
 ts_tree_unserialize(tree)
 }
 \arguments{
-\item{tree}{\eval{tsitter:::doc_insert("tsitter::ts_tree_unserialize_param_tree")}}
+\item{tree}{A \code{ts_tree} object.}
 }
 \value{
-\eval{tsitter:::doc_insert("tsitter::ts_tree_unserialize_return")}
+List of R objects, with one entry for each selected element.
 }
 \description{
-\eval{tsitter:::doc_insert("ts_tree_unserialize_description")}
-
-\eval{tsitter:::format_rd_parser_list(tsitter:::ts_list_parsers(), "ts_tree_unserialize")}
+Unserialize the selected elements of a \code{ts_tree} object, i.e. convert
+them to R objects.
 }
 \details{
-\eval{tsitter:::doc_insert("tsitter::ts_tree_unserialize_details")}
-\eval{tsitter:::doc_extra()}
+If no elements are selected in the tree, then the whole document is
+unserialized.
+
+If the tree has an empty selection, then an empty list is returned.
+\subsection{The \code{[[} operator}{
+
+The \code{[[} operator works similarly to the combination of
+\code{\link[tsitter:ts_tree_select]{ts_tree_select()}} and
+\code{ts_tree_unserialize()}, but it might be more readable.
+
 For the details on how the selected elements are mapped to R objects,
 see the documentation of the methods in the parser packages. The methods
 in the installed parser packages are linked below.
+}
 }
 \examples{
 \dontshow{if (requireNamespace("tsjsonc", quietly = TRUE)) withAutoprint(\{ # examplesIf}
@@ -37,8 +45,6 @@ tree |> ts_tree_select("b") |> ts_tree_unserialize()
 \dontshow{\}) # examplesIf}
 }
 \seealso{
-\eval{tsitter:::doc_seealso("ts_tree_unserialize")}
-
 Other ts_tree generics:
 \code{\link[=[[.ts_tree]{[[.ts_tree()}},
 \code{\link[=[[<-.ts_tree]{[[<-.ts_tree()}},

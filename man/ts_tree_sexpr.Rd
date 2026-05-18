@@ -7,17 +7,17 @@
 ts_tree_sexpr(tree)
 }
 \arguments{
-\item{tree}{\eval{tsitter:::doc_insert("tsitter::ts_tree_sexpr_param_tree")}}
+\item{tree}{A \code{ts_tree} object.}
 }
 \value{
-\eval{tsitter:::doc_insert("tsitter::ts_tree_sexpr_return")}
+A string representing the S-expression of the syntax tree.
 }
 \description{
-\eval{tsitter:::doc_insert("ts_tree_sexpr_description")}
-\eval{tsitter:::format_rd_parser_list(tsitter:::ts_list_parsers(), "ts_tree_sexpr")}
+Show the structure of a tree-sitter tree as an S-expression.
 }
 \details{
-\eval{tsitter:::doc_insert("ts_tree_sexpr_details")}
+This function returns a nested list representation of the syntax tree,
+where each node is represented as a list with its type and children.
 }
 \examples{
 \dontshow{if (requireNamespace("tsjsonc", quietly = TRUE)) withAutoprint(\{ # examplesIf}
@@ -42,7 +42,7 @@ ts_tree_sexpr(tree)
 }
 \seealso{
 Other ts_tree exploration:
-\code{\link{ts_tree-brackets}},
+\code{\link[=[.ts_tree]{[.ts_tree()}},
 \code{\link[=ts_tree_ast]{ts_tree_ast()}},
 \code{\link[=ts_tree_dom]{ts_tree_dom()}},
 \code{\link[=ts_tree_query]{ts_tree_query()}}
