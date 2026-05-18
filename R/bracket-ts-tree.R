@@ -32,10 +32,11 @@
 #' A `ts_tree` object.
 #' @ts ts_tree_brackets_param_ij
 #' Incides, passed to the regular data.frame indexing method, see
-#' \code{\link[base:Extract]{'Extract'}}.
+#' \code{\link[base:Extract]{Extract}}.
 #' @ts ts_tree_brackets_param_drop
+#' @param drop
 #' Passed to the regular data.frame indexing method, see
-#' \code{\link[base:Extract]{'Extract'}}.
+#' \code{\link[base:Extract]{Extract}}.
 #'
 #' @param x \eval{tsitter:::doc_insert("tsitter::ts_tree_brackets_param_x")}
 #' @param i,j \eval{tsitter:::doc_insert("tsitter::ts_tree_brackets_param_ij")}

@@ -52,7 +52,7 @@
 #'
 #' @ts ts_tree_new_return
 #' A `ts_tree` object representing the parse tree of the input. You can
-#' use the single bracket \code{\link[tsitter::ts_tree-brackets]{`[`}}
+#' use the single bracket \code{\link[tsitter:ts_tree-brackets]{[}}
 #' operator to convert it to a data frame.
 #' @return
 #' \eval{tsitter:::doc_insert("tsitter::ts_tree_new_return", "ts")}
