@@ -28,7 +28,7 @@ but it might be more readable.
 \details{
 The following two expressions are equivalent:
 
-\if{html}{\out{<div class="sourceCode r">}}\preformatted{tree <- ts_tree_select(tree, <selectors>) |> ts_tree_update(value)
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{tree <- ts_tree_update(ts_tree_select(tree, <selectors>), value)
 }\if{html}{\out{</div>}}
 
 and

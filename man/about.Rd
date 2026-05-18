@@ -160,7 +160,7 @@ Select multiple keys from an object:
 
 Select nodes that match a tree-sitter query:
 
-\if{html}{\out{<div class="sourceCode r">}}\preformatted{json |> ts_tree_select(query = "((pair value: (false) @val))")
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{ts_tree_select(json, query = "((pair value: (false) @val))")
 }\if{html}{\out{</div>}}\if{html}{\out{
 <div class="asciicast" style="color: #B9C0CB;font-family: 'Fira Code',Monaco,Consolas,Menlo,'Bitstream Vera Sans Mono','Powerline Symbols',monospace;line-height: 1.300000"><pre>
 #> <span style="color: #6F7783;"># jsonc (19 lines, 3 selected elements)</span>
@@ -185,7 +185,7 @@ Select nodes that match a tree-sitter query:
 
 Delete selected elements:
 
-\if{html}{\out{<div class="sourceCode r">}}\preformatted{ts_tree_select(json, "a", "a1") |> ts_tree_delete()
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{ts_tree_delete(ts_tree_select(json, "a", "a1"))
 }\if{html}{\out{</div>}}\if{html}{\out{
 <div class="asciicast" style="color: #B9C0CB;font-family: 'Fira Code',Monaco,Consolas,Menlo,'Bitstream Vera Sans Mono','Powerline Symbols',monospace;line-height: 1.300000"><pre>
 #> <span style="color: #6F7783;"># jsonc (18 lines)</span>
@@ -210,7 +210,7 @@ Delete selected elements:
 
 Insert element into an array:
 
-\if{html}{\out{<div class="sourceCode r">}}\preformatted{ts_tree_select(json, "a", "a1") |> ts_tree_insert(at = 2, "new")
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{ts_tree_insert(ts_tree_select(json, "a", "a1"), at = 2, "new")
 }\if{html}{\out{</div>}}\if{html}{\out{
 <div class="asciicast" style="color: #B9C0CB;font-family: 'Fira Code',Monaco,Consolas,Menlo,'Bitstream Vera Sans Mono','Powerline Symbols',monospace;line-height: 1.300000"><pre>
 #> <span style="color: #6F7783;"># jsonc (24 lines)</span>
@@ -234,8 +234,12 @@ Inserting into an array reformats the array.
 
 Insert element into an object, at the specified key:
 
-\if{html}{\out{<div class="sourceCode r">}}\preformatted{ts_tree_select(json, "a") |>
-  ts_tree_insert(key = "a0", at = 0, list("new", "element"))
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{ts_tree_insert(
+  ts_tree_select(json, "a"),
+  key = "a0",
+  at = 0,
+  list("new", "element")
+)
 }\if{html}{\out{</div>}}\if{html}{\out{
 <div class="asciicast" style="color: #B9C0CB;font-family: 'Fira Code',Monaco,Consolas,Menlo,'Bitstream Vera Sans Mono','Powerline Symbols',monospace;line-height: 1.300000"><pre>
 #> <span style="color: #6F7783;"># jsonc (27 lines)</span>
@@ -260,7 +264,7 @@ Insert element into an object, at the specified key:
 
 Update existing element:
 
-\if{html}{\out{<div class="sourceCode r">}}\preformatted{ts_tree_select(json, "a", c("a1", "a2")) |> ts_tree_update("new value")
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{ts_tree_update(ts_tree_select(json, "a", c("a1", "a2")), "new value")
 }\if{html}{\out{</div>}}\if{html}{\out{
 <div class="asciicast" style="color: #B9C0CB;font-family: 'Fira Code',Monaco,Consolas,Menlo,'Bitstream Vera Sans Mono','Powerline Symbols',monospace;line-height: 1.300000"><pre>
 #> <span style="color: #6F7783;"># jsonc (19 lines)</span>
@@ -305,7 +309,7 @@ json
 }}
 
 
-\if{html}{\out{<div class="sourceCode r">}}\preformatted{ts_tree_select(json, "a", "x", "y") |> ts_tree_update(list(1,2,3))
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{ts_tree_update(ts_tree_select(json, "a", "x", "y"), list(1, 2, 3))
 }\if{html}{\out{</div>}}\if{html}{\out{
 <div class="asciicast" style="color: #B9C0CB;font-family: 'Fira Code',Monaco,Consolas,Menlo,'Bitstream Vera Sans Mono','Powerline Symbols',monospace;line-height: 1.300000"><pre>
 #> <span style="color: #6F7783;"># jsonc (30 lines)</span>
@@ -330,7 +334,7 @@ json
 
 Use \code{stdout()} to write it to the screen instread of a file:
 
-\if{html}{\out{<div class="sourceCode r">}}\preformatted{json |> ts_tree_write(stdout())
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{ts_tree_write(json, stdout())
 }\if{html}{\out{</div>}}\if{html}{\out{
 <div class="asciicast" style="color: #B9C0CB;font-family: 'Fira Code',Monaco,Consolas,Menlo,'Bitstream Vera Sans Mono','Powerline Symbols',monospace;line-height: 1.300000"><pre>
 #>
@@ -361,7 +365,7 @@ Use \code{stdout()} to write it to the screen instread of a file:
 
 Format the whole document:
 
-\if{html}{\out{<div class="sourceCode r">}}\preformatted{json |> ts_tree_format()
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{ts_tree_format(json)
 }\if{html}{\out{</div>}}\if{html}{\out{
 <div class="asciicast" style="color: #B9C0CB;font-family: 'Fira Code',Monaco,Consolas,Menlo,'Bitstream Vera Sans Mono','Powerline Symbols',monospace;line-height: 1.300000"><pre>
 #> <span style="color: #6F7783;"># jsonc (23 lines)</span>
@@ -383,8 +387,10 @@ Format the whole document:
 
 Format part of the document:
 
-\if{html}{\out{<div class="sourceCode r">}}\preformatted{json |> ts_tree_select("a") |>
-  ts_tree_format(options = list(format = "compact"))
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{ts_tree_format(
+  ts_tree_select(json, "a"),
+  options = list(format = "compact")
+)
 }\if{html}{\out{</div>}}\if{html}{\out{
 <div class="asciicast" style="color: #B9C0CB;font-family: 'Fira Code',Monaco,Consolas,Menlo,'Bitstream Vera Sans Mono','Powerline Symbols',monospace;line-height: 1.300000"><pre>
 #> <span style="color: #6F7783;"># jsonc (15 lines)</span>
@@ -409,7 +415,7 @@ Format part of the document:
 
 Unserialize a whole document:
 
-\if{html}{\out{<div class="sourceCode r">}}\preformatted{json |> ts_tree_unserialize()
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{ts_tree_unserialize(json)
 }\if{html}{\out{</div>}}\if{html}{\out{
 <div class="asciicast" style="color: #B9C0CB;font-family: 'Fira Code',Monaco,Consolas,Menlo,'Bitstream Vera Sans Mono','Powerline Symbols',monospace;line-height: 1.300000"><pre>
 #> [[1]]
@@ -457,7 +463,7 @@ of the list is the unserialized document.
 
 Unserialize part(s) of the document:
 
-\if{html}{\out{<div class="sourceCode r">}}\preformatted{json |> ts_tree_select("b") |> ts_tree_unserialize()
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{ts_tree_unserialize(ts_tree_select(json, "b"))
 }\if{html}{\out{</div>}}\if{html}{\out{
 <div class="asciicast" style="color: #B9C0CB;font-family: 'Fira Code',Monaco,Consolas,Menlo,'Bitstream Vera Sans Mono','Powerline Symbols',monospace;line-height: 1.300000"><pre>
 #> [[1]]

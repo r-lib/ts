@@ -112,7 +112,7 @@
 #'   text = '{ "a": 1, "b": 2, "c": { "d": 3, "e": 4 } }'
 #' )
 #'
-#' json |> ts_tree_select("c", "d")
+#' ts_tree_select(json, "c", "d")
 #'
 #' @examplesIf requireNamespace("tstoml", quietly = TRUE)
 #'
@@ -123,7 +123,7 @@
 #'   text = tstoml::toml_example_text()
 #' )
 #'
-#' toml |> ts_tree_select("servers", TRUE, "ip")
+#' ts_tree_select(toml, "servers", TRUE, "ip")
 
 ts_tree_select <- function(tree, ..., refine = FALSE) {
   slts <- normalize_selectors(tree, list(...))
@@ -432,7 +432,7 @@ ts_tree_select1.ts_tree.logical <- function(tree, node, slt) {
 #' @details
 #' The following two expressions are equivalent:
 #' ```r
-#' ts_tree_select(tree, <selectors>) |> ts_tree_unserialize()
+#' ts_tree_unserialize(ts_tree_select(tree, <selectors>))
 #' ```
 #' and
 #' ```r
@@ -611,7 +611,7 @@ ts_tree_selector_default <- function(tree) {
 #' @details
 #' The following two expressions are equivalent:
 #' ```r
-#' tree <- ts_tree_select(tree, <selectors>) |> ts_tree_update(value)
+#' tree <- ts_tree_update(ts_tree_select(tree, <selectors>), value)
 #' ```
 #' and
 #' ```r
@@ -676,7 +676,7 @@ ts_tree_selector_default <- function(tree) {
 #' @details
 #' The following two expressions are equivalent:
 #' ```r
-#' tree <- ts_tree_select(tree, <selectors>) |> ts_tree_update(value)
+#' tree <- ts_tree_update(ts_tree_select(tree, <selectors>), value)
 #' ```
 #' and
 #' ```r

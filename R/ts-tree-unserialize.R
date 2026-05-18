@@ -35,9 +35,9 @@
 #'
 #' tree
 #'
-#' tree |> ts_tree_select(c("b", "c")) |> ts_tree_unserialize()
+#' ts_tree_unserialize(ts_tree_select(tree, c("b", "c")))
 #'
-#' tree |> ts_tree_select("b") |> ts_tree_unserialize()
+#' ts_tree_unserialize(ts_tree_select(tree, "b"))
 
 ts_tree_unserialize <- function(tree) {
   UseMethod("ts_tree_unserialize")

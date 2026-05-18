@@ -27,7 +27,7 @@ might be more readable.
 \details{
 The following two expressions are equivalent:
 
-\if{html}{\out{<div class="sourceCode r">}}\preformatted{ts_tree_select(tree, <selectors>) |> ts_tree_unserialize()
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{ts_tree_unserialize(ts_tree_select(tree, <selectors>))
 }\if{html}{\out{</div>}}
 
 and

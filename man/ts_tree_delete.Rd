@@ -41,9 +41,9 @@ tree <- tsjsonc::ts_parse_jsonc(
 
 tree
 
-tree |> ts_tree_select("a")
+ts_tree_select(tree, "a")
 
-tree |> ts_tree_select("a") |> ts_tree_delete()
+ts_tree_delete(ts_tree_select(tree, "a"))
 \dontshow{\}) # examplesIf}
 \dontshow{if (requireNamespace("tstoml", quietly = TRUE)) withAutoprint(\{ # examplesIf}
 # Create a parse tree with tstoml --------------------------------------
@@ -55,8 +55,8 @@ tree <- tstoml::ts_parse_toml(r"(
 
 tree
 
-tree |> ts_tree_select("servers", TRUE, "dc")
-tree |> ts_tree_select("servers", TRUE, "dc") |> ts_tree_delete()
+ts_tree_select(tree, "servers", TRUE, "dc")
+ts_tree_delete(ts_tree_select(tree, "servers", TRUE, "dc"))
 \dontshow{\}) # examplesIf}
 }
 \seealso{

@@ -38,12 +38,13 @@ tree <- tsjsonc::ts_parse_jsonc('{ "a":true, "b": [1,2,3] }')
 tree
 
 # Format whole document
-tree |> ts_tree_format()
+ts_tree_format(tree)
 
 # Format each top element under the document node in one line
-tree |> ts_tree_format() |>
-  ts_tree_select(TRUE) |>
-  ts_tree_format(options = list(format = "oneline"))
+ts_tree_format(
+  ts_tree_select(ts_tree_format(tree), TRUE),
+  options = list(format = "oneline")
+)
 
 \dontshow{\}) # examplesIf}
 \dontshow{if (requireNamespace("tstoml", quietly = TRUE)) withAutoprint(\{ # examplesIf}
@@ -56,7 +57,7 @@ tree <- tstoml::ts_parse_toml(r"(
 
 tree
 
-tree |> ts_tree_format()
+ts_tree_format(tree)
 \dontshow{\}) # examplesIf}
 }
 \seealso{

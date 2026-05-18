@@ -49,7 +49,7 @@ and the query language support. See links below.
 json <- tsjsonc::ts_parse_jsonc(
   '{ "a": 1, "b": [10, 20, 30], "c": { "c1": true, "c2": 100 } }'
 )
-json |> ts_tree_query("(number) @number")
+ts_tree_query(json, "(number) @number")
 \dontshow{\}) # examplesIf}
 }
 \seealso{

@@ -47,7 +47,7 @@ tree <- tsjsonc::ts_parse_jsonc(r"(
   }
 )")
 
-tree |> ts_tree_select("version") |> ts_tree_update("2.0.0")
+ts_tree_update(ts_tree_select(tree, "version"), "2.0.0")
 \dontshow{\}) # examplesIf}
 \dontshow{if (requireNamespace("tstoml", quietly = TRUE)) withAutoprint(\{ # examplesIf}
 # Create a parse tree with tstoml --------------------------------------
@@ -58,7 +58,7 @@ tree <- tstoml::ts_parse_toml(r"(
   depdendencies = { tstoml = "0.1.0" }
 )")
 
-tree |> ts_tree_select("package", "version") |> ts_tree_update("2.0.0")
+ts_tree_update(ts_tree_select(tree, "package", "version"), "2.0.0")
 \dontshow{\}) # examplesIf}
 }
 \seealso{

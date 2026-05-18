@@ -78,7 +78,7 @@ Select nodes that match a tree-sitter query:
 
 ```{asciicast}
 #| label: select-query
-json |> ts_tree_select(query = "((pair value: (false) @val))")
+ts_tree_select(json, query = "((pair value: (false) @val))")
 ```
 
 ### Delete elements
@@ -87,7 +87,7 @@ Delete selected elements:
 
 ```{asciicast}
 #| label: delete
-ts_tree_select(json, "a", "a1") |> ts_tree_delete()
+ts_tree_delete(ts_tree_select(json, "a", "a1"))
 ```
 
 ### Insert elements
@@ -96,7 +96,7 @@ Insert element into an array:
 
 ```{asciicast}
 #| label: insert-array
-ts_tree_select(json, "a", "a1") |> ts_tree_insert(at = 2, "new")
+ts_tree_insert(ts_tree_select(json, "a", "a1"), at = 2, "new")
 ```
 
 Inserting into an array reformats the array.
@@ -105,8 +105,12 @@ Insert element into an object, at the specified key:
 
 ```{asciicast}
 #| label: insert-object
-ts_tree_select(json, "a") |>
-  ts_tree_insert(key = "a0", at = 0, list("new", "element"))
+ts_tree_insert(
+  ts_tree_select(json, "a"),
+  key = "a0",
+  at = 0,
+  list("new", "element")
+)
 ```
 
 ### Update elements
@@ -115,7 +119,7 @@ Update existing element:
 
 ```{asciicast}
 #| label: update
-ts_tree_select(json, "a", c("a1", "a2")) |> ts_tree_update("new value")
+ts_tree_update(ts_tree_select(json, "a", c("a1", "a2")), "new value")
 ```
 
 Inserts the element if some parents are missing:
@@ -128,7 +132,7 @@ json
 
 ```{asciicast}
 #| label: update-insert-2
-ts_tree_select(json, "a", "x", "y") |> ts_tree_update(list(1,2,3))
+ts_tree_update(ts_tree_select(json, "a", "x", "y"), list(1, 2, 3))
 ```
 
 ### Write out a document
@@ -137,7 +141,7 @@ Use `stdout()` to write it to the screen instread of a file:
 
 ```{asciicast}
 #| label: write
-json |> ts_tree_write(stdout())
+ts_tree_write(json, stdout())
 ```
 
 ### Formatting
@@ -146,15 +150,17 @@ Format the whole document:
 
 ```{asciicast}
 #| label: format
-json |> ts_tree_format()
+ts_tree_format(json)
 ```
 
 Format part of the document:
 
 ```{asciicast}
 #| label: format-part
-json |> ts_tree_select("a") |>
-  ts_tree_format(options = list(format = "compact"))
+ts_tree_format(
+  ts_tree_select(json, "a"),
+  options = list(format = "compact")
+)
 ```
 
 ### Unserializing
@@ -163,7 +169,7 @@ Unserialize a whole document:
 
 ```{asciicast}
 #| label: unserialize
-json |> ts_tree_unserialize()
+ts_tree_unserialize(json)
 ```
 
 Note that `ts_tree_unserialize()` always returns a list, the first element
@@ -172,7 +178,7 @@ of the list is the unserialized document.
 Unserialize part(s) of the document:
 ```{asciicast}
 #| label: unserialize-part
-json |> ts_tree_select("b") |> ts_tree_unserialize()
+ts_tree_unserialize(ts_tree_select(json, "b"))
 ```
 
 Again, `ts_tree_unserialize()` returns a list, with one element for each

@@ -44,7 +44,7 @@ console in an interactive R session.
 tree <- tsjsonc::ts_parse_jsonc('{"foo": 42, "bar": [1, 2, 3]}')
 
 # Format and write to file
-tree |> ts_tree_format() |> ts_tree_write("example.json")
+ts_tree_write(ts_tree_format(tree), "example.json")
 \dontshow{\}) # examplesIf}
 }
 \seealso{
