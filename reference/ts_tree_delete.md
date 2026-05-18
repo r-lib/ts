@@ -1,7 +1,7 @@
 # Delete selected elements from a tree-sitter tree
 
 Use
-[`ts_tree_select()`](https://r-lib.github.io/ts/reference/ts_tree_select.md)
+[`ts_tree_select()`](https://r-lib.github.io/tsitter/reference/ts_tree_select.md)
 to select the elements to be deleted, and then call `ts_tree_delete()`
 to remove them from the tree.
 
@@ -50,7 +50,7 @@ TOML
     jsonc <- tsjsonc::ts_parse_jsonc(
       "{ \"a\": true, \"b\": [1, 2, 3] }"
     ) |>
-      ts::ts_tree_format()
+      tsitter::ts_tree_format()
     jsonc
 
 
@@ -173,7 +173,7 @@ TOML
 
     jsonc <- tsjsonc::ts_parse_jsonc(
       "// top comment\n{ \"a\": // comment\n  true,\n \"b\": [1, 2, 3] }"
-    ) |> ts::ts_tree_format()
+    ) |> tsitter::ts_tree_format()
     jsonc
 
 
@@ -241,22 +241,22 @@ Methods in installed packages: `ts_tree_delete(<ts_tree_tsjsonc>)` and
 `ts_tree_delete(<ts_tree_tstoml>)`.
 
 Other ts_tree generics:
-[`[[.ts_tree()`](https://r-lib.github.io/ts/reference/double-bracket-ts-tree.md),
-`[[<-.ts_tree()`,
-[`format.ts_tree()`](https://r-lib.github.io/ts/reference/format.ts_tree.md),
-[`print.ts_tree()`](https://r-lib.github.io/ts/reference/print.ts_tree.md),
-[`select-set`](https://r-lib.github.io/ts/reference/select-set.md),
-[`ts_tree_ast()`](https://r-lib.github.io/ts/reference/ts_tree_ast.md),
-[`ts_tree_dom()`](https://r-lib.github.io/ts/reference/ts_tree_dom.md),
-[`ts_tree_format()`](https://r-lib.github.io/ts/reference/ts_tree_format.md),
-[`ts_tree_insert()`](https://r-lib.github.io/ts/reference/ts_tree_insert.md),
-[`ts_tree_new()`](https://r-lib.github.io/ts/reference/ts_tree_new.md),
-[`ts_tree_query()`](https://r-lib.github.io/ts/reference/ts_tree_query.md),
-[`ts_tree_select()`](https://r-lib.github.io/ts/reference/ts_tree_select.md),
-[`ts_tree_sexpr()`](https://r-lib.github.io/ts/reference/ts_tree_sexpr.md),
-[`ts_tree_unserialize()`](https://r-lib.github.io/ts/reference/ts_tree_unserialize.md),
-[`ts_tree_update()`](https://r-lib.github.io/ts/reference/ts_tree_update.md),
-[`ts_tree_write()`](https://r-lib.github.io/ts/reference/ts_tree_write.md)
+[`[[.ts_tree()`](https://r-lib.github.io/tsitter/reference/double-bracket-ts-tree.md),
+[`[[<-.ts_tree()`](https://r-lib.github.io/tsitter/reference/double-bracket-set-ts-tree.md),
+[`format.ts_tree()`](https://r-lib.github.io/tsitter/reference/format.ts_tree.md),
+[`print.ts_tree()`](https://r-lib.github.io/tsitter/reference/print.ts_tree.md),
+[`select-set`](https://r-lib.github.io/tsitter/reference/select-set.md),
+[`ts_tree_ast()`](https://r-lib.github.io/tsitter/reference/ts_tree_ast.md),
+[`ts_tree_dom()`](https://r-lib.github.io/tsitter/reference/ts_tree_dom.md),
+[`ts_tree_format()`](https://r-lib.github.io/tsitter/reference/ts_tree_format.md),
+[`ts_tree_insert()`](https://r-lib.github.io/tsitter/reference/ts_tree_insert.md),
+[`ts_tree_new()`](https://r-lib.github.io/tsitter/reference/ts_tree_new.md),
+[`ts_tree_query()`](https://r-lib.github.io/tsitter/reference/ts_tree_query.md),
+[`ts_tree_select()`](https://r-lib.github.io/tsitter/reference/ts_tree_select.md),
+[`ts_tree_sexpr()`](https://r-lib.github.io/tsitter/reference/ts_tree_sexpr.md),
+[`ts_tree_unserialize()`](https://r-lib.github.io/tsitter/reference/ts_tree_unserialize.md),
+[`ts_tree_update()`](https://r-lib.github.io/tsitter/reference/ts_tree_update.md),
+[`ts_tree_write()`](https://r-lib.github.io/tsitter/reference/ts_tree_write.md)
 
 ## Examples
 

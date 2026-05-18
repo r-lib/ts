@@ -1,8 +1,8 @@
-# ts
+# tsitter
 
 Common tree-sitter parsing tools for R.
 
-ts is a common interface to
+tsitter is a common interface to
 [tree-sitter](https://tree-sitter.github.io/tree-sitter/) parsers,
 implemented in other R packages. It has a common API to
 
@@ -15,21 +15,21 @@ tree-sitter parse trees.
 
 ## Installation
 
-Install ts from CRAN:
+Install tsitter from CRAN:
 
 ``` r
 
-install.packages("ts")
+install.packages("tsitter")
 ```
 
 ## Documentation
 
 See at
-[`https://r-lib.github.io/ts/`](https://r-lib.github.io/ts/reference/index.html)
+[`https://r-lib.github.io/tsitter/`](https://r-lib.github.io/tsitter/reference/index.html)
 and also in the installed package:
-[`help(package = "ts")`](https://r-lib.github.io/ts/reference).
+[`help(package = "tsitter")`](https://r-lib.github.io/ts/reference).
 
-## Parsers that use ts
+## Parsers that use tsitter
 
 - JSONC (JSON with comments and trailing commas):
   [tsjsonc](https://gaborcsardi.github.io/tsjsonc/).
@@ -463,7 +463,7 @@ json |> ts_tree_unserialize()
     #>
 
 Note that
-[`ts_tree_unserialize()`](https://r-lib.github.io/ts/reference/ts_tree_unserialize.md)
+[`ts_tree_unserialize()`](https://r-lib.github.io/tsitter/reference/ts_tree_unserialize.md)
 always returns a list, the first element of the list is the unserialized
 document.
 
@@ -495,7 +495,7 @@ json |> ts_tree_select("b") |> ts_tree_unserialize()
     #>
 
 Again,
-[`ts_tree_unserialize()`](https://r-lib.github.io/ts/reference/ts_tree_unserialize.md)
+[`ts_tree_unserialize()`](https://r-lib.github.io/tsitter/reference/ts_tree_unserialize.md)
 returns a list, with one element for each selected node.
 
 ### Exploring a tree-sitter tree

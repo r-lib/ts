@@ -5,10 +5,10 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Tree-Sitter Parsing Tools • ts</title>
+<title>Tree-Sitter Parsing Tools • tsitter</title>
 <script src="deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link href="deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
-<script src="deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="deps/Source_Sans_Pro-0.4.10/font.css" rel="stylesheet">
+<link href="deps/bootstrap-5.3.8/bootstrap.min.css" rel="stylesheet">
+<script src="deps/bootstrap-5.3.8/bootstrap.bundle.min.js"></script><link href="deps/Source_Sans_Pro-0.4.10/font.css" rel="stylesheet">
 <link href="deps/Source_Code_Pro-0.4.10/font.css" rel="stylesheet">
 <link href="deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
 <link href="deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
@@ -22,7 +22,7 @@
 
     <nav class="navbar navbar-expand-lg fixed-top bg-none" data-bs-theme="light" aria-label="Site navigation"><div class="container">
 
-    <a class="navbar-brand me-2" href="index.html">ts</a>
+    <a class="navbar-brand me-2" href="index.html">tsitter</a>
 
     <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Unreleased version">0.0.0.9000</small>
 
@@ -33,7 +33,7 @@
 
     <div id="navbar" class="collapse navbar-collapse ms-3">
       <ul class="navbar-nav me-auto">
-<li class="nav-item"><a class="nav-link" href="reference/about.html">About ts</a></li>
+<li class="nav-item"><a class="nav-link" href="reference/about.html">About tsitter</a></li>
 <li class="nav-item"><a class="nav-link" href="reference/index.html">Reference</a></li>
       </ul>
 <ul class="navbar-nav">
@@ -41,7 +41,7 @@
 <li class="nav-item"><form class="form-inline" role="search">
  <input class="form-control" type="search" name="search-input" id="search-input" autocomplete="off" aria-label="Search site" placeholder="Search for" data-search-index="search.json">
 </form></li>
-<li class="nav-item"><a class="external-link nav-link" href="https://github.com/r-lib/ts/" aria-label="GitHub"><span class="fa fab fa-github fa-lg"></span></a></li>
+<li class="nav-item"><a class="external-link nav-link" href="https://github.com/r-lib/tsitter/" aria-label="GitHub"><span class="fa fab fa-github fa-lg"></span></a></li>
       </ul>
 </div>
 
@@ -50,12 +50,12 @@
 </nav><div class="container template-home" id="container">
 <div class="row">
   <main id="main" class="col-md-9"><div class="section level1">
-<div class="page-header"><h1 id="ts">ts<a class="anchor" aria-label="anchor" href="#ts"></a>
+<div class="page-header"><h1 id="tsitter">tsitter<a class="anchor" aria-label="anchor" href="#tsitter"></a>
 </h1></div>
 <!-- badges: start -->
 
 <p>Common tree-sitter parsing tools for R.</p>
-<p>ts is a common interface to <a href="https://tree-sitter.github.io/tree-sitter/" class="external-link">tree-sitter</a> parsers, implemented in other R packages. It has a common API to</p>
+<p>tsitter is a common interface to <a href="https://tree-sitter.github.io/tree-sitter/" class="external-link">tree-sitter</a> parsers, implemented in other R packages. It has a common API to</p>
 <ul>
 <li>query,</li>
 <li>edit,</li>
@@ -66,17 +66,17 @@
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
-<p>Install ts from CRAN:</p>
+<p>Install tsitter from CRAN:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"ts"</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"tsitter"</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="documentation">Documentation<a class="anchor" aria-label="anchor" href="#documentation"></a>
 </h2>
-<p>See at <a href="https://r-lib.github.io/ts/reference/index.html"><code>https://r-lib.github.io/ts/</code></a> and also in the installed package: <code><a href="https://r-lib.github.io/ts/reference">help(package = "ts")</a></code>.</p>
+<p>See at <a href="https://r-lib.github.io/tsitter/reference/index.html"><code>https://r-lib.github.io/tsitter/</code></a> and also in the installed package: <code><a href="https://r-lib.github.io/ts/reference" class="external-link">help(package = "tsitter")</a></code>.</p>
 </div>
 <div class="section level2">
-<h2 id="parsers-that-use-ts">Parsers that use ts<a class="anchor" aria-label="anchor" href="#parsers-that-use-ts"></a>
+<h2 id="parsers-that-use-tsitter">Parsers that use tsitter<a class="anchor" aria-label="anchor" href="#parsers-that-use-tsitter"></a>
 </h2>
 <ul>
 <li>JSONC (JSON with comments and trailing commas): <a href="https://gaborcsardi.github.io/tsjsonc/" class="external-link">tsjsonc</a>.</li>
@@ -661,8 +661,8 @@
   </main><aside class="col-md-3"><div class="links">
 <h2 data-toc-skip>Links</h2>
 <ul class="list-unstyled">
-<li><a href="https://github.com/r-lib/ts/" class="external-link">Browse source code</a></li>
-<li><a href="https://github.com/r-lib/ts/issues" class="external-link">Report a bug</a></li>
+<li><a href="https://github.com/r-lib/tsitter/" class="external-link">Browse source code</a></li>
+<li><a href="https://github.com/r-lib/tsitter/issues" class="external-link">Report a bug</a></li>
 </ul>
 </div>
 
@@ -678,7 +678,7 @@
 <div class="citation">
 <h2 data-toc-skip>Citation</h2>
 <ul class="list-unstyled">
-<li><a href="authors.html#citation">Citing ts</a></li>
+<li><a href="authors.html#citation">Citing tsitter</a></li>
 </ul>
 </div>
 
@@ -696,7 +696,7 @@
 <div class="dev-status">
 <h2 data-toc-skip>Dev status</h2>
 <ul class="list-unstyled">
-<li><a href="https://github.com/r-lib/ts/actions/workflows/R-CMD-check.yaml" class="external-link"><img src="https://github.com/r-lib/ts/actions/workflows/R-CMD-check.yaml/badge.svg" alt="R-CMD-check"></a></li>
+<li><a href="https://github.com/r-lib/tsitter/actions/workflows/R-CMD-check.yaml" class="external-link"><img src="https://github.com/r-lib/tsitter/actions/workflows/R-CMD-check.yaml/badge.svg" alt="R-CMD-check"></a></li>
 </ul>
 </div>
 

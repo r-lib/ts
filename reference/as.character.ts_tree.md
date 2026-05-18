@@ -25,7 +25,7 @@ A character scalar containing the document of the tree.
 
 ## See also
 
-[`as.raw.ts_tree()`](https://r-lib.github.io/ts/reference/as.raw.ts_tree.md)
+[`as.raw.ts_tree()`](https://r-lib.github.io/tsitter/reference/as.raw.ts_tree.md)
 to get the document as a raw vector.
 
 ## Examples

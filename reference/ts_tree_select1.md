@@ -42,7 +42,7 @@ ts_tree_select1(tree, node, slt)
 - tree:
 
   A `ts_tree` object as returned by
-  [`ts_tree_new()`](https://r-lib.github.io/ts/reference/ts_tree_new.md).
+  [`ts_tree_new()`](https://r-lib.github.io/tsitter/reference/ts_tree_new.md).
 
 - node:
 
@@ -51,7 +51,7 @@ ts_tree_select1(tree, node, slt)
 - slt:
 
   A selector object, see details in
-  [`ts_tree_select()`](https://r-lib.github.io/ts/reference/ts_tree_select.md).
+  [`ts_tree_select()`](https://r-lib.github.io/tsitter/reference/ts_tree_select.md).
 
 ## Value
 
@@ -61,7 +61,7 @@ Must return an integer vector of selected node ids.
 
 A parser package may implement methods for this generic to change the
 behavior of
-[`ts_tree_select()`](https://r-lib.github.io/ts/reference/ts_tree_select.md)
+[`ts_tree_select()`](https://r-lib.github.io/tsitter/reference/ts_tree_select.md)
 for a certain selector type, or even add new selector types.
 
 Each new method should be named as
@@ -70,7 +70,7 @@ Each new method should be named as
 
 The ts package implement deault methods for the selector types described
 in the
-[`ts_tree_select()`](https://r-lib.github.io/ts/reference/ts_tree_select.md)
+[`ts_tree_select()`](https://r-lib.github.io/tsitter/reference/ts_tree_select.md)
 manual page.
 
 ### `ts_tree_selector_default` selector

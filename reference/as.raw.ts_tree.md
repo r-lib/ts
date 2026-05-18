@@ -21,7 +21,7 @@ A raw vector containing the bytes of the document of the tree.
 
 ## See also
 
-[`as.character.ts_tree()`](https://r-lib.github.io/ts/reference/as.character.ts_tree.md)
+[`as.character.ts_tree()`](https://r-lib.github.io/tsitter/reference/as.character.ts_tree.md)
 to get the document as a character scalar.
 
 ## Examples

@@ -110,7 +110,7 @@ ts_parse_error_cnd(tree, text, call = ts_caller_env())
 - tree:
 
   A `ts_tree` object as returned by
-  [`ts_tree_new()`](https://r-lib.github.io/ts/reference/ts_tree_new.md).
+  [`ts_tree_new()`](https://r-lib.github.io/tsitter/reference/ts_tree_new.md).
 
 - text:
 

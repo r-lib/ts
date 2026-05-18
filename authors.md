@@ -15,15 +15,15 @@
 ## Citation
 
 Source:
-[`DESCRIPTION`](https://github.com/r-lib/ts/blob/main/DESCRIPTION)
+[`DESCRIPTION`](https://github.com/r-lib/tsitter/blob/main/DESCRIPTION)
 
-Csárdi G (2026). *ts: Tree-Sitter Parsing Tools*. R package version
-0.0.0.9000, <https://github.com/r-lib/ts>.
+Csárdi G (2026). *tsitter: Tree-Sitter Parsing Tools*. R package version
+0.0.0.9000, <https://github.com/r-lib/tsitter>.
 
     @Manual{,
-      title = {ts: Tree-Sitter Parsing Tools},
+      title = {tsitter: Tree-Sitter Parsing Tools},
       author = {Gábor Csárdi},
       year = {2026},
       note = {R package version 0.0.0.9000},
-      url = {https://github.com/r-lib/ts},
+      url = {https://github.com/r-lib/tsitter},
     }

@@ -42,11 +42,7 @@ Here is an example that includes all tree-sitter parsers at this time:
     ts_list_parsers()
 
 
-    #> # A data frame: 2 × 5
-    #>   package version    title           library                    loaded
-    #> * <chr>   <chr>      <chr>           <chr>                      <lgl>
-    #> 1 tsjsonc 0.0.0.9000 Edit JSON Files /Users/gaborcsardi/Librar… FALSE
-    #> 2 tstoml  0.0.0.9000 Edit TOML files /Users/gaborcsardi/Librar… FALSE
+    #> Error in ts_list_parsers() : could not find function "ts_list_parsers"
 
 ## Examples
 

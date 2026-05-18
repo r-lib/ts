@@ -17,7 +17,7 @@ ts_tree_selected_nodes(tree, default = TRUE)
 - tree:
 
   A `ts_tree` object as returned by
-  [`ts_tree_new()`](https://r-lib.github.io/ts/reference/ts_tree_new.md).
+  [`ts_tree_new()`](https://r-lib.github.io/tsitter/reference/ts_tree_new.md).
 
 - default:
 
