@@ -90,7 +90,7 @@ format_rd_parser_list <- function(lst, method = NULL) {
 }
 
 no_ts_package_message <- function() {
-  avail <- read.dcf(file.path(doc_path("ts"), "ts-packages.dcf"))
+  avail <- read.dcf(file.path(doc_path("tsitter"), "ts-packages.dcf"))
   paste0(
     "No tree-sitter parser packages are installed.\n",
     "Available tree-sitter parser packages:\n",
@@ -222,7 +222,7 @@ format_rd_parser_list_method <- function(lst, method) {
 has_ts_parser <- function(dsc) {
   is.list(dsc) &&
     !is.null(dsc$Imports) &&
-    "ts" %in% parse_deps("Imports", dsc$Imports)$package
+    "tsitter" %in% parse_deps("Imports", dsc$Imports)$package
 }
 
 list_installed_packages <- function(lib_path = .libPaths()) {

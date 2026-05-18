@@ -7,19 +7,19 @@
 ts_tree_unserialize(tree)
 }
 \arguments{
-\item{tree}{\eval{ts:::doc_insert("ts::ts_tree_unserialize_param_tree")}}
+\item{tree}{\eval{tsitter:::doc_insert("tsitter::ts_tree_unserialize_param_tree")}}
 }
 \value{
-\eval{ts:::doc_insert("ts::ts_tree_unserialize_return")}
+\eval{tsitter:::doc_insert("tsitter::ts_tree_unserialize_return")}
 }
 \description{
-\eval{ts:::doc_insert("ts_tree_unserialize_description")}
+\eval{tsitter:::doc_insert("ts_tree_unserialize_description")}
 
-\eval{ts:::format_rd_parser_list(ts:::ts_list_parsers(), "ts_tree_unserialize")}
+\eval{tsitter:::format_rd_parser_list(tsitter:::ts_list_parsers(), "ts_tree_unserialize")}
 }
 \details{
-\eval{ts:::doc_insert("ts::ts_tree_unserialize_details")}
-\eval{ts:::doc_extra()}
+\eval{tsitter:::doc_insert("tsitter::ts_tree_unserialize_details")}
+\eval{tsitter:::doc_extra()}
 For the details on how the selected elements are mapped to R objects,
 see the documentation of the methods in the parser packages. The methods
 in the installed parser packages are linked below.
@@ -37,28 +37,28 @@ tree |> ts_tree_select("b") |> ts_tree_unserialize()
 \dontshow{\}) # examplesIf}
 }
 \seealso{
-\eval{ts:::doc_seealso("ts_tree_unserialize")}
+\eval{tsitter:::doc_seealso("ts_tree_unserialize")}
 
-Other ts_tree generics: 
-\code{\link{[[.ts_tree}()},
-\code{\link{[[<-.ts_tree}()},
-\code{\link{format.ts_tree}()},
-\code{\link{print.ts_tree}()},
+Other ts_tree generics:
+\code{\link[=[[.ts_tree]{[[.ts_tree()}},
+\code{\link[=[[<-.ts_tree]{[[<-.ts_tree()}},
+\code{\link[=format.ts_tree]{format.ts_tree()}},
+\code{\link[=print.ts_tree]{print.ts_tree()}},
 \code{\link{select-set}},
-\code{\link{ts_tree_ast}()},
-\code{\link{ts_tree_delete}()},
-\code{\link{ts_tree_dom}()},
-\code{\link{ts_tree_format}()},
-\code{\link{ts_tree_insert}()},
-\code{\link{ts_tree_new}()},
-\code{\link{ts_tree_query}()},
-\code{\link{ts_tree_select}()},
-\code{\link{ts_tree_sexpr}()},
-\code{\link{ts_tree_update}()},
-\code{\link{ts_tree_write}()}
+\code{\link[=ts_tree_ast]{ts_tree_ast()}},
+\code{\link[=ts_tree_delete]{ts_tree_delete()}},
+\code{\link[=ts_tree_dom]{ts_tree_dom()}},
+\code{\link[=ts_tree_format]{ts_tree_format()}},
+\code{\link[=ts_tree_insert]{ts_tree_insert()}},
+\code{\link[=ts_tree_new]{ts_tree_new()}},
+\code{\link[=ts_tree_query]{ts_tree_query()}},
+\code{\link[=ts_tree_select]{ts_tree_select()}},
+\code{\link[=ts_tree_sexpr]{ts_tree_sexpr()}},
+\code{\link[=ts_tree_update]{ts_tree_update()}},
+\code{\link[=ts_tree_write]{ts_tree_write()}}
 
-Other serialization functions: 
-\code{\link{[[.ts_tree}()}
+Other serialization functions:
+\code{\link[=[[.ts_tree]{[[.ts_tree()}}
 }
 \concept{serialization functions}
 \concept{ts_tree generics}

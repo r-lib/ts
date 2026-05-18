@@ -7,6 +7,6 @@
 # * https://testthat.r-lib.org/articles/special-files.html
 
 library(testthat)
-library(ts)
+library(tsitter)
 
-test_check("ts")
+test_check("tsitter")

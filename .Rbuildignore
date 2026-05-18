@@ -4,6 +4,8 @@
 ^\.vscode$
 ^\.covrignore$
 ^src/.*[.]o$
+^src/.*[.]gcda$
+^src/.*[.]gcno$
 ^[.]github$
 ^_pkgdown\.yml$
 ^docs$

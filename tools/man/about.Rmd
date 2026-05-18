@@ -1,6 +1,6 @@
 ```{asciicast, load}
 #| include: FALSE
-library(ts)
+library(tsitter)
 ```
 
 In this document I show examples with the `tsjsonc` package.

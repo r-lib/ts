@@ -2,27 +2,27 @@
 #'
 #' @ts print_description
 #' Print a `ts_tree` object to the screen.
-#' @description \eval{ts:::doc_insert("ts::print_description")}
+#' @description \eval{tsitter:::doc_insert("tsitter::print_description")}
 #'
 #' @ts print_details
-#' Calls \code{\link[ts:format.ts_tree]{format.ts_tree()}} to format the
+#' Calls \code{\link[tsitter:format.ts_tree]{format.ts_tree()}} to format the
 #' ts_tree object, writes the formatted object to the standard output, and
 #' returns the original object invisibly.
 #'
-#' \eval{ts:::doc_tabs("print_examples")}
-#' @details \eval{ts:::doc_insert("ts::print_details")}
+#' \eval{tsitter:::doc_tabs("print_examples")}
+#' @details \eval{tsitter:::doc_insert("tsitter::print_details")}
 #'
 #' @ts print_param_x
 #' `ts_tree` object to print.
 #' @ts print_param_dots
 #' Not used currently.
-#' @param x \eval{ts:::doc_insert("ts::print_param_x")}
-#' @param n \eval{ts:::doc_insert("ts::format_param_n")}
-#' @param ... \eval{ts:::doc_insert("ts::print_param_dots")}
+#' @param x \eval{tsitter:::doc_insert("tsitter::print_param_x")}
+#' @param n \eval{tsitter:::doc_insert("tsitter::format_param_n")}
+#' @param ... \eval{tsitter:::doc_insert("tsitter::print_param_dots")}
 #'
 #' @ts print_return
 #' Invisibly returns the original `ts_tree` object.
-#' @return \eval{ts:::doc_insert("ts::print_return")}
+#' @return \eval{tsitter:::doc_insert("tsitter::print_return")}
 #'
 #' @family ts_tree generics
 #' @export
@@ -42,25 +42,25 @@ print.ts_tree <- function(x, n = 10, ...) {
 #'
 #' @ts format_description
 #' Format a `ts_tree` object for printing.
-#' @description \eval{ts:::doc_insert("ts::format_description")}
+#' @description \eval{tsitter:::doc_insert("tsitter::format_description")}
 #'
 #' @ts format_details
-#' This is the engine of \code{\link[ts:print.ts_tree]{print.ts_tree()}},
+#' This is the engine of \code{\link[tsitter:print.ts_tree]{print.ts_tree()}},
 #' possibly useful to obtain a printed representation without doing the
 #' actual printing.
 #'
 #' </p><p><!-- ------------------------------------------------------>
 #'
 #' If there are selected nodes in the tree, those will be highlighted
-#' in the output. See \code{\link[ts:ts_tree_select]{ts_tree_select()}} to
+#' in the output. See \code{\link[tsitter:ts_tree_select]{ts_tree_select()}} to
 #' select nodes in a tree.
 #'
 #' </p><p><!-- ------------------------------------------------------>
 #'
-#' \eval{ts:::doc_tabs("format_examples")}
+#' \eval{tsitter:::doc_tabs("format_examples")}
 #'
-#' @details \eval{ts:::doc_insert("ts::format_details")}
-#' \eval{ts:::doc_extra()}
+#' @details \eval{tsitter:::doc_insert("tsitter::format_details")}
+#' \eval{tsitter:::doc_extra()}
 #'
 #' @ts format_param_x
 #' `ts_tree` object.
@@ -68,13 +68,13 @@ print.ts_tree <- function(x, n = 10, ...) {
 #' Number of lines, or number of selections to print.
 #' @ts format_param_dots
 #' Currently ignored.
-#' @param x \eval{ts:::doc_insert("ts::format_param_x")}
-#' @param n \eval{ts:::doc_insert("ts::format_param_n")}
-#' @param ... \eval{ts:::doc_insert("ts::format_param_dots")}
+#' @param x \eval{tsitter:::doc_insert("tsitter::format_param_x")}
+#' @param n \eval{tsitter:::doc_insert("tsitter::format_param_n")}
+#' @param ... \eval{tsitter:::doc_insert("tsitter::format_param_dots")}
 #'
 #' @ts format_return
 #' Character vector of lines to print.
-#' @return \eval{ts:::doc_insert("ts::format_return")}
+#' @return \eval{tsitter:::doc_insert("tsitter::format_return")}
 #'
 #' @family ts_tree generics
 #' @export

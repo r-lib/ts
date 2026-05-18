@@ -7,19 +7,19 @@
 ts_tree_dom(tree)
 }
 \arguments{
-\item{tree}{\eval{ts:::doc_insert("ts::ts_tree_dom_param_tree")}}
+\item{tree}{\eval{tsitter:::doc_insert("tsitter::ts_tree_dom_param_tree")}}
 }
 \value{
-\eval{ts:::doc_insert("ts::ts_tree_dom_return")}
+\eval{tsitter:::doc_insert("tsitter::ts_tree_dom_return")}
 }
 \description{
-\eval{ts:::doc_insert("ts_tree_dom_description")}
+\eval{tsitter:::doc_insert("ts_tree_dom_description")}
 
-\eval{ts:::format_rd_parser_list(ts:::ts_list_parsers(), "ts_tree_dom")}
+\eval{tsitter:::format_rd_parser_list(tsitter:::ts_list_parsers(), "ts_tree_dom")}
 }
 \details{
-\eval{ts:::doc_insert("ts::ts_tree_dom_details")}
-\eval{ts:::doc_extra()}
+\eval{tsitter:::doc_insert("tsitter::ts_tree_dom_details")}
+\eval{tsitter:::doc_extra()}
 }
 \examples{
 \dontshow{if (requireNamespace("tsjsonc", quietly = TRUE)) withAutoprint(\{ # examplesIf}
@@ -53,31 +53,31 @@ ts_tree_dom(tree)
 \code{\link[=ts_tree_ast]{ts_tree_ast()}} to show the annotated syntax tree of a
 ts_tree object.
 
-\eval{ts:::doc_seealso("ts_tree_dom")}
+\eval{tsitter:::doc_seealso("ts_tree_dom")}
 
-Other ts_tree exploration: 
+Other ts_tree exploration:
 \code{\link{ts_tree-brackets}},
-\code{\link{ts_tree_ast}()},
-\code{\link{ts_tree_query}()},
-\code{\link{ts_tree_sexpr}()}
+\code{\link[=ts_tree_ast]{ts_tree_ast()}},
+\code{\link[=ts_tree_query]{ts_tree_query()}},
+\code{\link[=ts_tree_sexpr]{ts_tree_sexpr()}}
 
-Other ts_tree generics: 
-\code{\link{[[.ts_tree}()},
-\code{\link{[[<-.ts_tree}()},
-\code{\link{format.ts_tree}()},
-\code{\link{print.ts_tree}()},
+Other ts_tree generics:
+\code{\link[=[[.ts_tree]{[[.ts_tree()}},
+\code{\link[=[[<-.ts_tree]{[[<-.ts_tree()}},
+\code{\link[=format.ts_tree]{format.ts_tree()}},
+\code{\link[=print.ts_tree]{print.ts_tree()}},
 \code{\link{select-set}},
-\code{\link{ts_tree_ast}()},
-\code{\link{ts_tree_delete}()},
-\code{\link{ts_tree_format}()},
-\code{\link{ts_tree_insert}()},
-\code{\link{ts_tree_new}()},
-\code{\link{ts_tree_query}()},
-\code{\link{ts_tree_select}()},
-\code{\link{ts_tree_sexpr}()},
-\code{\link{ts_tree_unserialize}()},
-\code{\link{ts_tree_update}()},
-\code{\link{ts_tree_write}()}
+\code{\link[=ts_tree_ast]{ts_tree_ast()}},
+\code{\link[=ts_tree_delete]{ts_tree_delete()}},
+\code{\link[=ts_tree_format]{ts_tree_format()}},
+\code{\link[=ts_tree_insert]{ts_tree_insert()}},
+\code{\link[=ts_tree_new]{ts_tree_new()}},
+\code{\link[=ts_tree_query]{ts_tree_query()}},
+\code{\link[=ts_tree_select]{ts_tree_select()}},
+\code{\link[=ts_tree_sexpr]{ts_tree_sexpr()}},
+\code{\link[=ts_tree_unserialize]{ts_tree_unserialize()}},
+\code{\link[=ts_tree_update]{ts_tree_update()}},
+\code{\link[=ts_tree_write]{ts_tree_write()}}
 }
 \concept{ts_tree exploration}
 \concept{ts_tree generics}

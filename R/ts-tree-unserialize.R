@@ -4,31 +4,31 @@
 #' Unserialize the selected elements of a `ts_tree` object, i.e. convert
 #' them to R objects.
 #' @description
-#' \eval{ts:::doc_insert("ts_tree_unserialize_description")}
+#' \eval{tsitter:::doc_insert("ts_tree_unserialize_description")}
 #'
-#' \eval{ts:::format_rd_parser_list(ts:::ts_list_parsers(), "ts_tree_unserialize")}
+#' \eval{tsitter:::format_rd_parser_list(tsitter:::ts_list_parsers(), "ts_tree_unserialize")}
 #'
 #' @ts ts_tree_unserialize_details
 #' If no elements are selected in the tree, then the whole document is
 #' unserialized.
 #'
-#' \eval{ts:::doc_tabs("ts_tree_unserialize_details_no_selection")}
+#' \eval{tsitter:::doc_tabs("ts_tree_unserialize_details_no_selection")}
 #'
 #' If the tree has an empty selection, then an empty list is returned.
 #'
-#' \eval{ts:::doc_tabs("ts_tree_unserialize_details_empty_selection")}
+#' \eval{tsitter:::doc_tabs("ts_tree_unserialize_details_empty_selection")}
 #'
 #' ## The `[[` operator
 #'
 #' The `[[` operator works similarly to the combination of
-#' \code{\link[ts:ts_tree_select]{ts_tree_select()}} and
+#' \code{\link[tsitter:ts_tree_select]{ts_tree_select()}} and
 #' `ts_tree_unserialize()`, but it might be more readable.
 #'
-#' \eval{ts:::doc_tabs("ts_tree_select_brackets")}
+#' \eval{tsitter:::doc_tabs("ts_tree_select_brackets")}
 #'
 #' @details
-#' \eval{ts:::doc_insert("ts::ts_tree_unserialize_details")}
-#' \eval{ts:::doc_extra()}
+#' \eval{tsitter:::doc_insert("tsitter::ts_tree_unserialize_details")}
+#' \eval{tsitter:::doc_extra()}
 #' For the details on how the selected elements are mapped to R objects,
 #' see the documentation of the methods in the parser packages. The methods
 #' in the installed parser packages are linked below.
@@ -36,15 +36,15 @@
 #' @ts ts_tree_unserialize_param_tree
 #' A `ts_tree` object.
 #'
-#' @param tree \eval{ts:::doc_insert("ts::ts_tree_unserialize_param_tree")}
+#' @param tree \eval{tsitter:::doc_insert("tsitter::ts_tree_unserialize_param_tree")}
 #'
 #' @ts ts_tree_unserialize_return
 #' List of R objects, with one entry for each selected element.
-#' @return \eval{ts:::doc_insert("ts::ts_tree_unserialize_return")}
+#' @return \eval{tsitter:::doc_insert("tsitter::ts_tree_unserialize_return")}
 #'
 #' @family ts_tree generics
 #' @family serialization functions
-#' @seealso \eval{ts:::doc_seealso("ts_tree_unserialize")}
+#' @seealso \eval{tsitter:::doc_seealso("ts_tree_unserialize")}
 #' @export
 #' @examplesIf requireNamespace("tsjsonc", quietly = TRUE)
 #' # Create a parse tree with tsjsonc -------------------------------------

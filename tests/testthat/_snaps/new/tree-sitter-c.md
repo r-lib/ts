@@ -26,5 +26,5 @@
       text = "{\"a\": ")
     Condition
       Error:
-      ! ts `language` must be an external pointer
+      ! tsitter `language` must be an external pointer
 

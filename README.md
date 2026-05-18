@@ -1,17 +1,17 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# ts
+# tsitter
 
 <!-- badges: start -->
 
 ![lifecycle](https://lifecycle.r-lib.org/articles/figures/lifecycle-experimental.svg)
-[![R-CMD-check](https://github.com/r-lib/ts/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/r-lib/ts/actions/workflows/R-CMD-check.yaml)
+[![R-CMD-check](https://github.com/r-lib/tsitter/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/r-lib/tsitter/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 Common tree-sitter parsing tools for R.
 
-ts is a common interface to
+tsitter is a common interface to
 [tree-sitter](https://tree-sitter.github.io/tree-sitter/) parsers,
 implemented in other R packages. It has a common API to
 
@@ -24,19 +24,19 @@ tree-sitter parse trees.
 
 ## Installation
 
-Install ts from CRAN:
+Install tsitter from CRAN:
 
 ``` r
-install.packages("ts")
+install.packages("tsitter")
 ```
 
 ## Documentation
 
 See at
-[`https://r-lib.github.io/ts/`](https://r-lib.github.io/ts/reference/index.html)
-and also in the installed package: `help(package = "ts")`.
+[`https://r-lib.github.io/tsitter/`](https://r-lib.github.io/tsitter/reference/index.html)
+and also in the installed package: `help(package = "tsitter")`.
 
-## Parsers that use ts
+## Parsers that use tsitter
 
 - JSONC (JSON with comments and trailing commas):
   [tsjsonc](https://gaborcsardi.github.io/tsjsonc/).

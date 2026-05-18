@@ -3,14 +3,14 @@
 #' @ts ts_tree_write_description
 #' Writes the document of a ts `ts_tree` object to a file or connection.
 #' @description
-#' \eval{ts:::doc_insert("ts_tree_write_description")}
+#' \eval{tsitter:::doc_insert("ts_tree_write_description")}
 #'
 #' @ts ts_tree_write_details
 #' If `tree` was created from a file, then `ts_tree_write()` by default
 #' writes it back to the same file. Otherwise, the `file` argument must be
 #' specified.
 #'
-#' \eval{ts:::doc_tabs("ts_tree_write_details_file")}
+#' \eval{tsitter:::doc_tabs("ts_tree_write_details_file")}
 #'
 #' To write to a connection, pass a connection object to the `file`
 #' argument. If the connection is opened in binary mode, the raw bytes
@@ -24,27 +24,27 @@
 #' console in an interactive R session.
 #'
 #' @details
-#' \eval{ts:::doc_insert("ts::ts_tree_write_details")}
-#' \eval{ts:::doc_extra()}
+#' \eval{tsitter:::doc_insert("tsitter::ts_tree_write_details")}
+#' \eval{tsitter:::doc_extra()}
 #'
 #' @ts ts_tree_write_param_tree
 #' A `ts_tree` object as returned by
-#' \code{\link[ts:ts_tree_new]{ts_tree_new()}}.
+#' \code{\link[tsitter:ts_tree_new]{ts_tree_new()}}.
 #' @ts ts_tree_write_param_file
 #' Character string, connection, or `NULL`. The file or connection
 #' to write to. By default it writes to the same file that was used in
-#' \code{\link[ts:ts_tree_new]{ts_tree_new()}}, if `tree` was read from a
+#' \code{\link[tsitter:ts_tree_new]{ts_tree_new()}}, if `tree` was read from a
 #' file.
 #'
-#' @param tree \eval{ts:::doc_insert("ts::ts_tree_write_param_tree")}
-#' @param file \eval{ts:::doc_insert("ts::ts_tree_write_param_file")}
+#' @param tree \eval{tsitter:::doc_insert("tsitter::ts_tree_write_param_tree")}
+#' @param file \eval{tsitter:::doc_insert("tsitter::ts_tree_write_param_file")}
 #'
 #' @ts ts_tree_write_return
 #' Invisibly returns `NULL`.
-#' @return \eval{ts:::doc_insert("ts::ts_tree_write_return")}
+#' @return \eval{tsitter:::doc_insert("tsitter::ts_tree_write_return")}
 #'
 #' @family ts_tree generics
-#' @seealso \eval{ts:::doc_seealso("ts_tree_write")}
+#' @seealso \eval{tsitter:::doc_seealso("ts_tree_write")}
 #' @export
 #' @examplesIf Sys.getenv("IN_PKGDOWN") == "true"
 #' # Create a parse tree with tsjsonc -------------------------------------

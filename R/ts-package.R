@@ -1,14 +1,14 @@
 #' @details
-#' \eval{ts:::format_rd_parser_list(ts:::ts_list_parsers())}
+#' \eval{tsitter:::format_rd_parser_list(tsitter:::ts_list_parsers())}
 #' @keywords internal
 #' @return
 #' Not applicable.
 #' @examples
-#' # See help("about", package = "ts")
+#' # See help("about", package = "tsitter")
 "_PACKAGE"
 
 ## usethis namespace: start
-#' @useDynLib ts, .registration = TRUE, .fixes = "c_"
+#' @useDynLib tsitter, .registration = TRUE, .fixes = "c_"
 ## usethis namespace: end
 NULL
 
@@ -17,9 +17,9 @@ NULL
 NULL
 
 #' @name about
-#' @title About ts
+#' @title About tsitter
 #' @description
-#' ts is a common interface to [tree-sitter](
+#' tsitter is a common interface to [tree-sitter](
 #'  https://tree-sitter.github.io/tree-sitter/) parsers, implemented in
 #' other R packages. It has a common API to
 #'

@@ -7,7 +7,7 @@ asciicast::init_knitr_engine(
   echo_input = FALSE,
   timeout = as.integer(Sys.getenv("ASCIICAST_TIMEOUT", 10)),
   startup = quote({
-    library(ts)
+    library(tsitter)
     loadNamespace("pillar")
     options(width = 70)
     options(cli.width = 70)
@@ -25,10 +25,10 @@ knitr::opts_chunk$set(
 )
 
 Sys.unsetenv("R_TS_PACKAGE")
-ts:::ts_roclet_register()
+tsitter:::ts_roclet_register()
 
 list(
   markdown = TRUE,
   restrict_image_formats = TRUE,
-  roclets = c("rd", "namespace", "collate", "ts:::roclet_ts")
+  roclets = c("rd", "namespace", "collate", "tsitter:::roclet_ts")
 )

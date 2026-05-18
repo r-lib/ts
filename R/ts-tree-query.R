@@ -4,8 +4,8 @@
 #' Use \href{https://tree-sitter.github.io/tree-sitter/}{
 #' tree-sitter's query language} to find nodes in a tree-sitter tree.
 #' @description
-#' \eval{ts:::doc_insert("ts_tree_query_description")}
-#' \eval{ts:::format_rd_parser_list(ts:::ts_list_parsers(), "ts_tree_query")}
+#' \eval{tsitter:::doc_insert("ts_tree_query_description")}
+#' \eval{tsitter:::format_rd_parser_list(tsitter:::ts_list_parsers(), "ts_tree_query")}
 #'
 #' @ts ts_tree_query_details
 #' You probably need to know some details about the specific tree-sitter
@@ -14,17 +14,17 @@
 #' and the query language support. See links below.
 #'
 #' @details
-#' \eval{ts:::doc_insert("ts::ts_tree_query_details")}
-#' \eval{ts:::doc_tabs("ts_tree_query_details_examples")}
-#' \eval{ts:::doc_extra()}
+#' \eval{tsitter:::doc_insert("tsitter::ts_tree_query_details")}
+#' \eval{tsitter:::doc_tabs("ts_tree_query_details_examples")}
+#' \eval{tsitter:::doc_extra()}
 #'
 #' @ts ts_tree_query_param_tree
 #' A `ts_tree` object.
 #' @ts ts_tree_query_param_query
 #' Character string, the tree-sitter query to run.
 #'
-#' @param tree \eval{ts:::doc_insert("ts::ts_tree_query_param_tree")}
-#' @param query \eval{ts:::doc_insert("ts::ts_tree_query_param_query")}
+#' @param tree \eval{tsitter:::doc_insert("tsitter::ts_tree_query_param_tree")}
+#' @param query \eval{tsitter:::doc_insert("tsitter::ts_tree_query_param_query")}
 #'
 #' @ts ts_tree_query_return
 #' A list with entries `patterns` and `matched_captures`.
@@ -44,11 +44,11 @@
 #'
 #' The `pattern` column of `matched_captured` refers to the `id` column of
 #' `patterns`.
-#' @return \eval{ts:::doc_insert("ts::ts_tree_query_return")}
+#' @return \eval{tsitter:::doc_insert("tsitter::ts_tree_query_return")}
 #'
 #' @seealso [ts_tree_select()] to select the nodes matching a query.
 #'
-#'  \eval{ts:::doc_seealso("ts_tree_query")}
+#'  \eval{tsitter:::doc_seealso("ts_tree_query")}
 #' @export
 #' @family ts_tree exploration
 #' @family ts_tree generics

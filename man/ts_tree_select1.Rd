@@ -50,7 +50,7 @@ directly.
 }
 \details{
 A parser package may implement methods for this generic to change the
-behavior of \code{\link[ts:ts_tree_select]{ts_tree_select()}} for a
+behavior of \code{\link[tsitter:ts_tree_select]{ts_tree_select()}} for a
 certain selector type, or even add new selector types.
 
 Each new method should be named as
@@ -59,7 +59,7 @@ Each new method should be named as
 }\if{html}{\out{</div>}}
 
 The ts package implement deault methods for the selector types described
-in the \code{\link[ts:ts_tree_select]{ts_tree_select()}} manual page.
+in the \code{\link[tsitter:ts_tree_select]{ts_tree_select()}} manual page.
 
 \subsection{\code{ts_tree_selector_default} selector}{
 

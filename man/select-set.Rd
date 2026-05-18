@@ -9,25 +9,25 @@
 ts_tree_select(tree, ...) <- value
 }
 \arguments{
-\item{tree}{\eval{ts:::doc_insert("ts_tree_select_set_param_tree")}}
+\item{tree}{\eval{tsitter:::doc_insert("ts_tree_select_set_param_tree")}}
 
-\item{...}{\eval{ts:::doc_insert("ts_tree_select_set_param_dots")}}
+\item{...}{\eval{tsitter:::doc_insert("ts_tree_select_set_param_dots")}}
 
-\item{value}{\eval{ts:::doc_insert("ts_tree_select_set_param_value")}}
+\item{value}{\eval{tsitter:::doc_insert("ts_tree_select_set_param_value")}}
 }
 \value{
-\eval{ts:::doc_insert("ts::ts_tree_select_set_return")}
+\eval{tsitter:::doc_insert("tsitter::ts_tree_select_set_return")}
 
 \code{ts_tree_deleted()} returns a marker object to be used at the right
 hand side of the \verb{ts_tree_select<-} or the double bracket replacement
 functions, see examples below.
 }
 \description{
-\eval{ts:::doc_insert("ts_tree_select_set_description")}
+\eval{tsitter:::doc_insert("ts_tree_select_set_description")}
 }
 \details{
-\eval{ts:::doc_insert("ts::ts_tree_select_set_details")}
-\eval{ts:::doc_extra()}
+\eval{tsitter:::doc_insert("tsitter::ts_tree_select_set_details")}
+\eval{tsitter:::doc_extra()}
 
 \code{ts_tree_deleted()} is a special marker to delete elements from a
 ts_tree object with \verb{ts_tree_select<-} or the double bracket operator.
@@ -45,22 +45,22 @@ tree
 \dontshow{\}) # examplesIf}
 }
 \seealso{
-Other ts_tree generics: 
-\code{\link{[[.ts_tree}()},
-\code{\link{[[<-.ts_tree}()},
-\code{\link{format.ts_tree}()},
-\code{\link{print.ts_tree}()},
-\code{\link{ts_tree_ast}()},
-\code{\link{ts_tree_delete}()},
-\code{\link{ts_tree_dom}()},
-\code{\link{ts_tree_format}()},
-\code{\link{ts_tree_insert}()},
-\code{\link{ts_tree_new}()},
-\code{\link{ts_tree_query}()},
-\code{\link{ts_tree_select}()},
-\code{\link{ts_tree_sexpr}()},
-\code{\link{ts_tree_unserialize}()},
-\code{\link{ts_tree_update}()},
-\code{\link{ts_tree_write}()}
+Other ts_tree generics:
+\code{\link[=[[.ts_tree]{[[.ts_tree()}},
+\code{\link[=[[<-.ts_tree]{[[<-.ts_tree()}},
+\code{\link[=format.ts_tree]{format.ts_tree()}},
+\code{\link[=print.ts_tree]{print.ts_tree()}},
+\code{\link[=ts_tree_ast]{ts_tree_ast()}},
+\code{\link[=ts_tree_delete]{ts_tree_delete()}},
+\code{\link[=ts_tree_dom]{ts_tree_dom()}},
+\code{\link[=ts_tree_format]{ts_tree_format()}},
+\code{\link[=ts_tree_insert]{ts_tree_insert()}},
+\code{\link[=ts_tree_new]{ts_tree_new()}},
+\code{\link[=ts_tree_query]{ts_tree_query()}},
+\code{\link[=ts_tree_select]{ts_tree_select()}},
+\code{\link[=ts_tree_sexpr]{ts_tree_sexpr()}},
+\code{\link[=ts_tree_unserialize]{ts_tree_unserialize()}},
+\code{\link[=ts_tree_update]{ts_tree_update()}},
+\code{\link[=ts_tree_write]{ts_tree_write()}}
 }
 \concept{ts_tree generics}

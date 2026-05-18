@@ -5,9 +5,9 @@
 #' This syntax tree contains all tree-sitter nodes, and it shows the
 #' source code associated with each node, along with line numbers.
 #' @description
-#' \eval{ts:::doc_insert("ts_tree_ast_description")}
+#' \eval{tsitter:::doc_insert("ts_tree_ast_description")}
 #'
-#' \eval{ts:::format_rd_parser_list(ts:::ts_list_parsers(), "ts_tree_ast")}
+#' \eval{tsitter:::format_rd_parser_list(tsitter:::ts_list_parsers(), "ts_tree_ast")}
 #'
 #' @ts ts_tree_ast_details
 #' ## The syntax tree and the DOM tree
@@ -19,33 +19,33 @@
 #'
 #' </p><p><!-- ------------------------------------------------------>
 #'
-#' See \code{\link[ts:ts_tree_dom]{ts::ts_tree_dom()}} for a tree that
+#' See \code{\link[tsitter:ts_tree_dom]{tsitter::ts_tree_dom()}} for a tree that
 #' shows the semantic structure of the parsed document, which may be
 #' different from the syntax tree.
 #'
-#' \eval{ts:::doc_tabs("ts_tree_ast_details_syntax_vs_dom")}
+#' \eval{tsitter:::doc_tabs("ts_tree_ast_details_syntax_vs_dom")}
 #'
 #' @details
-#' \eval{ts:::doc_insert("ts::ts_tree_ast_details")}
-#' \eval{ts:::doc_extra()}
+#' \eval{tsitter:::doc_insert("tsitter::ts_tree_ast_details")}
+#' \eval{tsitter:::doc_extra()}
 #'
 #' @ts ts_tree_ast_param_tree
 #' A `ts_tree` object.
 #'
-#' @param tree \eval{ts:::doc_insert("ts::ts_tree_ast_param_tree")}
+#' @param tree \eval{tsitter:::doc_insert("tsitter::ts_tree_ast_param_tree")}
 #'
 #' @ts ts_tree_ast_return
 #' Character vector, the formatted annotated syntax tree, line by
 #' line. It has class [cli_tree][cli::tree()], from the cli package. It
 #' may contain ANSI escape sequences for coloring and hyperlinks.
-#' @return \eval{ts:::doc_insert("ts::ts_tree_ast_return")}
+#' @return \eval{tsitter:::doc_insert("tsitter::ts_tree_ast_return")}
 #'
 #' @family ts_tree exploration
 #' @family ts_tree generics
 #' @seealso [ts_tree_dom()] to show the document object model (DOM) of a
 #'   ts_tree object.
 #'
-#'  \eval{ts:::doc_seealso("ts_tree_ast")}
+#'  \eval{tsitter:::doc_seealso("ts_tree_ast")}
 #' @export
 #' @examplesIf requireNamespace("tsjsonc", quietly = TRUE)
 #' # Create a parse tree with tsjsonc -------------------------------------

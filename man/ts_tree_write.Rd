@@ -7,19 +7,19 @@
 ts_tree_write(tree, file = NULL)
 }
 \arguments{
-\item{tree}{\eval{ts:::doc_insert("ts::ts_tree_write_param_tree")}}
+\item{tree}{\eval{tsitter:::doc_insert("tsitter::ts_tree_write_param_tree")}}
 
-\item{file}{\eval{ts:::doc_insert("ts::ts_tree_write_param_file")}}
+\item{file}{\eval{tsitter:::doc_insert("tsitter::ts_tree_write_param_file")}}
 }
 \value{
-\eval{ts:::doc_insert("ts::ts_tree_write_return")}
+\eval{tsitter:::doc_insert("tsitter::ts_tree_write_return")}
 }
 \description{
-\eval{ts:::doc_insert("ts_tree_write_description")}
+\eval{tsitter:::doc_insert("ts_tree_write_description")}
 }
 \details{
-\eval{ts:::doc_insert("ts::ts_tree_write_details")}
-\eval{ts:::doc_extra()}
+\eval{tsitter:::doc_insert("tsitter::ts_tree_write_details")}
+\eval{tsitter:::doc_extra()}
 }
 \examples{
 \dontshow{if (Sys.getenv("IN_PKGDOWN") == "true") withAutoprint(\{ # examplesIf}
@@ -31,24 +31,24 @@ tree |> ts_tree_format() |> ts_tree_write("example.json")
 \dontshow{\}) # examplesIf}
 }
 \seealso{
-\eval{ts:::doc_seealso("ts_tree_write")}
+\eval{tsitter:::doc_seealso("ts_tree_write")}
 
-Other ts_tree generics: 
-\code{\link{[[.ts_tree}()},
-\code{\link{[[<-.ts_tree}()},
-\code{\link{format.ts_tree}()},
-\code{\link{print.ts_tree}()},
+Other ts_tree generics:
+\code{\link[=[[.ts_tree]{[[.ts_tree()}},
+\code{\link[=[[<-.ts_tree]{[[<-.ts_tree()}},
+\code{\link[=format.ts_tree]{format.ts_tree()}},
+\code{\link[=print.ts_tree]{print.ts_tree()}},
 \code{\link{select-set}},
-\code{\link{ts_tree_ast}()},
-\code{\link{ts_tree_delete}()},
-\code{\link{ts_tree_dom}()},
-\code{\link{ts_tree_format}()},
-\code{\link{ts_tree_insert}()},
-\code{\link{ts_tree_new}()},
-\code{\link{ts_tree_query}()},
-\code{\link{ts_tree_select}()},
-\code{\link{ts_tree_sexpr}()},
-\code{\link{ts_tree_unserialize}()},
-\code{\link{ts_tree_update}()}
+\code{\link[=ts_tree_ast]{ts_tree_ast()}},
+\code{\link[=ts_tree_delete]{ts_tree_delete()}},
+\code{\link[=ts_tree_dom]{ts_tree_dom()}},
+\code{\link[=ts_tree_format]{ts_tree_format()}},
+\code{\link[=ts_tree_insert]{ts_tree_insert()}},
+\code{\link[=ts_tree_new]{ts_tree_new()}},
+\code{\link[=ts_tree_query]{ts_tree_query()}},
+\code{\link[=ts_tree_select]{ts_tree_select()}},
+\code{\link[=ts_tree_sexpr]{ts_tree_sexpr()}},
+\code{\link[=ts_tree_unserialize]{ts_tree_unserialize()}},
+\code{\link[=ts_tree_update]{ts_tree_update()}}
 }
 \concept{ts_tree generics}
