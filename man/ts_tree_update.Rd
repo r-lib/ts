@@ -12,7 +12,9 @@ ts_tree_update(tree, new, options, ...)
 \item{new}{The new element to replace the selected elements with.
 
 The type of \code{new} depends on the parser and the method that implements
-the insertion. See details in the manual of the specific parser.}
+the insertion. See details in the manual of the specific parser.
+
+See details in the manual of the specific parser.}
 
 \item{options}{A list of options for the update.}
 

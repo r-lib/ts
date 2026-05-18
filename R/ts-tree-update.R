@@ -17,7 +17,6 @@
 #'
 #' The type of `new` depends on the parser and the method that implements
 #' the insertion. See details in the manual of the specific parser.
-#' @param options \eval{tsitter:::doc_insert("tsitter::ts_tree_update_param_options")}
 #'
 #' See details in the manual of the specific parser.
 #' @param options

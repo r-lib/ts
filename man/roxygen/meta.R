@@ -25,7 +25,7 @@ knitr::opts_chunk$set(
 )
 
 Sys.unsetenv("R_TS_PACKAGE")
-tsitter:::ts_roclet_register()
+asNamespace("tsitter")$ts_roclet_register()
 
 list(
   markdown = TRUE,

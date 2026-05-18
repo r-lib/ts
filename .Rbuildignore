@@ -18,3 +18,4 @@
 ^man/macros/eval2\.Rd$
 ^man/macros/examples\.Rd$
 ^\.claude$
+^man/roxygen/meta\.R$
