@@ -1,4 +1,4 @@
-url: https://r-lib.github.io/ts/
+url: https://r-lib.github.io/tsitter/
 
 template:
   package: tidytemplate
@@ -13,13 +13,13 @@ navbar:
     right: [news, search, github]
   components:
     about:
-      text: About ts
+      text: About tsitter
       href: reference/about.html
 
 reference:
-- title: About ts
+- title: About tsitter
   desc: |
-    * See ['About ts'](about.html) for an overview of ts.
+    * See ['About tsitter'](about.html) for an overview of tsitter.
     * If you want to edit a document start at `ts_tree_new()` and
       `ts_tree_select()`.
     * For more see the sections below.
@@ -75,7 +75,7 @@ reference:
 - title: Functions for tree-sitter parser packages
   desc: |
     These functions are intended to be used by packages that
-    implement tree-sitter parsers and use the `ts` package as a backend.
+    implement tree-sitter parsers and use the `tsitter` package as a backend.
     It is unlikely that you will need to use these functions directly.
   contents:
   - as_ts_caller_arg

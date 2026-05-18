@@ -17,12 +17,12 @@ the parser to recover from errors.
 \item \code{has_error}: logical, whether the token has a parse error.
 \item \code{children}: list of integer vectors, the ids of the children tokens.
 \item \code{dom_type}: character, the type of the node in the DOM tree. See
-\code{\link[ts:ts_tree_dom]{ts_tree_dom()}}. Nodes that are not part
+\code{\link[tsitter:ts_tree_dom]{ts_tree_dom()}}. Nodes that are not part
 of the DOM tree have \code{NA_character_} here.
 \item \code{dom_children}: list of integer vectors, the ids of the children in the
-DOM tree. See \code{\link[ts:ts_tree_dom]{ts_tree_dom()}}.
+DOM tree. See \code{\link[tsitter:ts_tree_dom]{ts_tree_dom()}}.
 \item \code{dom_parent}: integer, the parent of the node in the DOM tree. See
-\code{\link[ts:ts_tree_dom]{ts_tree_dom()}}. Nodes that are not part
+\code{\link[tsitter:ts_tree_dom]{ts_tree_dom()}}. Nodes that are not part
 of the DOM tree and the document node have have \code{NA_integer_} here.
 }
 

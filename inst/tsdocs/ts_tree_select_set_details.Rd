@@ -10,4 +10,4 @@ and
 \if{html}{\out{<div class="sourceCode r"><p style="display:none">&nbsp;}}\preformatted{ts_tree_select(tree, <selectors>) <- value
 }\if{html}{\out{</div>}}
 
-\eval{ts:::doc_tabs("ts_tree_select_set")}
+\eval{tsitter:::doc_tabs("ts_tree_select_set")}

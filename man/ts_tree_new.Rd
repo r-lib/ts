@@ -14,37 +14,37 @@ ts_tree_new(
 )
 }
 \arguments{
-\item{language}{\eval{ts:::doc_insert("ts::ts_tree_new_param_language", "ts")}}
+\item{language}{\eval{tsitter:::doc_insert("tsitter::ts_tree_new_param_language", "ts")}}
 
-\item{file}{\eval{ts:::doc_insert("ts::ts_tree_new_param_file", "ts")}}
+\item{file}{\eval{tsitter:::doc_insert("tsitter::ts_tree_new_param_file", "ts")}}
 
-\item{text}{\eval{ts:::doc_insert("ts::ts_tree_new_param_text", "ts")}}
+\item{text}{\eval{tsitter:::doc_insert("tsitter::ts_tree_new_param_text", "ts")}}
 
-\item{ranges}{\eval{ts:::doc_insert("ts::ts_tree_new_param_ranges", "ts")}}
+\item{ranges}{\eval{tsitter:::doc_insert("tsitter::ts_tree_new_param_ranges", "ts")}}
 
-\item{fail_on_parse_error}{\eval{ts:::doc_insert("ts::ts_tree_new_param_fail_on_parse_error", "ts")}}
+\item{fail_on_parse_error}{\eval{tsitter:::doc_insert("tsitter::ts_tree_new_param_fail_on_parse_error", "ts")}}
 
 \item{...}{Additional arguments for methods.}
 }
 \value{
-\eval{ts:::doc_insert("ts::ts_tree_new_return", "ts")}
+\eval{tsitter:::doc_insert("tsitter::ts_tree_new_return", "ts")}
 }
 \description{
 This is the main function to create a tree-sitter parse tree, using a
 ts parser implemented in another package.
-\eval{ts:::doc_insert("ts_tree_new_description")}
+\eval{tsitter:::doc_insert("ts_tree_new_description")}
 
-\eval{ts:::format_rd_parser_list(ts:::ts_list_parsers())}
+\eval{tsitter:::format_rd_parser_list(tsitter:::ts_list_parsers())}
 }
 \details{
 A package that implements a tree-sitter parser provides a function that
 creates a \code{ts_language} object for that parser. E.g.
 \link[tsjsonc:tsjsonc-package]{tsjsonc} has \code{\link[tsjsonc:ts_language_jsonc]{tsjsonc::ts_language_jsonc()}}.
 You need to use the returned \code{ts_language} object as the \code{language}
-argument of \code{\link[ts:ts_tree_new]{ts_tree_new()}}.
+argument of \code{\link[tsitter:ts_tree_new]{ts_tree_new()}}.
 
-\eval{ts:::doc_insert("ts_tree_new_details")}
-\eval{ts:::doc_extra()}
+\eval{tsitter:::doc_insert("ts_tree_new_details")}
+\eval{tsitter:::doc_extra()}
 }
 \examples{
 \dontshow{if (requireNamespace("tsjsonc", quietly = TRUE)) withAutoprint(\{ # examplesIf}
@@ -75,26 +75,26 @@ toml |> ts_tree_format()
 \seealso{
 The tree-sitter parser packages typically include shortcuts to
 create parse trees from strings and file, e.g.
-\code{\link[tsjsonc:ts_parse_jsonc]{tsjsonc::ts_parse_jsonc()}} and \code{\link[tsjsonc:ts_parse_jsonc]{tsjsonc::ts_read_jsonc()}}.
+\code{\link[tsjsonc:ts_parse_jsonc]{tsjsonc::ts_parse_jsonc()}} and \code{\link[tsjsonc:ts_read_jsonc]{tsjsonc::ts_read_jsonc()}}.
 
-\eval{ts:::doc_seealso("ts_tree_new")}
+\eval{tsitter:::doc_seealso("ts_tree_new")}
 
-Other ts_tree generics: 
-\code{\link{[[.ts_tree}()},
-\code{\link{[[<-.ts_tree}()},
-\code{\link{format.ts_tree}()},
-\code{\link{print.ts_tree}()},
+Other ts_tree generics:
+\code{\link[=[[.ts_tree]{[[.ts_tree()}},
+\code{\link[=[[<-.ts_tree]{[[<-.ts_tree()}},
+\code{\link[=format.ts_tree]{format.ts_tree()}},
+\code{\link[=print.ts_tree]{print.ts_tree()}},
 \code{\link{select-set}},
-\code{\link{ts_tree_ast}()},
-\code{\link{ts_tree_delete}()},
-\code{\link{ts_tree_dom}()},
-\code{\link{ts_tree_format}()},
-\code{\link{ts_tree_insert}()},
-\code{\link{ts_tree_query}()},
-\code{\link{ts_tree_select}()},
-\code{\link{ts_tree_sexpr}()},
-\code{\link{ts_tree_unserialize}()},
-\code{\link{ts_tree_update}()},
-\code{\link{ts_tree_write}()}
+\code{\link[=ts_tree_ast]{ts_tree_ast()}},
+\code{\link[=ts_tree_delete]{ts_tree_delete()}},
+\code{\link[=ts_tree_dom]{ts_tree_dom()}},
+\code{\link[=ts_tree_format]{ts_tree_format()}},
+\code{\link[=ts_tree_insert]{ts_tree_insert()}},
+\code{\link[=ts_tree_query]{ts_tree_query()}},
+\code{\link[=ts_tree_select]{ts_tree_select()}},
+\code{\link[=ts_tree_sexpr]{ts_tree_sexpr()}},
+\code{\link[=ts_tree_unserialize]{ts_tree_unserialize()}},
+\code{\link[=ts_tree_update]{ts_tree_update()}},
+\code{\link[=ts_tree_write]{ts_tree_write()}}
 }
 \concept{ts_tree generics}

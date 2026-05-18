@@ -8,20 +8,20 @@
 \method{[}{ts_tree}(x, i, j, drop = FALSE)
 }
 \arguments{
-\item{x}{\eval{ts:::doc_insert("ts::ts_tree_brackets_param_x")}}
+\item{x}{\eval{tsitter:::doc_insert("tsitter::ts_tree_brackets_param_x")}}
 
-\item{i, j}{\eval{ts:::doc_insert("ts::ts_tree_brackets_param_ij")}}
+\item{i, j}{\eval{tsitter:::doc_insert("tsitter::ts_tree_brackets_param_ij")}}
 
-\item{drop}{\eval{ts:::doc_insert("ts::ts_tree_brackets_param_drop")}}
+\item{drop}{\eval{tsitter:::doc_insert("tsitter::ts_tree_brackets_param_drop")}}
 }
 \value{
-\eval{ts:::doc_insert("ts::ts_tree_brackets_return")}
+\eval{tsitter:::doc_insert("tsitter::ts_tree_brackets_return")}
 }
 \description{
-\eval{ts:::doc_insert("ts_tree_brackets_description")}
+\eval{tsitter:::doc_insert("ts_tree_brackets_description")}
 }
 \details{
-\eval{ts:::doc_insert("ts::ts_tree_brackets_details")}
+\eval{tsitter:::doc_insert("tsitter::ts_tree_brackets_details")}
 }
 \examples{
 \dontshow{if (requireNamespace("tsjsonc", quietly = TRUE)) withAutoprint(\{ # examplesIf}
@@ -34,12 +34,12 @@ tree[]
 \dontshow{\}) # examplesIf}
 }
 \seealso{
-\eval{ts:::doc_seealso("[")}
+\eval{tsitter:::doc_seealso("[")}
 
-Other ts_tree exploration: 
-\code{\link{ts_tree_ast}()},
-\code{\link{ts_tree_dom}()},
-\code{\link{ts_tree_query}()},
-\code{\link{ts_tree_sexpr}()}
+Other ts_tree exploration:
+\code{\link[=ts_tree_ast]{ts_tree_ast()}},
+\code{\link[=ts_tree_dom]{ts_tree_dom()}},
+\code{\link[=ts_tree_query]{ts_tree_query()}},
+\code{\link[=ts_tree_sexpr]{ts_tree_sexpr()}}
 }
 \concept{ts_tree exploration}

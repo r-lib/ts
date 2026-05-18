@@ -96,12 +96,12 @@ SEXP s_expr(SEXP rotree) {
 
 SEXP parse(SEXP input, SEXP rlanguage, SEXP rranges) {
   if (TYPEOF(rlanguage) != EXTPTRSXP) {
-    Rf_error("ts `language` must be an external pointer");
+    Rf_error("tsitter `language` must be an external pointer");
   }
   const TSLanguage *language = (const TSLanguage*)
     R_ExternalPtrAddr(rlanguage);
   if (!language) {
-    Rf_error("ts `language` cannot be a NULL pointer"); // # nocov
+    Rf_error("tsitter `language` cannot be a NULL pointer"); // # nocov
   }
   TSParser *parser = NULL;
 

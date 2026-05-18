@@ -4,7 +4,7 @@
 #' Create a data frame for the syntax tree of a JSON document, by indexing
 #' a ts_tree object with single brackets. This is occasionally useful for
 #' exploration and debugging.
-#' @description \eval{ts:::doc_insert("ts_tree_brackets_description")}
+#' @description \eval{tsitter:::doc_insert("ts_tree_brackets_description")}
 #'
 #' @ts ts_tree_brackets_details
 #' A tree-sitter tree object has at least four classes:
@@ -26,7 +26,7 @@
 #' row per token, and various columns with information about the tokens.
 #' See details in the 'Value' section or this page.
 #'
-#' @details \eval{ts:::doc_insert("ts::ts_tree_brackets_details")}
+#' @details \eval{tsitter:::doc_insert("tsitter::ts_tree_brackets_details")}
 #'
 #' @ts ts_tree_brackets_param_x
 #' A `ts_tree` object.
@@ -37,9 +37,9 @@
 #' Passed to the regular data.frame indexing method, see
 #' \code{\link[base:Extract]{'Extract'}}.
 #'
-#' @param x \eval{ts:::doc_insert("ts::ts_tree_brackets_param_x")}
-#' @param i,j \eval{ts:::doc_insert("ts::ts_tree_brackets_param_ij")}
-#' @param drop \eval{ts:::doc_insert("ts::ts_tree_brackets_param_drop")}
+#' @param x \eval{tsitter:::doc_insert("tsitter::ts_tree_brackets_param_x")}
+#' @param i,j \eval{tsitter:::doc_insert("tsitter::ts_tree_brackets_param_ij")}
+#' @param drop \eval{tsitter:::doc_insert("tsitter::ts_tree_brackets_param_drop")}
 #'
 #' @ts ts_tree_brackets_return
 #' A data frame with one row per token, and columns:
@@ -58,21 +58,21 @@
 #' * `has_error`: logical, whether the token has a parse error.
 #' * `children`: list of integer vectors, the ids of the children tokens.
 #' * `dom_type`: character, the type of the node in the DOM tree. See
-#'   \code{\link[ts:ts_tree_dom]{ts_tree_dom()}}. Nodes that are not part
+#'   \code{\link[tsitter:ts_tree_dom]{ts_tree_dom()}}. Nodes that are not part
 #'   of the DOM tree have `NA_character_` here.
 #' * `dom_children`: list of integer vectors, the ids of the children in the
-#'   DOM tree. See \code{\link[ts:ts_tree_dom]{ts_tree_dom()}}.
+#'   DOM tree. See \code{\link[tsitter:ts_tree_dom]{ts_tree_dom()}}.
 #' * `dom_parent`: integer, the parent of the node in the DOM tree. See
-#'   \code{\link[ts:ts_tree_dom]{ts_tree_dom()}}. Nodes that are not part
+#'   \code{\link[tsitter:ts_tree_dom]{ts_tree_dom()}}. Nodes that are not part
 #'   of the DOM tree and the document node have have `NA_integer_` here.
 #'
 #' Other, undocumented columns may also be present, these are considered
 #' internal and may change without notice.
-#' @return \eval{ts:::doc_insert("ts::ts_tree_brackets_return")}
+#' @return \eval{tsitter:::doc_insert("tsitter::ts_tree_brackets_return")}
 #'
 #' @name ts_tree-brackets
 #' @family ts_tree exploration
-#' @seealso \eval{ts:::doc_seealso("[")}
+#' @seealso \eval{tsitter:::doc_seealso("[")}
 #' @export
 #' @examplesIf requireNamespace("tsjsonc", quietly = TRUE)
 #' # Create a parse tree with tsjsonc -------------------------------------

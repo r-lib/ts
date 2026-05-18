@@ -5,29 +5,29 @@
 #' tree-sitter tree, if the tree-sitter parser supports formatting.
 #'
 #' @description
-#' \eval{ts:::doc_insert("ts_tree_format_description")}
+#' \eval{tsitter:::doc_insert("ts_tree_format_description")}
 #'
-#' \eval{ts:::format_rd_parser_list(ts:::ts_list_parsers(), "ts_tree_format")}
+#' \eval{tsitter:::format_rd_parser_list(tsitter:::ts_list_parsers(), "ts_tree_format")}
 #'
 #' @ts ts_tree_format_details
 #'
 #' If `tree` does not have a selection, then the whole document is
 #' formatted.
 #'
-#' \eval{ts:::doc_tabs("ts_tree_format_details_no_selection")}
+#' \eval{tsitter:::doc_tabs("ts_tree_format_details_no_selection")}
 #'
 #' If `tree` has an empty selection, then it is returned unchanged.
 #'
-#' \eval{ts:::doc_tabs("ts_tree_format_details_empty_selection")}
+#' \eval{tsitter:::doc_tabs("ts_tree_format_details_empty_selection")}
 #'
 #' Some parsers support options to customize the formatting.
 #' See details in the manual of the specific parser.
 #'
-#' \eval{ts:::doc_tabs("ts_tree_format_details_options")}
+#' \eval{tsitter:::doc_tabs("ts_tree_format_details_options")}
 #'
 #' @details
-#' \eval{ts:::doc_insert("ts::ts_tree_format_details")}
-#' \eval{ts:::doc_extra()}
+#' \eval{tsitter:::doc_insert("tsitter::ts_tree_format_details")}
+#' \eval{tsitter:::doc_extra()}
 #'
 #' @ts ts_tree_format_param_tree
 #' A `ts_tree` object.
@@ -36,9 +36,9 @@
 #' A list of options for the formatting.
 #'
 #' @param tree
-#' \eval{ts:::doc_insert("ts::ts_tree_format_param_tree")}
+#' \eval{tsitter:::doc_insert("tsitter::ts_tree_format_param_tree")}
 #' @param options
-#' \eval{ts:::doc_insert("ts::ts_tree_format_param_options")}
+#' \eval{tsitter:::doc_insert("tsitter::ts_tree_format_param_options")}
 #'
 #' See details in the manual of the specific parser.
 #'
@@ -46,10 +46,10 @@
 #'
 #' @ts ts_tree_format_return
 #' The `ts_tree` object of the reformatted document.
-#' @return \eval{ts:::doc_insert("ts::ts_tree_format_return")}
+#' @return \eval{tsitter:::doc_insert("tsitter::ts_tree_format_return")}
 #'
 #' @family ts_tree generics
-#' @seealso \eval{ts:::doc_seealso("ts_tree_format")}
+#' @seealso \eval{tsitter:::doc_seealso("ts_tree_format")}
 #' @export
 #' @examplesIf requireNamespace("tsjsonc", quietly = TRUE)
 #' # Create a parse tree with tsjsonc -------------------------------------

@@ -1,3 +1,3 @@
-# ts (development version)
+# tsitter (development version)
 
 * Initial CRAN submission.

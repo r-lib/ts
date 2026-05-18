@@ -10,7 +10,7 @@
     Code
       tree %>% ts_tree_select("b", 0)
     Error <error>
-      Zero indices are not allowed in ts selectors.
+      Zero indices are not allowed in tsitter selectors.
 
 # ts_tree_select invalid logical selector
 

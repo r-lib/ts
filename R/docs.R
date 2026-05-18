@@ -47,8 +47,8 @@ doc_seealso <- function(method) {
     }
   } else {
     paste0(
-      "The generic of this method in the ts package: ",
-      glue("\\code{{\\link[ts:{method}]{{{method}()}}}}"),
+      "The generic of this method in the tsitter package: ",
+      glue("\\code{{\\link[tsitter:{method}]{{{method}()}}}}"),
       "."
     )
   }
@@ -67,7 +67,7 @@ doc_insert <- function(key, manpkg = NULL) {
     package <- keypcs[1]
     key <- keypcs[2]
   } else {
-    package <- "ts"
+    package <- "tsitter"
   }
   lib <- dirname(find.package(package))
   output <- doc_create_chunk(key, lib, package, 1L, "<<contents>>")
@@ -104,7 +104,7 @@ doc_tabs_all <- function(key) {
   psrs <- ts_list_parsers()
   psrs <- psrs[!duplicated(psrs$package), ]
 
-  tsdocpath <- doc_path("ts")
+  tsdocpath <- doc_path("tsitter")
   t_tab <- read_char(file.path(tsdocpath, "tab.html"))
   t_div <- read_char(file.path(tsdocpath, "tabs.html"))
   t_btn <- read_char(file.path(tsdocpath, "btn.html"))
@@ -167,15 +167,15 @@ doc_extra <- function() {
   if (is_rcmd_check()) {
     return("Placeholder.")
   }
-  tsdocpath <- doc_path("ts")
+  tsdocpath <- doc_path("tsitter")
   jspath <- file.path(tsdocpath, "tabs.js")
   js <- read_char(jspath)
 
-  csspath1 <- file.path(doc_path("ts"), "w3.css")
+  csspath1 <- file.path(doc_path("tsitter"), "w3.css")
   css1 <- read_char(csspath1)
   css <- ""
   if (Sys.getenv("IN_PKGDOWN") == "true") {
-    csspath2 <- file.path(doc_path("ts"), "pkgdown.css")
+    csspath2 <- file.path(doc_path("tsitter"), "pkgdown.css")
     css2 <- read_char(csspath2)
     css <- gsub("%", "\\%", paste0(css1, "\n\n", css2), fixed = TRUE)
     css <- paste0("<style>\n", css, "\n</style>\n")

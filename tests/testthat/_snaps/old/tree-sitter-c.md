@@ -22,5 +22,5 @@
       ts_tree_new(structure("jsonc", class = c("ts_language_jsonc", "ts_language")),
       text = "{\"a\": ")
     Error <simpleError>
-      ts `language` must be an external pointer
+      tsitter `language` must be an external pointer
 
