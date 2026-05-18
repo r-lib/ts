@@ -19,3 +19,4 @@
 ^man/macros/examples\.Rd$
 ^\.claude$
 ^man/roxygen/meta\.R$
+^tools$
