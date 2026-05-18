@@ -23,7 +23,7 @@ Suggests:
   tsjsonc,
   tstoml,
   withr
-Remotes:
+Config/Needs/check:
   gaborcsardi/tsjsonc,
   gaborcsardi/tstoml
 Additional_repositories: https://github.com/r-lib/tsitter/releases/download
