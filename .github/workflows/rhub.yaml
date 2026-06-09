@@ -56,7 +56,7 @@ jobs:
         with:
           token: ${{ secrets.RHUB_TOKEN }}
           job-config: ${{ matrix.config.job-config }}
-      - uses: r-hub/actions/setup-deps@v1
+      - uses: r-hub/actions/setup-deps@main
         with:
           token: ${{ secrets.RHUB_TOKEN }}
           job-config: ${{ matrix.config.job-config }}
