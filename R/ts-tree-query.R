@@ -18,18 +18,18 @@
 #' @return
 #' A list with entries `patterns` and `matched_captures`.
 #'
-#' </p><p><!-- ------------------------------------------------------>
+#' </p><p><!--comment-->
 #'
 #' `patterns` contains information about all patterns in the queries and
 #' it is a data frame with columns: `id`, `name`, `pattern`, `match_count`.
 #'
-#' </p><p><!-- ------------------------------------------------------>
+#' </p><p><!--comment-->
 #'
 #' `matched_captures` contains information about all matches, and it has
 #' columns `id`, `pattern`, `match`, `start_byte`, `end_byte`, `start_row`,
 #' `start_column`, `end_row`, `end_column`, `name`, `code`.
 #'
-#' </p><p><!-- ------------------------------------------------------>
+#' </p><p><!--comment-->
 #'
 #' The `pattern` column of `matched_captured` refers to the `id` column of
 #' `patterns`.
