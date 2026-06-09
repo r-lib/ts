@@ -4,7 +4,7 @@ The selection process is iterative. Selection expressions (selectors)
 are applied one by one, and each selector selects nodes from the
 currently selected nodes. For each selector, it is applied individually
 to each currently selected node, and the results are concatenated.\if{html}{\out{
-</p><p><!-- ------------------------------------------------------>
+</p><p><!--comment-->
 }}
 
 
@@ -12,7 +12,7 @@ The selection process starts from the root of the DOM tree, the document
 node (see \code{\link[tsitter:ts_tree_dom]{ts_tree_dom()}}), unless
 \code{refine = TRUE} is set, in which case it starts from the current
 selection.\if{html}{\out{
-</p><p><!-- ------------------------------------------------------>
+</p><p><!--comment-->
 }}
 
 
@@ -56,7 +56,7 @@ node.
 A character scalar named \code{query} can be used to select nodes matching
 a tree-sitter query. See \code{\link[tsitter:ts_tree_query]{ts_tree_query()}}
 for details on tree-sitter queries.\if{html}{\out{
-</p><p><!-- ------------------------------------------------------>
+</p><p><!--comment-->
 }}
 
 

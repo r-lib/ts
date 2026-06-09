@@ -18,7 +18,7 @@
 #' show (part of) the underlying document, and also the selected elements,
 #' if any.
 #'
-#' </p><p><!-- ------------------------------------------------------>
+#' </p><p><!--comment-->
 #'
 #' It is sometimes useful to treat a `tree` `ts_tree` object as a data
 #' frame, and drop the `ts_tree` classes. This can be done by indexing with
@@ -34,7 +34,6 @@
 #' Incides, passed to the regular data.frame indexing method, see
 #' \code{\link[base:Extract]{Extract}}.
 #' @ts ts_tree_brackets_param_drop
-#' @param drop
 #' Passed to the regular data.frame indexing method, see
 #' \code{\link[base:Extract]{Extract}}.
 #'

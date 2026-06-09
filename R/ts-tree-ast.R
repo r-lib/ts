@@ -17,7 +17,7 @@
 #' document it includes the pairs, brackets, braces, commas, colons,
 #' double quotes and string escape sequences as separate nodes.
 #'
-#' </p><p><!-- ------------------------------------------------------>
+#' </p><p><!--comment-->
 #'
 #' See \code{\link[tsitter:ts_tree_dom]{tsitter::ts_tree_dom()}} for a tree that
 #' shows the semantic structure of the parsed document, which may be
