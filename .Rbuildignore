@@ -20,3 +20,4 @@
 ^\.claude$
 ^man/roxygen/meta\.R$
 ^tools$
+^\.cache$
