@@ -7,7 +7,7 @@
         package version    title          
       * <chr>   <chr>      <chr>          
       1 tsjsonc 0.0.0.9000 Edit JSON Files
-      2 tstoml  0.0.0.9000 Edit TOML files
+      2 tstoml  0.0.0.9000 Edit TOML Files
 
 ---
 
@@ -18,7 +18,7 @@
       \tabular{llcl}{
       \strong{Package} \tab \strong{Version} \tab \strong{Loaded} \tab \strong{Title} \cr
       \link[tsjsonc:tsjsonc-package]{ tsjsonc} \tab 0.0.0.9000 \tab yes \tab  Edit JSON Files.\cr
-      \link[tstoml:tstoml-package]{ tstoml} \tab 0.0.0.9000 \tab yes \tab  Edit TOML files.
+      \link[tstoml:tstoml-package]{ tstoml} \tab 0.0.0.9000 \tab yes \tab  Edit TOML Files.
       }
       }
       
