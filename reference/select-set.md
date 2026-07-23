@@ -41,84 +41,11 @@ functions, see examples below.
 
 The following two expressions are equivalent:
 
- 
-
-    tree <- ts_tree_select(tree, <selectors>) |> ts_tree_update(value)
+    tree <- ts_tree_update(ts_tree_select(tree, <selectors>), value)
 
 and
 
- 
-
     ts_tree_select(tree, <selectors>) <- value
-
-JSONC
-
-TOML
-
- 
-
-    json <- tsjsonc::ts_parse_jsonc(
-      '{ "a": 1, "b": [10, 20, 30], "c": { "c1": true, "c2": null } }'
-    )
-    json
-
-
-    #> # jsonc (1 line)
-    #> 1 | { "a": 1, "b": [10, 20, 30], "c": { "c1": true, "c2": null } }
-
- 
-
-    json |> ts_tree_select("b", 1)
-
-
-    #> # jsonc (1 line, 1 selected element)
-    #> > 1 | { "a": 1, "b": [10, 20, 30], "c": { "c1": true, "c2": null } }
-
- 
-
-    ts_tree_select(json, "b", 1) <- 100
-    json
-
-
-    #> # jsonc (1 line)
-    #> 1 | { "a": 1, "b": [100, 20, 30], "c": { "c1": true, "c2": null } }
-
- 
-
-    toml <- tstoml::ts_parse_toml(
-      '[table]\na = 1\nb = [10, 20, 30]\nc = { c1 = true, c2 = [] }\n'
-    )
-    toml
-
-
-    #> # toml (4 lines)
-    #> 1 | [table]
-    #> 2 | a = 1
-    #> 3 | b = [10, 20, 30]
-    #> 4 | c = { c1 = true, c2 = [] }
-
- 
-
-    toml |> ts_tree_select("table", "b", 1)
-
-
-    #> # toml (4 lines, 1 selected element)
-    #>   1 | [table]
-    #>   2 | a = 1
-    #> > 3 | b = [10, 20, 30]
-    #>   4 | c = { c1 = true, c2 = [] }
-
- 
-
-    ts_tree_select(toml, "table", "b", 1) <- 100
-    toml
-
-
-    #> # toml (4 lines)
-    #> 1 | [table]
-    #> 2 | a = 1
-    #> 3 | b = [100.0, 20, 30]
-    #> 4 | c = { c1 = true, c2 = [] }
 
 `ts_tree_deleted()` is a special marker to delete elements from a
 ts_tree object with `ts_tree_select<-` or the double bracket operator.

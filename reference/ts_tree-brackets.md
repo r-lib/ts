@@ -20,12 +20,12 @@ x[i, j, drop = FALSE]
 - i, j:
 
   Incides, passed to the regular data.frame indexing method, see
-  [`'Extract'`](https://rdrr.io/r/base/Extract.html).
+  [`Extract`](https://rdrr.io/r/base/Extract.html).
 
 - drop:
 
   Passed to the regular data.frame indexing method, see
-  [`'Extract'`](https://rdrr.io/r/base/Extract.html).
+  [`Extract`](https://rdrr.io/r/base/Extract.html).
 
 ## Value
 

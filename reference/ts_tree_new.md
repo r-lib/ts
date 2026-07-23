@@ -1,17 +1,10 @@
 # Create tree-sitter tree from file or string
 
 This is the main function to create a tree-sitter parse tree, using a ts
-parser implemented in another package. The result is a `ts_tree` object.
-A `ts_tree` object may be queried, edited, formatted, written to file,
-etc. using `ts_tree` methods.
+parser implemented in another package.
 
-### Available tree-sitter parsers
-
-|  |  |  |
-|----|----|----|
-| **Package** | **Version** | **Title** |
-| [tsjsonc](https://gaborcsardi.github.io/tsjsonc/reference/tsjsonc-package.html) | 0.0.0.9000 | Edit JSON Files. |
-| [tstoml](https://gaborcsardi.github.io/tstoml/reference/tstoml-package.html) | 0.0.0.9000 | Edit TOML Files. |
+The result is a `ts_tree` object. A `ts_tree` object may be queried,
+edited, formatted, written to file, etc. using `ts_tree` methods.
 
 ## Usage
 
@@ -30,8 +23,8 @@ ts_tree_new(
 
 - language:
 
-  Language of the file or string, a `ts_language` object,e.g. the return
-  value of
+  Language of the file or string, a `ts_language` object, e.g. the
+  return value of
   [`tsjsonc::ts_language_jsonc()`](https://gaborcsardi.github.io/tsjsonc/reference/ts_language_jsonc.html).
 
 - file:
@@ -60,47 +53,15 @@ ts_tree_new(
 ## Value
 
 A `ts_tree` object representing the parse tree of the input. You can use
-the single bracket `` `[` `` operator to convert it to a data frame.
+the single bracket `[` operator to convert it to a data frame.
 
 ## Details
 
 A package that implements a tree-sitter parser provides a function that
-creates a `ts_language` object for that parser. E.g.
-[tsjsonc](https://gaborcsardi.github.io/tsjsonc/reference/tsjsonc-package.html)
-has
+creates a `ts_language` object for that parser. E.g. tsjsonc has
 [`tsjsonc::ts_language_jsonc()`](https://gaborcsardi.github.io/tsjsonc/reference/ts_language_jsonc.html).
 You need to use the returned `ts_language` object as the `language`
 argument of `ts_tree_new()`.
-
-JSONC
-
-TOML
-
- 
-
-    jsonc <- tsitter::ts_tree_new(
-      tsjsonc::ts_language_jsonc(),
-      text = "{ \"a\": true, // comment\n \"b\": [1, 2, 3], }"
-    )
-    jsonc
-
-
-    #> # jsonc (2 lines)
-    #> 1 | { "a": true, // comment
-    #> 2 |  "b": [1, 2, 3], }
-
- 
-
-    toml <- tsitter::ts_tree_new(
-      tstoml::ts_language_toml(),
-      text = "[table]\nkey = \"value\""
-    )
-    toml
-
-
-    #> # toml (2 lines)
-    #> 1 | [table]
-    #> 2 | key = "value"
 
 ## See also
 
@@ -142,7 +103,7 @@ json
 #> # jsonc (1 line)
 #> 1 | { "a": 1, "b": 2 }
 
-json |> ts_tree_format()
+ts_tree_format(json)
 #> # jsonc (4 lines)
 #> 1 | {
 #> 2 |     "a": 1,
@@ -161,7 +122,7 @@ toml
 #> 2 | key = "value"
 #> 3 | number = 42
 
-toml |> ts_tree_format()
+ts_tree_format(toml)
 #> # toml (3 lines)
 #> 1 | [section]
 #> 2 | key = "value"

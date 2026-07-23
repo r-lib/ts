@@ -3,18 +3,6 @@
 (Re)format the selected elements of the document represented by a
 tree-sitter tree, if the tree-sitter parser supports formatting.
 
-### Available tree-sitter parsers
-
-This is the manual page of the `ts_tree_format()` S3 generic function.
-Methods in parser packages may override this generic. For the ones that
-do see the links to their manual pages in the table.
-
-|  |  |  |  |
-|----|----|----|----|
-| **Package** | **Version** | **Title** | **Method** |
-| **[tsjsonc](https://gaborcsardi.github.io/tsjsonc/reference/tsjsonc-package.html)** | 0.0.0.9000 | Edit JSON Files. | [`ts_tree_format(<ts_tree_tsjsonc>)`](https://gaborcsardi.github.io/tsjsonc/reference/ts_tree_format.ts_tree_jsonc.html) |
-| **[tstoml](https://gaborcsardi.github.io/tstoml/reference/tstoml-package.html)** | 0.0.0.9000 | Edit TOML Files. | [`ts_tree_format(<ts_tree_tstoml>)`](https://gaborcsardi.github.io/tstoml/reference/ts_tree_format.ts_tree_toml.html) |
-
 ## Usage
 
 ``` r
@@ -39,90 +27,19 @@ ts_tree_format(tree, options, ...)
 
 ## Value
 
-The `ts_tree` object of the reformatted document.
+A `ts_tree` object representing the reformatted document.
 
 ## Details
 
 If `tree` does not have a selection, then the whole document is
 formatted.
 
-JSONC
-
-TOML
-
- 
-
-    jsonc <- tsjsonc::ts_parse_jsonc("{ \"a\": [1,2,3] }")
-    jsonc |> ts_tree_format()
-
-
-    #> # jsonc (7 lines)
-    #> 1 | {
-    #> 2 |     "a": [
-    #> 3 |         1,
-    #> 4 |         2,
-    #> 5 |         3
-    #> 6 |     ]
-    #> 7 | }
-
- 
-
-    toml <- tstoml::ts_parse_toml("a = [1,2,3]")
-    toml |> ts_tree_format()
-
-
-    #> # toml (1 line)
-    #> 1 | a = [ 1, 2, 3 ]
-
 If `tree` has an empty selection, then it is returned unchanged.
-
-JSONC
-
-TOML
-
- 
-
-    jsonc <- tsjsonc::ts_parse_jsonc("{ \"a\": [1,2,3] }")
-    jsonc |> ts_tree_select("c") |> ts_tree_format()
-
-
-    #> # jsonc (1 line)
-    #> 1 | { "a": [1,2,3] }
-
- 
-
-    toml <- tstoml::ts_parse_toml("a = [1,2,3]")
-    toml |> ts_tree_select("c") |> ts_tree_format()
-
-
-    #> # toml (1 line)
-    #> 1 | a = [1,2,3]
 
 Some parsers support options to customize the formatting. See details in
 the manual of the specific parser.
 
-JSONC
-
- 
-
-    jsonc <- tsjsonc::ts_parse_jsonc("{ \"a\": [1,2,3] }") |>
-      ts_tree_format()
-
- 
-
-    jsonc |> ts_tree_select(TRUE) |>
-      ts_tree_format(options = list(format = "oneline"))
-
-
-    #> # jsonc (3 lines)
-    #> 1 | {
-    #> 2 |     "a": [ 1, 2, 3 ]
-    #> 3 | }
-
 ## See also
-
-Methods in installed packages: `ts_tree_format(<ts_tree_tsjsonc>)` and
-`ts_tree_format(<ts_tree_tstoml>)`.
 
 Other ts_tree generics:
 [`[[.ts_tree()`](https://r-lib.github.io/tsitter/reference/double-bracket-ts-tree.md),
@@ -152,7 +69,7 @@ tree
 #> 1 | { "a":true, "b": [1,2,3] }
 
 # Format whole document
-tree |> ts_tree_format()
+ts_tree_format(tree)
 #> # jsonc (8 lines)
 #> 1 | {
 #> 2 |     "a": true,
@@ -164,9 +81,10 @@ tree |> ts_tree_format()
 #> 8 | }
 
 # Format each top element under the document node in one line
-tree |> ts_tree_format() |>
-  ts_tree_select(TRUE) |>
-  ts_tree_format(options = list(format = "oneline"))
+ts_tree_format(
+  ts_tree_select(ts_tree_format(tree), TRUE),
+  options = list(format = "oneline")
+)
 #> # jsonc (4 lines)
 #> 1 | {
 #> 2 |     "a": true,
@@ -187,7 +105,7 @@ tree
 #> 3 |   alpha = { ip = "127.0.0.1", dc = "eqdc10" }
 #> 4 |   beta = { ip = "127.0.0.2", dc = "eqdc20" }
 
-tree |> ts_tree_format()
+ts_tree_format(tree)
 #> # toml (3 lines)
 #> 1 | [servers]
 #> 2 | alpha = { ip = "127.0.0.1", dc = "eqdc10" }

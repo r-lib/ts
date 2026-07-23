@@ -177,7 +177,7 @@ Select nodes that match a tree-sitter query:
 
 ``` r
 
-json |> ts_tree_select(query = "((pair value: (false) @val))")
+ts_tree_select(json, query = "((pair value: (false) @val))")
 ```
 
 
@@ -201,7 +201,7 @@ Delete selected elements:
 
 ``` r
 
-ts_tree_select(json, "a", "a1") |> ts_tree_delete()
+ts_tree_delete(ts_tree_select(json, "a", "a1"))
 ```
 
 
@@ -225,7 +225,7 @@ Insert element into an array:
 
 ``` r
 
-ts_tree_select(json, "a", "a1") |> ts_tree_insert(at = 2, "new")
+ts_tree_insert(ts_tree_select(json, "a", "a1"), at = 2, "new")
 ```
 
 
@@ -249,8 +249,12 @@ Insert element into an object, at the specified key:
 
 ``` r
 
-ts_tree_select(json, "a") |>
-  ts_tree_insert(key = "a0", at = 0, list("new", "element"))
+ts_tree_insert(
+  ts_tree_select(json, "a"),
+  key = "a0",
+  at = 0,
+  list("new", "element")
+)
 ```
 
 
@@ -274,7 +278,7 @@ Update existing element:
 
 ``` r
 
-ts_tree_select(json, "a", c("a1", "a2")) |> ts_tree_update("new value")
+ts_tree_update(ts_tree_select(json, "a", c("a1", "a2")), "new value")
 ```
 
 
@@ -319,7 +323,7 @@ json
 
 ``` r
 
-ts_tree_select(json, "a", "x", "y") |> ts_tree_update(list(1,2,3))
+ts_tree_update(ts_tree_select(json, "a", "x", "y"), list(1, 2, 3))
 ```
 
 
@@ -344,7 +348,7 @@ it to the screen instread of a file:
 
 ``` r
 
-json |> ts_tree_write(stdout())
+ts_tree_write(json, stdout())
 ```
 
 
@@ -374,7 +378,7 @@ Format the whole document:
 
 ``` r
 
-json |> ts_tree_format()
+ts_tree_format(json)
 ```
 
 
@@ -396,8 +400,10 @@ Format part of the document:
 
 ``` r
 
-json |> ts_tree_select("a") |>
-  ts_tree_format(options = list(format = "compact"))
+ts_tree_format(
+  ts_tree_select(json, "a"),
+  options = list(format = "compact")
+)
 ```
 
 
@@ -421,7 +427,7 @@ Unserialize a whole document:
 
 ``` r
 
-json |> ts_tree_unserialize()
+ts_tree_unserialize(json)
 ```
 
 
@@ -471,7 +477,7 @@ Unserialize part(s) of the document:
 
 ``` r
 
-json |> ts_tree_select("b") |> ts_tree_unserialize()
+ts_tree_unserialize(ts_tree_select(json, "b"))
 ```
 
 

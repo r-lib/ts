@@ -2,18 +2,6 @@
 
 Insert a new element into each selected element.
 
-### Available tree-sitter parsers
-
-This is the manual page of the `ts_tree_insert()` S3 generic function.
-Methods in parser packages may override this generic. For the ones that
-do see the links to their manual pages in the table.
-
-|  |  |  |  |
-|----|----|----|----|
-| **Package** | **Version** | **Title** | **Method** |
-| **[tsjsonc](https://gaborcsardi.github.io/tsjsonc/reference/tsjsonc-package.html)** | 0.0.0.9000 | Edit JSON Files. | [`ts_tree_insert(<ts_tree_tsjsonc>)`](https://gaborcsardi.github.io/tsjsonc/reference/ts_tree_insert.ts_tree_jsonc.html) |
-| **[tstoml](https://gaborcsardi.github.io/tstoml/reference/tstoml-package.html)** | 0.0.0.9000 | Edit TOML Files. |  |
-
 ## Usage
 
 ``` r
@@ -78,91 +66,13 @@ element. For example in a JSONC document you can only insert a new
 element into an array or an object, but not into scalar elements. If the
 insertion is not possible, an error is raised.
 
-JSONC
-
-TOML
-
- 
-
-    json <- tsjsonc::ts_parse_jsonc("{ \"a\": true, \"b\": [1, 2, 3] }")
-    json |> ts_tree_select("a") |> ts_tree_insert("foo")
-
-
-    #>   Cannot insert into a 'true' JSON element. Can only insert into 'array' and 'ob
-    #> ject' elements and empty JSON documents.
-
- 
-
-    toml <- tstoml::ts_parse_toml("a = true\nb = [1, 2, 3]")
-    toml |> ts_tree_select("a") |> ts_tree_insert("foo")
-
-
-    #> Error in FUN(X[[i]], ...) : Cannot insert into a `value` TOML element.
-
 If `tree` does not have a selection, the new element is inserted into at
 the top level.
-
-JSONC
-
-TOML
-
- 
-
-    json <- tsjsonc::ts_parse_jsonc("{ \"a\": true, \"b\": [1, 2, 3] }")
-    json |> ts_tree_insert(key = "c", new = "foo")
-
-
-    #> # jsonc (9 lines)
-    #> 1 | {
-    #> 2 |     "a": true,
-    #> 3 |     "b": [
-    #> 4 |         1,
-    #> 5 |         2,
-    #> 6 |         3
-    #> 7 |     ],
-    #> 8 |     "c": "foo"
-    #> 9 | }
-
- 
-
-    toml <- tstoml::ts_parse_toml("a = true\nb = [1, 2, 3]")
-    toml |> ts_tree_insert(key = "c", new = "foo")
-
-
-    #> # toml (3 lines)
-    #> 1 | a = true
-    #> 2 | b = [1, 2, 3]
-    #> 3 | c = "foo"
 
 If `tree` has an empty selection, then it is returned unchanged, i.e. no
 new element is inserted.
 
-JSONC
-
-TOML
-
- 
-
-    json <- tsjsonc::ts_parse_jsonc("{ \"a\": true, \"b\": [1, 2, 3] }")
-    json |> ts_tree_select("nonexistent") |> ts_tree_insert("foo")
-
-
-    #> # jsonc (1 line, 0 selected elements)
-    #> 1 | { "a": true, "b": [1, 2, 3] }
-
- 
-
-    toml <- tstoml::ts_parse_toml("a = true\nb = [1, 2, 3]")
-    toml |> ts_tree_select("nonexistent") |> ts_tree_insert("foo")
-
-
-    #> # toml (2 lines, 0 selected elements)
-    #> 1 | a = true
-    #> 2 | b = [1, 2, 3]
-
 ## See also
-
-Method in installed package: `ts_tree_insert(<ts_tree_tsjsonc>)`.
 
 Other ts_tree generics:
 [`[[.ts_tree()`](https://r-lib.github.io/tsitter/reference/double-bracket-ts-tree.md),
@@ -188,7 +98,7 @@ Other ts_tree generics:
 # Create a parse tree with tsjsonc -------------------------------------
 tree <- tsjsonc::ts_parse_jsonc('{ "a": true, "b": [1, 2, 3] }')
 
-tree |> ts_tree_select("b") |> ts_tree_insert(4, at = Inf)
+ts_tree_insert(ts_tree_select(tree, "b"), 4, at = Inf)
 #> # jsonc (6 lines)
 #> 1 | { "a": true, "b": [
 #> 2 |     1,
@@ -204,9 +114,11 @@ tree <- tstoml::ts_parse_toml(r"(
   beta = { ip = "127.0.0.2", dc = "eqdc20" }
 )")
 
-tree |>
-  ts_tree_select("servers", TRUE) |>
-  ts_tree_insert(key = "active", TRUE)
+ts_tree_insert(
+  ts_tree_select(tree, "servers", TRUE),
+  key = "active",
+  TRUE
+)
 #> # toml (3 lines)
 #> 1 | [servers]
 #> 2 |   alpha = { ip = "127.0.0.1", dc = "eqdc10", active = true }

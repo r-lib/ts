@@ -40,13 +40,9 @@ The modified `ts_tree` object.
 
 The following two expressions are equivalent:
 
- 
-
-    tree <- ts_tree_select(tree, <selectors>) |> ts_tree_update(value)
+    tree <- ts_tree_update(ts_tree_select(tree, <selectors>), value)
 
 and
-
- 
 
     tree[[list(<selectors>)]] <- value
 

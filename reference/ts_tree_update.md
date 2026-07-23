@@ -21,11 +21,11 @@ ts_tree_update(tree, new, options, ...)
   The type of `new` depends on the parser and the method that implements
   the insertion. See details in the manual of the specific parser.
 
+  See details in the manual of the specific parser.
+
 - options:
 
   A list of options for the update.
-
-  See details in the manual of the specific parser.
 
 - ...:
 
@@ -41,63 +41,10 @@ new element.
 If the tree does not have a selection, the new element replaces the
 whole document.
 
-JSONC
-
- 
-
-    tree <- tsjsonc::ts_parse_jsonc("{ \"a\": true, \"b\": [1, 2, 3] }")
-    tree |> ts_tree_update(as.list(4:6))
-
-
-    #> # jsonc (5 lines)
-    #> 1 | [
-    #> 2 |   4,
-    #> 3 |   5,
-    #> 4 |   6
-    #> 5 | ]
-
 If the tree has an empty selection, the new element is inserted at the
 position of where the selected elements would be.
 
-JSONC
-
-TOML
-
- 
-
-    tree <- tsjsonc::ts_parse_jsonc("{ \"a\": true, \"b\": [1, 2, 3] }")
-    tree |> ts_tree_select("new") |> ts_tree_update(as.list(4:6))
-
-
-    #> # jsonc (13 lines)
-    #>  1 | {
-    #>  2 |     "a": true,
-    #>  3 |     "b": [
-    #>  4 |         1,
-    #>  5 |         2,
-    #>  6 |         3
-    #>  7 |     ],
-    #>  8 |     "new": [
-    #>  9 |         4,
-    #> 10 |         5,
-    #> ℹ 3 more lines
-    #> ℹ Use `print(n = ...)` to see more lines
-
- 
-
-    tree <- tstoml::ts_parse_toml("a = true\nb = [1, 2, 3]")
-    tree |> ts_tree_select("new") |> ts_tree_update(as.list(4:6))
-
-
-    #> # toml (3 lines)
-    #> 1 | a = true
-    #> 2 | b = [1, 2, 3]
-    #> 3 | new = [ 4, 5, 6 ]
-
 ## See also
-
-Methods in installed packages: `ts_tree_update(<ts_tree_tsjsonc>)` and
-`ts_tree_update(<ts_tree_tstoml>)`.
 
 Other ts_tree generics:
 [`[[.ts_tree()`](https://r-lib.github.io/tsitter/reference/double-bracket-ts-tree.md),
@@ -131,7 +78,7 @@ tree <- tsjsonc::ts_parse_jsonc(r"(
   }
 )")
 
-tree |> ts_tree_select("version") |> ts_tree_update("2.0.0")
+ts_tree_update(ts_tree_select(tree, "version"), "2.0.0")
 #> # jsonc (8 lines)
 #> 1 | 
 #> 2 |   {
@@ -149,7 +96,7 @@ tree <- tstoml::ts_parse_toml(r"(
   depdendencies = { tstoml = "0.1.0" }
 )")
 
-tree |> ts_tree_select("package", "version") |> ts_tree_update("2.0.0")
+ts_tree_update(ts_tree_select(tree, "package", "version"), "2.0.0")
 #> # toml (4 lines)
 #> 1 | [package]
 #> 2 |   name = "example"

@@ -23,7 +23,7 @@ tree-sitter parse trees."></head><body>
 
     <a class="navbar-brand me-2" href="../index.html">tsitter</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Unreleased version">0.0.0.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.1.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -46,7 +46,7 @@ tree-sitter parse trees."></head><body>
   <main id="main" class="col-md-9"><div class="page-header">
 
       <h1>About tsitter</h1>
-      <small class="dont-index">Source: <a href="https://github.com/r-lib/tsitter/blob/main/R/ts-package.R" class="external-link"><code>R/ts-package.R</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/r-lib/tsitter/blob/v0.1.0/R/ts-package.R" class="external-link"><code>R/ts-package.R</code></a></small>
       <div class="d-none name"><code>about.Rd</code></div>
     </div>
 
@@ -124,36 +124,81 @@ other R packages. It has a common API to</p><ul><li><p>query,</p></li>
 <p>Select element by objects key:</p>
 <p></p><div class="sourceCode r"><pre><code><span><span class="fu"><a href="../reference/ts_tree_select.html">ts_tree_select</a></span><span class="op">(</span><span class="va">json</span>, <span class="st">"a"</span><span class="op">)</span></span></code></pre><p></p></div>
 <div class="asciicast" style="color: #B9C0CB;font-family: 'Fira Code',Monaco,Consolas,Menlo,'Bitstream Vera Sans Mono','Powerline Symbols',monospace;line-height: 1.300000"><div class="sourceCode"><pre>
-#&gt; Error in ts_tree_select(json, "a") :
-#&gt;   could not find function "ts_tree_select"
+#&gt; <span style="color: #6F7783;"># jsonc (19 lines, 1 selected element)</span>
+#&gt;   <span style="color: #6F7783;"> 1  | </span>
+#&gt;   <span style="color: #6F7783;"> 2  | </span>// this is a comment
+#&gt;   <span style="color: #6F7783;"> 3  | </span>{
+#&gt; <span style="background-color: #66C2CD;">&gt;</span> <span style="color: #6F7783;"> 4  | </span>  "a": <span style="color: #66C2CD;">{</span>
+#&gt; <span style="background-color: #66C2CD;">&gt;</span> <span style="color: #6F7783;"> 5  | </span><span style="color: #66C2CD;">    "a1": [1, 2, 3],</span>
+#&gt; <span style="background-color: #66C2CD;">&gt;</span> <span style="color: #6F7783;"> 6  | </span><span style="color: #66C2CD;">    // comment</span>
+#&gt; <span style="background-color: #66C2CD;">&gt;</span> <span style="color: #6F7783;"> 7  | </span><span style="color: #66C2CD;">    "a2": "string"</span>
+#&gt; <span style="background-color: #66C2CD;">&gt;</span> <span style="color: #6F7783;"> 8  | </span><span style="color: #66C2CD;">  }</span>,
+#&gt;   <span style="color: #6F7783;"> 9  | </span>  "b": [
+#&gt;   <span style="color: #6F7783;">10  | </span>    {
+#&gt;   <span style="color: #6F7783;">11  | </span>      "b11": true,
+#&gt;   <span style="color: #6F7783;">...</span>
 </pre></div></div>
 
 <p>Select element inside element:</p>
 <p></p><div class="sourceCode r"><pre><code><span><span class="fu"><a href="../reference/ts_tree_select.html">ts_tree_select</a></span><span class="op">(</span><span class="va">json</span>, <span class="st">"a"</span>, <span class="st">"a1"</span><span class="op">)</span></span></code></pre><p></p></div>
 <div class="asciicast" style="color: #B9C0CB;font-family: 'Fira Code',Monaco,Consolas,Menlo,'Bitstream Vera Sans Mono','Powerline Symbols',monospace;line-height: 1.300000"><div class="sourceCode"><pre>
-#&gt; Error in ts_tree_select(json, "a", "a1") :
-#&gt;   could not find function "ts_tree_select"
+#&gt; <span style="color: #6F7783;"># jsonc (19 lines, 1 selected element)</span>
+#&gt;   <span style="color: #6F7783;">2   | </span>// this is a comment
+#&gt;   <span style="color: #6F7783;">3   | </span>{
+#&gt;   <span style="color: #6F7783;">4   | </span>  "a": {
+#&gt; <span style="background-color: #66C2CD;">&gt;</span> <span style="color: #6F7783;">5   | </span>    "a1": <span style="color: #66C2CD;">[1, 2, 3]</span>,
+#&gt;   <span style="color: #6F7783;">6   | </span>    // comment
+#&gt;   <span style="color: #6F7783;">7   | </span>    "a2": "string"
+#&gt;   <span style="color: #6F7783;">8   | </span>  },
+#&gt;   <span style="color: #6F7783;">...</span>
 </pre></div></div>
 
 <p>Select element(s) of an array:</p>
 <p></p><div class="sourceCode r"><pre><code><span><span class="fu"><a href="../reference/ts_tree_select.html">ts_tree_select</a></span><span class="op">(</span><span class="va">json</span>, <span class="st">"a"</span>, <span class="st">"a1"</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">2</span><span class="op">)</span></span></code></pre><p></p></div>
 <div class="asciicast" style="color: #B9C0CB;font-family: 'Fira Code',Monaco,Consolas,Menlo,'Bitstream Vera Sans Mono','Powerline Symbols',monospace;line-height: 1.300000"><div class="sourceCode"><pre>
-#&gt; Error in ts_tree_select(json, "a", "a1", 1:2) :
-#&gt;   could not find function "ts_tree_select"
+#&gt; <span style="color: #6F7783;"># jsonc (19 lines, 2 selected elements)</span>
+#&gt;   <span style="color: #6F7783;">2   | </span>// this is a comment
+#&gt;   <span style="color: #6F7783;">3   | </span>{
+#&gt;   <span style="color: #6F7783;">4   | </span>  "a": {
+#&gt; <span style="background-color: #66C2CD;">&gt;</span> <span style="color: #6F7783;">5   | </span>    "a1": [<span style="color: #66C2CD;">1</span>, <span style="color: #66C2CD;">2</span>, 3],
+#&gt;   <span style="color: #6F7783;">6   | </span>    // comment
+#&gt;   <span style="color: #6F7783;">7   | </span>    "a2": "string"
+#&gt;   <span style="color: #6F7783;">8   | </span>  },
+#&gt;   <span style="color: #6F7783;">...</span>
 </pre></div></div>
 
 <p>Select multiple keys from an object:</p>
 <p></p><div class="sourceCode r"><pre><code><span><span class="fu"><a href="../reference/ts_tree_select.html">ts_tree_select</a></span><span class="op">(</span><span class="va">json</span>, <span class="st">"a"</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"a1"</span>, <span class="st">"a2"</span><span class="op">)</span><span class="op">)</span></span></code></pre><p></p></div>
 <div class="asciicast" style="color: #B9C0CB;font-family: 'Fira Code',Monaco,Consolas,Menlo,'Bitstream Vera Sans Mono','Powerline Symbols',monospace;line-height: 1.300000"><div class="sourceCode"><pre>
-#&gt; Error in ts_tree_select(json, "a", c("a1", "a2")) :
-#&gt;   could not find function "ts_tree_select"
+#&gt; <span style="color: #6F7783;"># jsonc (19 lines, 2 selected elements)</span>
+#&gt;   <span style="color: #6F7783;"> 2  | </span>// this is a comment
+#&gt;   <span style="color: #6F7783;"> 3  | </span>{
+#&gt;   <span style="color: #6F7783;"> 4  | </span>  "a": {
+#&gt; <span style="background-color: #66C2CD;">&gt;</span> <span style="color: #6F7783;"> 5  | </span>    "a1": <span style="color: #66C2CD;">[1, 2, 3]</span>,
+#&gt;   <span style="color: #6F7783;"> 6  | </span>    // comment
+#&gt; <span style="background-color: #66C2CD;">&gt;</span> <span style="color: #6F7783;"> 7  | </span>    "a2": <span style="color: #66C2CD;">"string"</span>
+#&gt;   <span style="color: #6F7783;"> 8  | </span>  },
+#&gt;   <span style="color: #6F7783;"> 9  | </span>  "b": [
+#&gt;   <span style="color: #6F7783;">10  | </span>    {
+#&gt;   <span style="color: #6F7783;">...</span>
 </pre></div></div>
 
 <p>Select nodes that match a tree-sitter query:</p>
-<p></p><div class="sourceCode r"><pre><code><span><span class="va">json</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/ts_tree_select.html">ts_tree_select</a></span><span class="op">(</span>query <span class="op">=</span> <span class="st">"((pair value: (false) @val))"</span><span class="op">)</span></span></code></pre><p></p></div>
+<p></p><div class="sourceCode r"><pre><code><span><span class="fu"><a href="../reference/ts_tree_select.html">ts_tree_select</a></span><span class="op">(</span><span class="va">json</span>, query <span class="op">=</span> <span class="st">"((pair value: (false) @val))"</span><span class="op">)</span></span></code></pre><p></p></div>
 <div class="asciicast" style="color: #B9C0CB;font-family: 'Fira Code',Monaco,Consolas,Menlo,'Bitstream Vera Sans Mono','Powerline Symbols',monospace;line-height: 1.300000"><div class="sourceCode"><pre>
-#&gt; Error in ts_tree_select(json, query = "((pair value: (false) @val))") :
-#&gt;   could not find function "ts_tree_select"
+#&gt; <span style="color: #6F7783;"># jsonc (19 lines, 3 selected elements)</span>
+#&gt;   <span style="color: #6F7783;">...</span>
+#&gt;   <span style="color: #6F7783;"> 9  | </span>  "b": [
+#&gt;   <span style="color: #6F7783;">10  | </span>    {
+#&gt;   <span style="color: #6F7783;">11  | </span>      "b11": true,
+#&gt; <span style="background-color: #66C2CD;">&gt;</span> <span style="color: #6F7783;">12  | </span>      "b12": <span style="color: #66C2CD;">false</span>
+#&gt;   <span style="color: #6F7783;">13  | </span>    },
+#&gt;   <span style="color: #6F7783;">14  | </span>    {
+#&gt; <span style="background-color: #66C2CD;">&gt;</span> <span style="color: #6F7783;">15  | </span>      "b21": <span style="color: #66C2CD;">false</span>,
+#&gt; <span style="background-color: #66C2CD;">&gt;</span> <span style="color: #6F7783;">16  | </span>      "b22": <span style="color: #66C2CD;">false</span>
+#&gt;   <span style="color: #6F7783;">17  | </span>    }
+#&gt;   <span style="color: #6F7783;">18  | </span>  ]
+#&gt;   <span style="color: #6F7783;">19  | </span>}
 </pre></div></div>
 </div>
 
@@ -162,10 +207,21 @@ other R packages. It has a common API to</p><ul><li><p>query,</p></li>
 
 
 <p>Delete selected elements:</p>
-<p></p><div class="sourceCode r"><pre><code><span><span class="fu"><a href="../reference/ts_tree_select.html">ts_tree_select</a></span><span class="op">(</span><span class="va">json</span>, <span class="st">"a"</span>, <span class="st">"a1"</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/ts_tree_delete.html">ts_tree_delete</a></span><span class="op">(</span><span class="op">)</span></span></code></pre><p></p></div>
+<p></p><div class="sourceCode r"><pre><code><span><span class="fu"><a href="../reference/ts_tree_delete.html">ts_tree_delete</a></span><span class="op">(</span><span class="fu"><a href="../reference/ts_tree_select.html">ts_tree_select</a></span><span class="op">(</span><span class="va">json</span>, <span class="st">"a"</span>, <span class="st">"a1"</span><span class="op">)</span><span class="op">)</span></span></code></pre><p></p></div>
 <div class="asciicast" style="color: #B9C0CB;font-family: 'Fira Code',Monaco,Consolas,Menlo,'Bitstream Vera Sans Mono','Powerline Symbols',monospace;line-height: 1.300000"><div class="sourceCode"><pre>
-#&gt; Error in ts_tree_delete(ts_tree_select(json, "a", "a1")) :
-#&gt;   could not find function "ts_tree_delete"
+#&gt; <span style="color: #6F7783;"># jsonc (18 lines)</span>
+#&gt; <span style="color: #6F7783;"> 1 | </span>
+#&gt; <span style="color: #6F7783;"> 2 | </span>// this is a comment
+#&gt; <span style="color: #6F7783;"> 3 | </span>{
+#&gt; <span style="color: #6F7783;"> 4 | </span>  "a": {
+#&gt; <span style="color: #6F7783;"> 5 | </span>    // comment
+#&gt; <span style="color: #6F7783;"> 6 | </span>    "a2": "string"
+#&gt; <span style="color: #6F7783;"> 7 | </span>  },
+#&gt; <span style="color: #6F7783;"> 8 | </span>  "b": [
+#&gt; <span style="color: #6F7783;"> 9 | </span>    {
+#&gt; <span style="color: #6F7783;">10 | </span>      "b11": true,
+#&gt; <span style="color: #6F7783;">ℹ 8 more lines</span>
+#&gt; <span style="color: #6F7783;">ℹ Use `print(n = ...)` to see more lines</span>
 </pre></div></div>
 </div>
 
@@ -174,19 +230,45 @@ other R packages. It has a common API to</p><ul><li><p>query,</p></li>
 
 
 <p>Insert element into an array:</p>
-<p></p><div class="sourceCode r"><pre><code><span><span class="fu"><a href="../reference/ts_tree_select.html">ts_tree_select</a></span><span class="op">(</span><span class="va">json</span>, <span class="st">"a"</span>, <span class="st">"a1"</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/ts_tree_insert.html">ts_tree_insert</a></span><span class="op">(</span>at <span class="op">=</span> <span class="fl">2</span>, <span class="st">"new"</span><span class="op">)</span></span></code></pre><p></p></div>
+<p></p><div class="sourceCode r"><pre><code><span><span class="fu"><a href="../reference/ts_tree_insert.html">ts_tree_insert</a></span><span class="op">(</span><span class="fu"><a href="../reference/ts_tree_select.html">ts_tree_select</a></span><span class="op">(</span><span class="va">json</span>, <span class="st">"a"</span>, <span class="st">"a1"</span><span class="op">)</span>, at <span class="op">=</span> <span class="fl">2</span>, <span class="st">"new"</span><span class="op">)</span></span></code></pre><p></p></div>
 <div class="asciicast" style="color: #B9C0CB;font-family: 'Fira Code',Monaco,Consolas,Menlo,'Bitstream Vera Sans Mono','Powerline Symbols',monospace;line-height: 1.300000"><div class="sourceCode"><pre>
-#&gt; Error in ts_tree_insert(ts_tree_select(json, "a", "a1"), at = 2, "new") :
-#&gt;   could not find function "ts_tree_insert"
+#&gt; <span style="color: #6F7783;"># jsonc (24 lines)</span>
+#&gt; <span style="color: #6F7783;"> 1 | </span>
+#&gt; <span style="color: #6F7783;"> 2 | </span>// this is a comment
+#&gt; <span style="color: #6F7783;"> 3 | </span>{
+#&gt; <span style="color: #6F7783;"> 4 | </span>  "a": {
+#&gt; <span style="color: #6F7783;"> 5 | </span>    "a1": [
+#&gt; <span style="color: #6F7783;"> 6 | </span>        1,
+#&gt; <span style="color: #6F7783;"> 7 | </span>        2,
+#&gt; <span style="color: #6F7783;"> 8 | </span>        "new",
+#&gt; <span style="color: #6F7783;"> 9 | </span>        3
+#&gt; <span style="color: #6F7783;">10 | </span>    ],
+#&gt; <span style="color: #6F7783;">ℹ 14 more lines</span>
+#&gt; <span style="color: #6F7783;">ℹ Use `print(n = ...)` to see more lines</span>
 </pre></div></div>
 
 <p>Inserting into an array reformats the array.</p>
 <p>Insert element into an object, at the specified key:</p>
-<p></p><div class="sourceCode r"><pre><code><span><span class="fu"><a href="../reference/ts_tree_select.html">ts_tree_select</a></span><span class="op">(</span><span class="va">json</span>, <span class="st">"a"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu"><a href="../reference/ts_tree_insert.html">ts_tree_insert</a></span><span class="op">(</span>key <span class="op">=</span> <span class="st">"a0"</span>, at <span class="op">=</span> <span class="fl">0</span>, <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="st">"new"</span>, <span class="st">"element"</span><span class="op">)</span><span class="op">)</span></span></code></pre><p></p></div>
+<p></p><div class="sourceCode r"><pre><code><span><span class="fu"><a href="../reference/ts_tree_insert.html">ts_tree_insert</a></span><span class="op">(</span></span>
+<span>  <span class="fu"><a href="../reference/ts_tree_select.html">ts_tree_select</a></span><span class="op">(</span><span class="va">json</span>, <span class="st">"a"</span><span class="op">)</span>,</span>
+<span>  key <span class="op">=</span> <span class="st">"a0"</span>,</span>
+<span>  at <span class="op">=</span> <span class="fl">0</span>,</span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="st">"new"</span>, <span class="st">"element"</span><span class="op">)</span></span>
+<span><span class="op">)</span></span></code></pre><p></p></div>
 <div class="asciicast" style="color: #B9C0CB;font-family: 'Fira Code',Monaco,Consolas,Menlo,'Bitstream Vera Sans Mono','Powerline Symbols',monospace;line-height: 1.300000"><div class="sourceCode"><pre>
-#&gt; Error in ts_tree_insert(ts_tree_select(json, "a"), key = "a0", at = 0,  :
-#&gt;   could not find function "ts_tree_insert"
+#&gt; <span style="color: #6F7783;"># jsonc (27 lines)</span>
+#&gt; <span style="color: #6F7783;"> 1 | </span>
+#&gt; <span style="color: #6F7783;"> 2 | </span>// this is a comment
+#&gt; <span style="color: #6F7783;"> 3 | </span>{
+#&gt; <span style="color: #6F7783;"> 4 | </span>  "a": {
+#&gt; <span style="color: #6F7783;"> 5 | </span>      "a0": [
+#&gt; <span style="color: #6F7783;"> 6 | </span>          "new",
+#&gt; <span style="color: #6F7783;"> 7 | </span>          "element"
+#&gt; <span style="color: #6F7783;"> 8 | </span>      ],
+#&gt; <span style="color: #6F7783;"> 9 | </span>      "a1": [
+#&gt; <span style="color: #6F7783;">10 | </span>          1,
+#&gt; <span style="color: #6F7783;">ℹ 17 more lines</span>
+#&gt; <span style="color: #6F7783;">ℹ Use `print(n = ...)` to see more lines</span>
 </pre></div></div>
 </div>
 
@@ -195,10 +277,21 @@ other R packages. It has a common API to</p><ul><li><p>query,</p></li>
 
 
 <p>Update existing element:</p>
-<p></p><div class="sourceCode r"><pre><code><span><span class="fu"><a href="../reference/ts_tree_select.html">ts_tree_select</a></span><span class="op">(</span><span class="va">json</span>, <span class="st">"a"</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"a1"</span>, <span class="st">"a2"</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/ts_tree_update.html">ts_tree_update</a></span><span class="op">(</span><span class="st">"new value"</span><span class="op">)</span></span></code></pre><p></p></div>
+<p></p><div class="sourceCode r"><pre><code><span><span class="fu"><a href="../reference/ts_tree_update.html">ts_tree_update</a></span><span class="op">(</span><span class="fu"><a href="../reference/ts_tree_select.html">ts_tree_select</a></span><span class="op">(</span><span class="va">json</span>, <span class="st">"a"</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"a1"</span>, <span class="st">"a2"</span><span class="op">)</span><span class="op">)</span>, <span class="st">"new value"</span><span class="op">)</span></span></code></pre><p></p></div>
 <div class="asciicast" style="color: #B9C0CB;font-family: 'Fira Code',Monaco,Consolas,Menlo,'Bitstream Vera Sans Mono','Powerline Symbols',monospace;line-height: 1.300000"><div class="sourceCode"><pre>
-#&gt;
-#&gt;   could not find function "ts_tree_update"
+#&gt; <span style="color: #6F7783;"># jsonc (19 lines)</span>
+#&gt; <span style="color: #6F7783;"> 1 | </span>
+#&gt; <span style="color: #6F7783;"> 2 | </span>// this is a comment
+#&gt; <span style="color: #6F7783;"> 3 | </span>{
+#&gt; <span style="color: #6F7783;"> 4 | </span>  "a": {
+#&gt; <span style="color: #6F7783;"> 5 | </span>    "a1": "new value",
+#&gt; <span style="color: #6F7783;"> 6 | </span>    // comment
+#&gt; <span style="color: #6F7783;"> 7 | </span>    "a2": "new value"
+#&gt; <span style="color: #6F7783;"> 8 | </span>  },
+#&gt; <span style="color: #6F7783;"> 9 | </span>  "b": [
+#&gt; <span style="color: #6F7783;">10 | </span>    {
+#&gt; <span style="color: #6F7783;">ℹ 9 more lines</span>
+#&gt; <span style="color: #6F7783;">ℹ Use `print(n = ...)` to see more lines</span>
 </pre></div></div>
 
 <p>Inserts the element if some parents are missing:</p>
@@ -222,10 +315,21 @@ other R packages. It has a common API to</p><ul><li><p>query,</p></li>
 #&gt; <span style="color: #6F7783;">ℹ Use `print(n = ...)` to see more lines</span>
 </pre></div></div>
 
-<p></p><div class="sourceCode r"><pre><code><span><span class="fu"><a href="../reference/ts_tree_select.html">ts_tree_select</a></span><span class="op">(</span><span class="va">json</span>, <span class="st">"a"</span>, <span class="st">"x"</span>, <span class="st">"y"</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/ts_tree_update.html">ts_tree_update</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">2</span>,<span class="fl">3</span><span class="op">)</span><span class="op">)</span></span></code></pre><p></p></div>
+<p></p><div class="sourceCode r"><pre><code><span><span class="fu"><a href="../reference/ts_tree_update.html">ts_tree_update</a></span><span class="op">(</span><span class="fu"><a href="../reference/ts_tree_select.html">ts_tree_select</a></span><span class="op">(</span><span class="va">json</span>, <span class="st">"a"</span>, <span class="st">"x"</span>, <span class="st">"y"</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span><span class="op">)</span><span class="op">)</span></span></code></pre><p></p></div>
 <div class="asciicast" style="color: #B9C0CB;font-family: 'Fira Code',Monaco,Consolas,Menlo,'Bitstream Vera Sans Mono','Powerline Symbols',monospace;line-height: 1.300000"><div class="sourceCode"><pre>
-#&gt; Error in ts_tree_update(ts_tree_select(json, "a", "x", "y"), list(1, 2,  :
-#&gt;   could not find function "ts_tree_update"
+#&gt; <span style="color: #6F7783;"># jsonc (30 lines)</span>
+#&gt; <span style="color: #6F7783;"> 1 | </span>
+#&gt; <span style="color: #6F7783;"> 2 | </span>// this is a comment
+#&gt; <span style="color: #6F7783;"> 3 | </span>{
+#&gt; <span style="color: #6F7783;"> 4 | </span>  "a": {
+#&gt; <span style="color: #6F7783;"> 5 | </span>      "a1": [
+#&gt; <span style="color: #6F7783;"> 6 | </span>          1,
+#&gt; <span style="color: #6F7783;"> 7 | </span>          2,
+#&gt; <span style="color: #6F7783;"> 8 | </span>          3
+#&gt; <span style="color: #6F7783;"> 9 | </span>      ],
+#&gt; <span style="color: #6F7783;">10 | </span>      // comment
+#&gt; <span style="color: #6F7783;">ℹ 20 more lines</span>
+#&gt; <span style="color: #6F7783;">ℹ Use `print(n = ...)` to see more lines</span>
 </pre></div></div>
 </div>
 
@@ -234,10 +338,27 @@ other R packages. It has a common API to</p><ul><li><p>query,</p></li>
 
 
 <p>Use <code><a href="https://rdrr.io/r/base/showConnections.html" class="external-link">stdout()</a></code> to write it to the screen instread of a file:</p>
-<p></p><div class="sourceCode r"><pre><code><span><span class="va">json</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/ts_tree_write.html">ts_tree_write</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/showConnections.html" class="external-link">stdout</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code></pre><p></p></div>
+<p></p><div class="sourceCode r"><pre><code><span><span class="fu"><a href="../reference/ts_tree_write.html">ts_tree_write</a></span><span class="op">(</span><span class="va">json</span>, <span class="fu"><a href="https://rdrr.io/r/base/showConnections.html" class="external-link">stdout</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code></pre><p></p></div>
 <div class="asciicast" style="color: #B9C0CB;font-family: 'Fira Code',Monaco,Consolas,Menlo,'Bitstream Vera Sans Mono','Powerline Symbols',monospace;line-height: 1.300000"><div class="sourceCode"><pre>
-#&gt; Error in ts_tree_write(json, stdout()) :
-#&gt;   could not find function "ts_tree_write"
+#&gt;
+#&gt; // this is a comment
+#&gt; {
+#&gt;   "a": {
+#&gt;     "a1": [1, 2, 3],
+#&gt;     // comment
+#&gt;     "a2": "string"
+#&gt;   },
+#&gt;   "b": [
+#&gt;     {
+#&gt;       "b11": true,
+#&gt;       "b12": false
+#&gt;     },
+#&gt;     {
+#&gt;       "b21": false,
+#&gt;       "b22": false
+#&gt;     }
+#&gt;   ]
+#&gt; }
 </pre></div></div>
 </div>
 
@@ -246,17 +367,42 @@ other R packages. It has a common API to</p><ul><li><p>query,</p></li>
 
 
 <p>Format the whole document:</p>
-<p></p><div class="sourceCode r"><pre><code><span><span class="va">json</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/ts_tree_format.html">ts_tree_format</a></span><span class="op">(</span><span class="op">)</span></span></code></pre><p></p></div>
+<p></p><div class="sourceCode r"><pre><code><span><span class="fu"><a href="../reference/ts_tree_format.html">ts_tree_format</a></span><span class="op">(</span><span class="va">json</span><span class="op">)</span></span></code></pre><p></p></div>
 <div class="asciicast" style="color: #B9C0CB;font-family: 'Fira Code',Monaco,Consolas,Menlo,'Bitstream Vera Sans Mono','Powerline Symbols',monospace;line-height: 1.300000"><div class="sourceCode"><pre>
-#&gt; Error in ts_tree_format(json) : could not find function "ts_tree_format"
+#&gt; <span style="color: #6F7783;"># jsonc (23 lines)</span>
+#&gt; <span style="color: #6F7783;"> 1 | </span>
+#&gt; <span style="color: #6F7783;"> 2 | </span>// this is a comment
+#&gt; <span style="color: #6F7783;"> 3 | </span>{
+#&gt; <span style="color: #6F7783;"> 4 | </span>    "a": {
+#&gt; <span style="color: #6F7783;"> 5 | </span>        "a1": [
+#&gt; <span style="color: #6F7783;"> 6 | </span>            1,
+#&gt; <span style="color: #6F7783;"> 7 | </span>            2,
+#&gt; <span style="color: #6F7783;"> 8 | </span>            3
+#&gt; <span style="color: #6F7783;"> 9 | </span>        ],
+#&gt; <span style="color: #6F7783;">10 | </span>        // comment
+#&gt; <span style="color: #6F7783;">ℹ 13 more lines</span>
+#&gt; <span style="color: #6F7783;">ℹ Use `print(n = ...)` to see more lines</span>
 </pre></div></div>
 
 <p>Format part of the document:</p>
-<p></p><div class="sourceCode r"><pre><code><span><span class="va">json</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/ts_tree_select.html">ts_tree_select</a></span><span class="op">(</span><span class="st">"a"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu"><a href="../reference/ts_tree_format.html">ts_tree_format</a></span><span class="op">(</span>options <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>format <span class="op">=</span> <span class="st">"compact"</span><span class="op">)</span><span class="op">)</span></span></code></pre><p></p></div>
+<p></p><div class="sourceCode r"><pre><code><span><span class="fu"><a href="../reference/ts_tree_format.html">ts_tree_format</a></span><span class="op">(</span></span>
+<span>  <span class="fu"><a href="../reference/ts_tree_select.html">ts_tree_select</a></span><span class="op">(</span><span class="va">json</span>, <span class="st">"a"</span><span class="op">)</span>,</span>
+<span>  options <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>format <span class="op">=</span> <span class="st">"compact"</span><span class="op">)</span></span>
+<span><span class="op">)</span></span></code></pre><p></p></div>
 <div class="asciicast" style="color: #B9C0CB;font-family: 'Fira Code',Monaco,Consolas,Menlo,'Bitstream Vera Sans Mono','Powerline Symbols',monospace;line-height: 1.300000"><div class="sourceCode"><pre>
-#&gt; act")) :
-#&gt;   could not find function "ts_tree_format"
+#&gt; <span style="color: #6F7783;"># jsonc (15 lines)</span>
+#&gt; <span style="color: #6F7783;"> 1 | </span>
+#&gt; <span style="color: #6F7783;"> 2 | </span>// this is a comment
+#&gt; <span style="color: #6F7783;"> 3 | </span>{
+#&gt; <span style="color: #6F7783;"> 4 | </span>  "a": {"a1":[1,2,3],"a2":"string"},
+#&gt; <span style="color: #6F7783;"> 5 | </span>  "b": [
+#&gt; <span style="color: #6F7783;"> 6 | </span>    {
+#&gt; <span style="color: #6F7783;"> 7 | </span>      "b11": true,
+#&gt; <span style="color: #6F7783;"> 8 | </span>      "b12": false
+#&gt; <span style="color: #6F7783;"> 9 | </span>    },
+#&gt; <span style="color: #6F7783;">10 | </span>    {
+#&gt; <span style="color: #6F7783;">ℹ 5 more lines</span>
+#&gt; <span style="color: #6F7783;">ℹ Use `print(n = ...)` to see more lines</span>
 </pre></div></div>
 </div>
 
@@ -265,19 +411,69 @@ other R packages. It has a common API to</p><ul><li><p>query,</p></li>
 
 
 <p>Unserialize a whole document:</p>
-<p></p><div class="sourceCode r"><pre><code><span><span class="va">json</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/ts_tree_unserialize.html">ts_tree_unserialize</a></span><span class="op">(</span><span class="op">)</span></span></code></pre><p></p></div>
+<p></p><div class="sourceCode r"><pre><code><span><span class="fu"><a href="../reference/ts_tree_unserialize.html">ts_tree_unserialize</a></span><span class="op">(</span><span class="va">json</span><span class="op">)</span></span></code></pre><p></p></div>
 <div class="asciicast" style="color: #B9C0CB;font-family: 'Fira Code',Monaco,Consolas,Menlo,'Bitstream Vera Sans Mono','Powerline Symbols',monospace;line-height: 1.300000"><div class="sourceCode"><pre>
-#&gt; Error in ts_tree_unserialize(json) :
-#&gt;   could not find function "ts_tree_unserialize"
+#&gt; [[1]]
+#&gt; [[1]]$a
+#&gt; [[1]]$a$a1
+#&gt; [[1]]$a$a1[[1]]
+#&gt; [1] 1
+#&gt;
+#&gt; [[1]]$a$a1[[2]]
+#&gt; [1] 2
+#&gt;
+#&gt; [[1]]$a$a1[[3]]
+#&gt; [1] 3
+#&gt;
+#&gt;
+#&gt; [[1]]$a$a2
+#&gt; [1] "string"
+#&gt;
+#&gt;
+#&gt; [[1]]$b
+#&gt; [[1]]$b[[1]]
+#&gt; [[1]]$b[[1]]$b11
+#&gt; [1] TRUE
+#&gt;
+#&gt; [[1]]$b[[1]]$b12
+#&gt; [1] FALSE
+#&gt;
+#&gt;
+#&gt; [[1]]$b[[2]]
+#&gt; [[1]]$b[[2]]$b21
+#&gt; [1] FALSE
+#&gt;
+#&gt; [[1]]$b[[2]]$b22
+#&gt; [1] FALSE
+#&gt;
+#&gt;
+#&gt;
+#&gt;
 </pre></div></div>
 
 <p>Note that <code><a href="ts_tree_unserialize.html">ts_tree_unserialize()</a></code> always returns a list, the first element
 of the list is the unserialized document.</p>
 <p>Unserialize part(s) of the document:</p>
-<p></p><div class="sourceCode r"><pre><code><span><span class="va">json</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/ts_tree_select.html">ts_tree_select</a></span><span class="op">(</span><span class="st">"b"</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/ts_tree_unserialize.html">ts_tree_unserialize</a></span><span class="op">(</span><span class="op">)</span></span></code></pre><p></p></div>
+<p></p><div class="sourceCode r"><pre><code><span><span class="fu"><a href="../reference/ts_tree_unserialize.html">ts_tree_unserialize</a></span><span class="op">(</span><span class="fu"><a href="../reference/ts_tree_select.html">ts_tree_select</a></span><span class="op">(</span><span class="va">json</span>, <span class="st">"b"</span><span class="op">)</span><span class="op">)</span></span></code></pre><p></p></div>
 <div class="asciicast" style="color: #B9C0CB;font-family: 'Fira Code',Monaco,Consolas,Menlo,'Bitstream Vera Sans Mono','Powerline Symbols',monospace;line-height: 1.300000"><div class="sourceCode"><pre>
-#&gt; Error in ts_tree_unserialize(ts_tree_select(json, "b")) :
-#&gt;   could not find function "ts_tree_unserialize"
+#&gt; [[1]]
+#&gt; [[1]][[1]]
+#&gt; [[1]][[1]]$b11
+#&gt; [1] TRUE
+#&gt;
+#&gt; [[1]][[1]]$b12
+#&gt; [1] FALSE
+#&gt;
+#&gt;
+#&gt; [[1]][[2]]
+#&gt; [[1]][[2]]$b21
+#&gt; [1] FALSE
+#&gt;
+#&gt; [[1]][[2]]$b22
+#&gt; [1] FALSE
+#&gt;
+#&gt;
+#&gt;
 </pre></div></div>
 
 <p>Again, <code><a href="ts_tree_unserialize.html">ts_tree_unserialize()</a></code> returns a list, with one element for each
@@ -293,26 +489,128 @@ to help writing the right selection or tree-sitter queries.</p>
 <p>Print the annotated syntax tree:</p>
 <p></p><div class="sourceCode r"><pre><code><span><span class="fu"><a href="../reference/ts_tree_ast.html">ts_tree_ast</a></span><span class="op">(</span><span class="va">json</span><span class="op">)</span></span></code></pre><p></p></div>
 <div class="asciicast" style="color: #B9C0CB;font-family: 'Fira Code',Monaco,Consolas,Menlo,'Bitstream Vera Sans Mono','Powerline Symbols',monospace;line-height: 1.300000"><div class="sourceCode"><pre>
-#&gt; Error in ts_tree_ast(json) : could not find function "ts_tree_ast"
+#&gt; document (1)                          2|
+#&gt; ├─comment (2)                          |// this is a comment
+#&gt; └─object (3)                          3|
+#&gt;   ├─{ (4)                              |{
+#&gt;   ├─pair (5)                          4|
+#&gt;   │ ├─string (6)                       |
+#&gt;   │ │ ├─" (7)                          |  "
+#&gt;   │ │ ├─string_content (8)             |   a
+#&gt;   │ │ └─" (9)                          |    "
+#&gt;   │ ├─: (10)                           |     :
+#&gt;   │ └─object (11)                      |
+#&gt;   │   ├─{ (12)                         |       {
+#&gt;   │   ├─pair (13)                     5|
+#&gt;   │   │ ├─string (14)                  |
+#&gt;   │   │ │ ├─" (15)                     |    "
+#&gt;   │   │ │ ├─string_content (16)        |     a1
+#&gt;   │   │ │ └─" (17)                     |       "
+#&gt;   │   │ ├─: (18)                       |        :
+#&gt;   │   │ └─array (19)                   |
+#&gt;   │   │   ├─[ (20)                     |          [
+#&gt;   │   │   ├─number (21)                |           1
+#&gt;   │   │   ├─, (22)                     |            ,
+#&gt;   │   │   ├─number (23)                |              2
+#&gt;   │   │   ├─, (24)                     |               ,
+#&gt;   │   │   ├─number (25)                |                 3
+#&gt;   │   │   └─] (26)                     |                  ]
+#&gt;   │   ├─, (27)                         |                   ,
+#&gt;   │   ├─comment (28)                  6|    // comment
+#&gt;   │   ├─pair (29)                     7|
+#&gt;   │   │ ├─string (30)                  |
+#&gt;   │   │ │ ├─" (31)                     |    "
+#&gt;   │   │ │ ├─string_content (32)        |     a2
+#&gt;   │   │ │ └─" (33)                     |       "
+#&gt;   │   │ ├─: (34)                       |        :
+#&gt;   │   │ └─string (35)                  |
+#&gt;   │   │   ├─" (36)                     |          "
+#&gt;   │   │   ├─string_content (37)        |           string
+#&gt;   │   │   └─" (38)                     |                 "
+#&gt;   │   └─} (39)                        8|  }
+#&gt;   ├─, (40)                             |   ,
+#&gt;   ├─pair (41)                         9|
+#&gt;   │ ├─string (42)                      |
+#&gt;   │ │ ├─" (43)                         |  "
+#&gt;   │ │ ├─string_content (44)            |   b
+#&gt;   │ │ └─" (45)                         |    "
+#&gt;   │ ├─: (46)                           |     :
+#&gt;   │ └─array (47)                       |
+#&gt;   │   ├─[ (48)                         |       [
+#&gt;   │   ├─object (49)                  10|
+#&gt;   │   │ ├─{ (50)                       |    {
+#&gt;   │   │ ├─pair (51)                  11|
+#&gt;   │   │ │ ├─string (52)                |
+#&gt;   │   │ │ │ ├─" (53)                   |      "
+#&gt;   │   │ │ │ ├─string_content (54)      |       b11
+#&gt;   │   │ │ │ └─" (55)                   |          "
+#&gt;   │   │ │ ├─: (56)                     |           :
+#&gt;   │   │ │ └─true (57)                  |             true
+#&gt;   │   │ ├─, (58)                       |                 ,
+#&gt;   │   │ ├─pair (59)                  12|
+#&gt;   │   │ │ ├─string (60)                |
+#&gt;   │   │ │ │ ├─" (61)                   |      "
+#&gt;   │   │ │ │ ├─string_content (62)      |       b12
+#&gt;   │   │ │ │ └─" (63)                   |          "
+#&gt;   │   │ │ ├─: (64)                     |           :
+#&gt;   │   │ │ └─false (65)                 |             false
+#&gt;   │   │ └─} (66)                     13|    }
+#&gt;   │   ├─, (67)                         |     ,
+#&gt;   │   ├─object (68)                  14|
+#&gt;   │   │ ├─{ (69)                       |    {
+#&gt;   │   │ ├─pair (70)                  15|
+#&gt;   │   │ │ ├─string (71)                |
+#&gt;   │   │ │ │ ├─" (72)                   |      "
+#&gt;   │   │ │ │ ├─string_content (73)      |       b21
+#&gt;   │   │ │ │ └─" (74)                   |          "
+#&gt;   │   │ │ ├─: (75)                     |           :
+#&gt;   │   │ │ └─false (76)                 |             false
+#&gt;   │   │ ├─, (77)                       |                  ,
+#&gt;   │   │ ├─pair (78)                  16|
+#&gt;   │   │ │ ├─string (79)                |
+#&gt;   │   │ │ │ ├─" (80)                   |      "
+#&gt;   │   │ │ │ ├─string_content (81)      |       b22
+#&gt;   │   │ │ │ └─" (82)                   |          "
+#&gt;   │   │ │ ├─: (83)                     |           :
+#&gt;   │   │ │ └─false (84)                 |             false
+#&gt;   │   │ └─} (85)                     17|    }
+#&gt;   │   └─] (86)                       18|  ]
+#&gt;   └─} (87)                           19|}
 </pre></div></div>
 
 <p>Print the document object model:</p>
 <p></p><div class="sourceCode r"><pre><code><span><span class="fu"><a href="../reference/ts_tree_dom.html">ts_tree_dom</a></span><span class="op">(</span><span class="va">json</span><span class="op">)</span></span></code></pre><p></p></div>
 <div class="asciicast" style="color: #B9C0CB;font-family: 'Fira Code',Monaco,Consolas,Menlo,'Bitstream Vera Sans Mono','Powerline Symbols',monospace;line-height: 1.300000"><div class="sourceCode"><pre>
-#&gt; Error in ts_tree_dom(json) : could not find function "ts_tree_dom"
+#&gt; document (1)
+#&gt; └─object (3)
+#&gt;   ├─object (11)<span style="color: #6F7783;"> # a</span>
+#&gt;   │ ├─array (19)<span style="color: #6F7783;"> # a1</span>
+#&gt;   │ │ ├─number (21)
+#&gt;   │ │ ├─number (23)
+#&gt;   │ │ └─number (25)
+#&gt;   │ └─string (35)<span style="color: #6F7783;"> # a2</span>
+#&gt;   └─array (47)<span style="color: #6F7783;"> # b</span>
+#&gt;     ├─object (49)
+#&gt;     │ ├─true (57)<span style="color: #6F7783;"> # b11</span>
+#&gt;     │ └─false (65)<span style="color: #6F7783;"> # b12</span>
+#&gt;     └─object (68)
+#&gt;       ├─false (76)<span style="color: #6F7783;"> # b21</span>
+#&gt;       └─false (84)<span style="color: #6F7783;"> # b22</span>
 </pre></div></div>
 
 <p>Print the structural summary of a tree:</p>
 <p></p><div class="sourceCode r"><pre><code><span><span class="fu"><a href="../reference/ts_tree_sexpr.html">ts_tree_sexpr</a></span><span class="op">(</span><span class="va">json</span><span class="op">)</span></span></code></pre><p></p></div>
 <div class="asciicast" style="color: #B9C0CB;font-family: 'Fira Code',Monaco,Consolas,Menlo,'Bitstream Vera Sans Mono','Powerline Symbols',monospace;line-height: 1.300000"><div class="sourceCode"><pre>
-#&gt; Error in ts_tree_sexpr(json) : could not find function "ts_tree_sexpr"
-#&gt;
-#&gt;
-#&gt;
-#&gt;
-#&gt;
-#&gt;
+#&gt; [1] "(document (comment) (object (pair key: (string (string_content)) value: (ob
+#&gt; ject (pair key: (string (string_content)) value: (array (number) (number) (numbe
+#&gt; r))) (comment) (pair key: (string (string_content)) value: (string (string_conte
+#&gt; nt))))) (pair key: (string (string_content)) value: (array (object (pair key: (s
+#&gt; tring (string_content)) value: (true)) (pair key: (string (string_content)) valu
+#&gt; e: (false))) (object (pair key: (string (string_content)) value: (false)) (pair
+#&gt; key: (string (string_content)) value: (false)))))))"
 </pre></div></div>
+
+
 </div>
 
     </div>
@@ -334,7 +632,7 @@ to help writing the right selection or tree-sitter queries.</p>
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.1.</p>
 </div>
 
   </div></footer></body></html>
