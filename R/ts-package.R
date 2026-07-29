@@ -3,8 +3,13 @@
 #' @keywords internal
 #' @return
 #' Not applicable.
-#' @examples
-#' # See help("about", package = "tsitter")
+#' @seealso [About tsitter][about].
+#'
+#' Useful links:
+#'
+#' * <https://github.com/r-lib/tsitter>
+#' * <https://r-lib.github.io/tsitter/>
+#' * Report bugs at <https://github.com/r-lib/tsitter/issues>
 "_PACKAGE"
 
 ## usethis namespace: start
@@ -32,9 +37,6 @@ NULL
 #'
 #' @return
 #' Not applicable.
-#'
-#' @examples
-#' # See above please.
 #'
 #' @details
 #'

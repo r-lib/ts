@@ -165,8 +165,3 @@ The default implementation only supports scalar \code{TRUE}, which selects
 all DOM children of \code{node}. Other values raise an error.
 }
 }
-\examples{
-# This is an internal generic for parser implementations, see the
-# tsjsonc and tstoml packages for examples of methods implementing
-# selector types.
-}

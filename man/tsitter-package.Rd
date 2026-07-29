@@ -14,17 +14,15 @@ Common tree-sitter parsing tools for R. It is meant to be used by other packages
 \details{
 \eval{tsitter:::format_rd_parser_list(tsitter:::ts_list_parsers())}
 }
-\examples{
-# See help("about", package = "tsitter")
-}
 \seealso{
+\link[=about]{About tsitter}.
+
 Useful links:
 \itemize{
-  \item \url{https://github.com/r-lib/tsitter}
-  \item \url{https://r-lib.github.io/tsitter/}
-  \item Report bugs at \url{https://github.com/r-lib/tsitter/issues}
+\item \url{https://github.com/r-lib/tsitter}
+\item \url{https://r-lib.github.io/tsitter/}
+\item Report bugs at \url{https://github.com/r-lib/tsitter/issues}
 }
-
 }
 \author{
 \strong{Maintainer}: Gábor Csárdi \email{csardi.gabor@gmail.com}

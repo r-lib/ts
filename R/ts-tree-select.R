@@ -242,10 +242,6 @@ normalize_selectors <- function(tree, slts) {
 #' @return Must return an integer vector of selected node ids.
 #'
 #' @export
-#' @examples
-#' # This is an internal generic for parser implementations, see the
-#' # tsjsonc and tstoml packages for examples of methods implementing
-#' # selector types.
 
 ts_tree_select1 <- function(tree, node, slt) {
   treesel <- structure(

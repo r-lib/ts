@@ -623,7 +623,3 @@ Print the structural summary of a tree:
 
 }
 }
-\examples{
-# See above please.
-
-}
