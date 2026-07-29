@@ -558,9 +558,3 @@ Print the structural summary of a tree:
     #> tring (string_content)) value: (true)) (pair key: (string (string_content)) valu
     #> e: (false))) (object (pair key: (string (string_content)) value: (false)) (pair
     #> key: (string (string_content)) value: (false)))))))"
-
-## Examples
-
-``` r
-# See above please.
-```
