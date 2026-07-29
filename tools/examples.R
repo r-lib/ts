@@ -1,25 +1,21 @@
-if (getRversion() >= "4.1") {
-  # The \examples sections use magrittr's %>%, because `R CMD build` extracts
-  # their code, infers the R version that its syntax needs, and would add an
-  # R (>= 4.1.0) dependency to DESCRIPTION for the base pipe. Put the base
-  # pipe back at installation time, on an R that has it.
-  #
-  # Only done for a tarball made by `R CMD build`, which is the one that adds
-  # the `Packaged` field. Patching a source tree in place would rewrite the
-  # tracked Rd files for good, and the next `R CMD build` would add the
-  # R (>= 4.1.0) dependency after all.
-  if (!"Packaged" %in% colnames(read.dcf("DESCRIPTION"))) {
-    cat("Not substituting the base pipe in man/*.Rd, this is a source tree\n")
-  } else {
-    for (rd in Sys.glob("man/*.Rd")) {
-      old <- readLines(rd, warn = FALSE)
-      new <- gsub("\\%>\\%", "|>", old, fixed = TRUE)
-      if (!identical(new, old)) {
-        writeLines(new, rd)
-      }
+in_check <- basename(dirname(getwd())) == "00_pkg_src"
+packaged <- "Packaged" %in% colnames(read.dcf("DESCRIPTION"))
+
+sub_examples <- function(fun) {
+  for (rd in Sys.glob("man/*.Rd")) {
+    old <- readLines(rd, warn = FALSE)
+    if (!any(grepl("\\%>\\%", old, fixed = TRUE))) {
+      next
+    }
+    new <- fun(old)
+    if (!identical(new, old)) {
+      writeLines(new, rd)
     }
   }
-} else {
+}
+
+if (getRversion() < "4.1") {
+  # No base pipe on this R, so don't run the examples at all.
   dir.create("man/macros", showWarnings = FALSE, recursive = TRUE)
   cat(
     paste(
@@ -33,4 +29,18 @@ if (getRversion() >= "4.1") {
     ),
     file = "man/macros/examples.Rd"
   )
+} else if (in_check) {
+  cat("Binding magrittr's %>% in the examples, this is an R CMD check\n")
+  sub_examples(function(lines) {
+    at <- grep("^\\\\examples\\{$", lines)
+    if (!length(at)) {
+      return(lines)
+    }
+    append(lines, "`\\%>\\%` <- magrittr::`\\%>\\%`", after = at[1])
+  })
+} else if (!packaged && Sys.getenv("IN_PKGDOWN") == "") {
+  cat("*** Not substituting the base pipe in man/*.Rd, this is a source tree\n")
+} else {
+  cat("*** Substituting the base pipe in man/*.Rd\n")
+  sub_examples(function(lines) gsub("\\%>\\%", "|>", lines, fixed = TRUE))
 }

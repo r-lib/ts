@@ -39,6 +39,8 @@ jobs:
       # otherwise the dynamics docs fail, not sure why
       - name: Install package
         run: R CMD INSTALL .
+        env:
+          IN_PKGDOWN: true
 
       - name: Build site
         run: |
