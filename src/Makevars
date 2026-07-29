@@ -6,7 +6,7 @@ tree-sitter-files = \
         tree-sitter/lib/src/lib.o
 
 lib-files = \
-        init.o tree-sitter.o cleancall.o glue.o
+        init.o tree-sitter.o cleancall.o glue.o ts-hooks.o
 
 PKG_LIBS = -L. tree-sitter.a
 

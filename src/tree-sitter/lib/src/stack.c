@@ -779,7 +779,9 @@ void ts_stack_clear(Stack *self) {
 
 bool ts_stack_print_dot_graph(Stack *self, const TSLanguage *language, FILE *f) {
   array_reserve(&self->iterators, 32);
-  if (!f) f = stderr;
+  // tsitter patch: an R package must not write to stderr, so we refuse to
+  // print instead of defaulting to stderr.
+  if (!f) return false;
 
   fprintf(f, "digraph stack {\n");
   fprintf(f, "rankdir=\"RL\";\n");

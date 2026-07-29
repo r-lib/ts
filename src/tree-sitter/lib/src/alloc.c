@@ -2,11 +2,15 @@
 #include "tree_sitter/api.h"
 #include <stdlib.h>
 
+// tsitter patch: an R package must not call abort() or write to stderr, so
+// allocation failures are reported via ts_alloc_failed(), see src/ts-hooks.c.
+// It throws an R error and does not return.
+extern void ts_alloc_failed(size_t size);
+
 static void *ts_malloc_default(size_t size) {
   void *result = malloc(size);
   if (size > 0 && !result) {
-    fprintf(stderr, "tree-sitter failed to allocate %zu bytes", size);
-    abort();
+    ts_alloc_failed(size);
   }
   return result;
 }
@@ -14,8 +18,7 @@ static void *ts_malloc_default(size_t size) {
 static void *ts_calloc_default(size_t count, size_t size) {
   void *result = calloc(count, size);
   if (count > 0 && !result) {
-    fprintf(stderr, "tree-sitter failed to allocate %zu bytes", count * size);
-    abort();
+    ts_alloc_failed(count * size);
   }
   return result;
 }
@@ -23,8 +26,7 @@ static void *ts_calloc_default(size_t count, size_t size) {
 static void *ts_realloc_default(void *buffer, size_t size) {
   void *result = realloc(buffer, size);
   if (size > 0 && !result) {
-    fprintf(stderr, "tree-sitter failed to reallocate %zu bytes", size);
-    abort();
+    ts_alloc_failed(size);
   }
   return result;
 }
