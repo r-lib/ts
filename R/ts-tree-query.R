@@ -57,7 +57,7 @@
 #' json <- tsjsonc::ts_parse_jsonc(
 #'   '{ "a": 1, "b": [10, 20, 30], "c": { "c1": true, "c2": 100 } }'
 #' )
-#' json |> ts_tree_query("(number) @number")
+#' json %>% ts_tree_query("(number) @number")
 
 ts_tree_query <- function(tree, query) {
   UseMethod("ts_tree_query")

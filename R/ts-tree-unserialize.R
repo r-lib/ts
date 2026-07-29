@@ -52,9 +52,9 @@
 #'
 #' tree
 #'
-#' tree |> ts_tree_select(c("b", "c")) |> ts_tree_unserialize()
+#' tree %>% ts_tree_select(c("b", "c")) %>% ts_tree_unserialize()
 #'
-#' tree |> ts_tree_select("b") |> ts_tree_unserialize()
+#' tree %>% ts_tree_select("b") %>% ts_tree_unserialize()
 
 ts_tree_unserialize <- function(tree) {
   UseMethod("ts_tree_unserialize")

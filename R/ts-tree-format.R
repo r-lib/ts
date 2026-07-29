@@ -57,11 +57,11 @@
 #' tree
 #'
 #' # Format whole document
-#' tree |> ts_tree_format()
+#' tree %>% ts_tree_format()
 #'
 #' # Format each top element under the document node in one line
-#' tree |> ts_tree_format() |>
-#'   ts_tree_select(TRUE) |>
+#' tree %>% ts_tree_format() %>%
+#'   ts_tree_select(TRUE) %>%
 #'   ts_tree_format(options = list(format = "oneline"))
 #'
 #'
@@ -75,7 +75,7 @@
 #'
 #' tree
 #'
-#' tree |> ts_tree_format()
+#' tree %>% ts_tree_format()
 
 ts_tree_format <- function(tree, options, ...) {
   UseMethod("ts_tree_format")

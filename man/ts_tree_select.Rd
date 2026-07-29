@@ -34,7 +34,7 @@ json <- ts_tree_new(
   text = '{ "a": 1, "b": 2, "c": { "d": 3, "e": 4 } }'
 )
 
-json |> ts_tree_select("c", "d")
+json \%>\% ts_tree_select("c", "d")
 \dontshow{\}) # examplesIf}
 \dontshow{if (requireNamespace("tstoml", quietly = TRUE)) withAutoprint(\{ # examplesIf}
 
@@ -45,7 +45,7 @@ toml <- ts_tree_new(
   text = tstoml::toml_example_text()
 )
 
-toml |> ts_tree_select("servers", TRUE, "ip")
+toml \%>\% ts_tree_select("servers", TRUE, "ip")
 \dontshow{\}) # examplesIf}
 }
 \seealso{

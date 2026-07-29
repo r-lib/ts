@@ -51,7 +51,7 @@
 #' tree <- tsjsonc::ts_parse_jsonc('{"foo": 42, "bar": [1, 2, 3]}')
 #'
 #' # Format and write to file
-#' tree |> ts_tree_format() |> ts_tree_write("example.json")
+#' tree %>% ts_tree_format() %>% ts_tree_write("example.json")
 
 ts_tree_write <- function(tree, file = NULL) {
   UseMethod("ts_tree_write")

@@ -75,7 +75,7 @@
 #'
 #' json
 #'
-#' json |> ts_tree_format()
+#' json %>% ts_tree_format()
 #'
 #' @examplesIf requireNamespace("tstoml", quietly = TRUE)
 #'
@@ -87,7 +87,7 @@
 #'
 #' toml
 #'
-#' toml |> ts_tree_format()
+#' toml %>% ts_tree_format()
 
 ts_tree_new <- function(
   language,

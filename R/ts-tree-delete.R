@@ -57,9 +57,9 @@
 #'
 #' tree
 #'
-#' tree |> ts_tree_select("a")
+#' tree %>% ts_tree_select("a")
 #'
-#' tree |> ts_tree_select("a") |> ts_tree_delete()
+#' tree %>% ts_tree_select("a") %>% ts_tree_delete()
 #'
 #' @examplesIf requireNamespace("tstoml", quietly = TRUE)
 #' # Create a parse tree with tstoml --------------------------------------
@@ -71,8 +71,8 @@
 #'
 #' tree
 #'
-#' tree |> ts_tree_select("servers", TRUE, "dc")
-#' tree |> ts_tree_select("servers", TRUE, "dc") |> ts_tree_delete()
+#' tree %>% ts_tree_select("servers", TRUE, "dc")
+#' tree %>% ts_tree_select("servers", TRUE, "dc") %>% ts_tree_delete()
 
 ts_tree_delete <- function(tree, ...) {
   UseMethod("ts_tree_delete")

@@ -74,7 +74,7 @@
 #' # Create a parse tree with tsjsonc -------------------------------------
 #' tree <- tsjsonc::ts_parse_jsonc('{ "a": true, "b": [1, 2, 3] }')
 #'
-#' tree |> ts_tree_select("b") |> ts_tree_insert(4, at = Inf)
+#' tree %>% ts_tree_select("b") %>% ts_tree_insert(4, at = Inf)
 #'
 #' @examplesIf requireNamespace("tstoml", quietly = TRUE)
 #'
@@ -85,8 +85,8 @@
 #'   beta = { ip = "127.0.0.2", dc = "eqdc20" }
 #' )")
 #'
-#' tree |>
-#'   ts_tree_select("servers", TRUE) |>
+#' tree %>%
+#'   ts_tree_select("servers", TRUE) %>%
 #'   ts_tree_insert(key = "active", TRUE)
 
 ts_tree_insert <- function(tree, new, key, at, options, ...) {

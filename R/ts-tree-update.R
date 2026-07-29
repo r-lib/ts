@@ -58,7 +58,7 @@
 #'   }
 #' )")
 #'
-#' tree |> ts_tree_select("version") |> ts_tree_update("2.0.0")
+#' tree %>% ts_tree_select("version") %>% ts_tree_update("2.0.0")
 #'
 #' @examplesIf requireNamespace("tstoml", quietly = TRUE)
 #' # Create a parse tree with tstoml --------------------------------------
@@ -69,7 +69,7 @@
 #'   depdendencies = { tstoml = "0.1.0" }
 #' )")
 #'
-#' tree |> ts_tree_select("package", "version") |> ts_tree_update("2.0.0")
+#' tree %>% ts_tree_select("package", "version") %>% ts_tree_update("2.0.0")
 
 ts_tree_update <- function(tree, new, options, ...) {
   UseMethod("ts_tree_update")

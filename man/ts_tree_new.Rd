@@ -57,7 +57,7 @@ json <- ts_tree_new(
 
 json
 
-json |> ts_tree_format()
+json \%>\% ts_tree_format()
 \dontshow{\}) # examplesIf}
 \dontshow{if (requireNamespace("tstoml", quietly = TRUE)) withAutoprint(\{ # examplesIf}
 
@@ -69,7 +69,7 @@ toml <- ts_tree_new(
 
 toml
 
-toml |> ts_tree_format()
+toml \%>\% ts_tree_format()
 \dontshow{\}) # examplesIf}
 }
 \seealso{

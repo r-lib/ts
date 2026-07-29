@@ -31,9 +31,9 @@ tree <- tsjsonc::ts_parse_jsonc('{"a": 13, "b": [1, 2, 3], "c": "x"}')
 
 tree
 
-tree |> ts_tree_select(c("b", "c")) |> ts_tree_unserialize()
+tree \%>\% ts_tree_select(c("b", "c")) \%>\% ts_tree_unserialize()
 
-tree |> ts_tree_select("b") |> ts_tree_unserialize()
+tree \%>\% ts_tree_select("b") \%>\% ts_tree_unserialize()
 \dontshow{\}) # examplesIf}
 }
 \seealso{

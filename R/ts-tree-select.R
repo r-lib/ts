@@ -145,7 +145,7 @@ NULL
 #'   text = '{ "a": 1, "b": 2, "c": { "d": 3, "e": 4 } }'
 #' )
 #'
-#' json |> ts_tree_select("c", "d")
+#' json %>% ts_tree_select("c", "d")
 #'
 #' @examplesIf requireNamespace("tstoml", quietly = TRUE)
 #'
@@ -156,7 +156,7 @@ NULL
 #'   text = tstoml::toml_example_text()
 #' )
 #'
-#' toml |> ts_tree_select("servers", TRUE, "ip")
+#' toml %>% ts_tree_select("servers", TRUE, "ip")
 
 ts_tree_select <- function(tree, ..., refine = FALSE) {
   slts <- normalize_selectors(tree, list(...))
