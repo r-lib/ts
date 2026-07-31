@@ -49,9 +49,6 @@ Create a ts_tree (ts_tree_jsonc) object from a string:
 
     json <- tsjsonc::ts_parse_jsonc(txt)
 
-
-    #>
-
 Pretty print a ts_tree object:
 
     json
@@ -143,7 +140,7 @@ Select multiple keys from an object:
 
 Select nodes that match a tree-sitter query:
 
-    ts_tree_select(json, query = "((pair value: (false) @val))")
+    json |> ts_tree_select(query = "((pair value: (false) @val))")
 
 
     #> # jsonc (19 lines, 3 selected elements)
@@ -164,7 +161,7 @@ Select nodes that match a tree-sitter query:
 
 Delete selected elements:
 
-    ts_tree_delete(ts_tree_select(json, "a", "a1"))
+    ts_tree_select(json, "a", "a1") |> ts_tree_delete()
 
 
     #> # jsonc (18 lines)
@@ -185,7 +182,7 @@ Delete selected elements:
 
 Insert element into an array:
 
-    ts_tree_insert(ts_tree_select(json, "a", "a1"), at = 2, "new")
+    ts_tree_select(json, "a", "a1") |> ts_tree_insert(at = 2, "new")
 
 
     #> # jsonc (24 lines)
@@ -206,12 +203,8 @@ Inserting into an array reformats the array.
 
 Insert element into an object, at the specified key:
 
-    ts_tree_insert(
-      ts_tree_select(json, "a"),
-      key = "a0",
-      at = 0,
-      list("new", "element")
-    )
+    ts_tree_select(json, "a") |>
+      ts_tree_insert(key = "a0", at = 0, list("new", "element"))
 
 
     #> # jsonc (27 lines)
@@ -232,7 +225,7 @@ Insert element into an object, at the specified key:
 
 Update existing element:
 
-    ts_tree_update(ts_tree_select(json, "a", c("a1", "a2")), "new value")
+    ts_tree_select(json, "a", c("a1", "a2")) |> ts_tree_update("new value")
 
 
     #> # jsonc (19 lines)
@@ -271,7 +264,7 @@ Inserts the element if some parents are missing:
     #> ℹ 9 more lines
     #> ℹ Use `print(n = ...)` to see more lines
 
-    ts_tree_update(ts_tree_select(json, "a", "x", "y"), list(1, 2, 3))
+    ts_tree_select(json, "a", "x", "y") |> ts_tree_update(list(1,2,3))
 
 
     #> # jsonc (30 lines)
@@ -293,7 +286,7 @@ Inserts the element if some parents are missing:
 Use [`stdout()`](https://rdrr.io/r/base/showConnections.html) to write
 it to the screen instread of a file:
 
-    ts_tree_write(json, stdout())
+    json |> ts_tree_write(stdout())
 
 
     #>
@@ -320,7 +313,7 @@ it to the screen instread of a file:
 
 Format the whole document:
 
-    ts_tree_format(json)
+    json |> ts_tree_format()
 
 
     #> # jsonc (23 lines)
@@ -339,10 +332,8 @@ Format the whole document:
 
 Format part of the document:
 
-    ts_tree_format(
-      ts_tree_select(json, "a"),
-      options = list(format = "compact")
-    )
+    json |> ts_tree_select("a") |>
+      ts_tree_format(options = list(format = "compact"))
 
 
     #> # jsonc (15 lines)
@@ -363,7 +354,7 @@ Format part of the document:
 
 Unserialize a whole document:
 
-    ts_tree_unserialize(json)
+    json |> ts_tree_unserialize()
 
 
     #> [[1]]
@@ -410,7 +401,7 @@ document.
 
 Unserialize part(s) of the document:
 
-    ts_tree_unserialize(ts_tree_select(json, "b"))
+    json |> ts_tree_select("b") |> ts_tree_unserialize()
 
 
     #> [[1]]
@@ -567,9 +558,3 @@ Print the structural summary of a tree:
     #> tring (string_content)) value: (true)) (pair key: (string (string_content)) valu
     #> e: (false))) (object (pair key: (string (string_content)) value: (false)) (pair
     #> key: (string (string_content)) value: (false)))))))"
-
-## Examples
-
-``` r
-# See above please.
-```

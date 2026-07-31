@@ -46,7 +46,7 @@ Here is an example that includes all tree-sitter parsers at this time:
     #>   package version    title           library                    loaded
     #> * <chr>   <chr>      <chr>           <chr>                      <lgl>
     #> 1 tsjsonc 0.0.0.9000 Edit JSON Files /Users/gaborcsardi/Librar… FALSE
-    #> 2 tstoml  0.0.0.9000 Edit TOML files /Users/gaborcsardi/Librar… FALSE
+    #> 2 tstoml  0.0.0.9000 Edit TOML Files /Users/gaborcsardi/Librar… FALSE
 
 ## Examples
 
@@ -56,5 +56,5 @@ ts_list_parsers()
 #>   package version    title           library                     loaded
 #> * <chr>   <chr>      <chr>           <chr>                       <lgl> 
 #> 1 tsjsonc 0.0.0.9000 Edit JSON Files /home/runner/work/_temp/Li… TRUE  
-#> 2 tstoml  0.0.0.9000 Edit TOML Files /home/runner/work/_temp/Li… FALSE 
+#> 2 tstoml  0.0.0.9000 Edit TOML Files /home/runner/work/_temp/Li… TRUE  
 ```

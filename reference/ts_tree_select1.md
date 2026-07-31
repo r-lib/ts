@@ -164,11 +164,3 @@ Method: `ts_tree_select1.ts_tree.logical`
 This method is used when the selector is a logical vector. The default
 implementation only supports scalar `TRUE`, which selects all DOM
 children of `node`. Other values raise an error.
-
-## Examples
-
-``` r
-# This is an internal generic for parser implementations, see the
-# tsjsonc and tstoml packages for examples of methods implementing
-# selector types.
-```

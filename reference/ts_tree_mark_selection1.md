@@ -1,6 +1,6 @@
 # Helper function to decide which AST nodes to highlight for a selection (internal)
 
-This function is for packages implementing new parsers based on the ts
+This function are for packages implementing new parsers based on the ts
 package. It is very unlikely that you will need to call this function
 directly.
 

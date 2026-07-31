@@ -19,6 +19,8 @@ Not applicable.
 
 ## See also
 
+[About tsitter](https://r-lib.github.io/tsitter/reference/about.md).
+
 Useful links:
 
 - <https://github.com/r-lib/tsitter>
@@ -41,9 +43,3 @@ Other contributors:
   holder, funder\]
 
 - Tree-sitter authors (Tree-sitter C library) \[copyright holder\]
-
-## Examples
-
-``` r
-# See help("about", package = "tsitter")
-```

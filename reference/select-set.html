@@ -15,7 +15,7 @@ it might be more readable."></head><body>
 
     <a class="navbar-brand me-2" href="../index.html">tsitter</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.1.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.2.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -38,7 +38,7 @@ it might be more readable."></head><body>
   <main id="main" class="col-md-9"><div class="page-header">
 
       <h1>Edit parts of a tree-sitter tree</h1>
-      <small class="dont-index">Source: <a href="https://github.com/r-lib/tsitter/blob/v0.1.0/R/ts-tree-select.R" class="external-link"><code>R/ts-tree-select.R</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/r-lib/tsitter/blob/main/R/ts-tree-select.R" class="external-link"><code>R/ts-tree-select.R</code></a></small>
       <div class="d-none name"><code>select-set.Rd</code></div>
     </div>
 
@@ -82,13 +82,168 @@ functions, see examples below.</p>
     </div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
-    <p>The following two expressions are equivalent:</p>
-<p></p><div class="sourceCode r"><pre><code>tree &lt;- ts_tree_update(ts_tree_select(tree, &lt;selectors&gt;), value)
-</code></pre><p></p></div>
-<p>and</p>
-<p></p><div class="sourceCode r"><pre><code>ts_tree_select(tree, &lt;selectors&gt;) &lt;- value
-</code></pre><p></p></div>
-<p><code>ts_tree_deleted()</code> is a special marker to delete elements from a
+    <p>The following two expressions are equivalent:</p><div class="sourceCode r"><p style="display:none"> </p><pre><code>tree &lt;- ts_tree_select(tree, &lt;selectors&gt;) |&gt; ts_tree_update(value)
+</code></pre></div>and<div class="sourceCode r"><p style="display:none"> </p><pre><code>ts_tree_select(tree, &lt;selectors&gt;) &lt;- value
+</code></pre></div><div><div class="w3-bar">
+  <button class="w3-bar-item w3-button tablink w3-active" onclick="openCity(event,'jsonc')">
+  JSONC
+</button>
+<button class="w3-bar-item w3-button tablink " onclick="openCity(event,'toml')">
+  TOML
+</button></div>  <div class="ts-package-jsonc w3-container w3-border ts-package" style="">  <div class="sourceCode r"><p style="display:none"> </p><pre><code><span><span class="va">json</span> <span class="op">&lt;-</span> <span class="fu">tsjsonc</span><span class="fu">::</span><span class="fu"><a href="https://gaborcsardi.github.io/tsjsonc/reference/ts_parse_jsonc.html" class="external-link">ts_parse_jsonc</a></span><span class="op">(</span></span>
+<span>  <span class="st">'{ "a": 1, "b": [10, 20, 30], "c": { "c1": true, "c2": null } }'</span></span>
+<span><span class="op">)</span></span>
+<span><span class="va">json</span></span></code></pre></div>
+<div class="asciicast" style="color: #B9C0CB;font-family: 'Fira Code',Monaco,Consolas,Menlo,'Bitstream Vera Sans Mono','Powerline Symbols',monospace;line-height: 1.300000"><div class="sourceCode"><pre>
+#&gt; <span style="color: #6F7783;"># jsonc (1 line)</span>
+#&gt; <span style="color: #6F7783;">1 | </span>{ "a": 1, "b": [10, 20, 30], "c": { "c1": true, "c2": null } }
+</pre></div></div><div class="sourceCode r"><p style="display:none"> </p><pre><code><span><span class="va">json</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/ts_tree_select.html">ts_tree_select</a></span><span class="op">(</span><span class="st">"b"</span>, <span class="fl">1</span><span class="op">)</span></span></code></pre></div>
+<div class="asciicast" style="color: #B9C0CB;font-family: 'Fira Code',Monaco,Consolas,Menlo,'Bitstream Vera Sans Mono','Powerline Symbols',monospace;line-height: 1.300000"><div class="sourceCode"><pre>
+#&gt; <span style="color: #6F7783;"># jsonc (1 line, 1 selected element)</span>
+#&gt; <span style="background-color: #66C2CD;">&gt;</span> <span style="color: #6F7783;">1 | </span>{ "a": 1, "b": [<span style="color: #66C2CD;">10</span>, 20, 30], "c": { "c1": true, "c2": null } }
+</pre></div></div><div class="sourceCode r"><p style="display:none"> </p><pre><code><span><span class="fu"><a href="../reference/ts_tree_select.html">ts_tree_select</a></span><span class="op">(</span><span class="va">json</span>, <span class="st">"b"</span>, <span class="fl">1</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fl">100</span></span>
+<span><span class="va">json</span></span></code></pre></div>
+<div class="asciicast" style="color: #B9C0CB;font-family: 'Fira Code',Monaco,Consolas,Menlo,'Bitstream Vera Sans Mono','Powerline Symbols',monospace;line-height: 1.300000"><div class="sourceCode"><pre>
+#&gt; <span style="color: #6F7783;"># jsonc (1 line)</span>
+#&gt; <span style="color: #6F7783;">1 | </span>{ "a": 1, "b": [100, 20, 30], "c": { "c1": true, "c2": null } }
+</pre></div></div></div>  <div class="ts-package-toml w3-container w3-border ts-package" style="display:none">  <div class="sourceCode r"><p style="display:none"> </p><pre><code><span><span class="va">toml</span> <span class="op">&lt;-</span> <span class="fu">tstoml</span><span class="fu">::</span><span class="fu"><a href="https://gaborcsardi.github.io/tstoml/reference/ts_parse_toml.html" class="external-link">ts_parse_toml</a></span><span class="op">(</span></span>
+<span>  <span class="st">'[table]\na = 1\nb = [10, 20, 30]\nc = { c1 = true, c2 = [] }\n'</span></span>
+<span><span class="op">)</span></span>
+<span><span class="va">toml</span></span></code></pre></div>
+<div class="asciicast" style="color: #B9C0CB;font-family: 'Fira Code',Monaco,Consolas,Menlo,'Bitstream Vera Sans Mono','Powerline Symbols',monospace;line-height: 1.300000"><div class="sourceCode"><pre>
+#&gt; <span style="color: #6F7783;"># toml (4 lines)</span>
+#&gt; <span style="color: #6F7783;">1 | </span>[table]
+#&gt; <span style="color: #6F7783;">2 | </span>a = 1
+#&gt; <span style="color: #6F7783;">3 | </span>b = [10, 20, 30]
+#&gt; <span style="color: #6F7783;">4 | </span>c = { c1 = true, c2 = [] }
+</pre></div></div><div class="sourceCode r"><p style="display:none"> </p><pre><code><span><span class="va">toml</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/ts_tree_select.html">ts_tree_select</a></span><span class="op">(</span><span class="st">"table"</span>, <span class="st">"b"</span>, <span class="fl">1</span><span class="op">)</span></span></code></pre></div>
+<div class="asciicast" style="color: #B9C0CB;font-family: 'Fira Code',Monaco,Consolas,Menlo,'Bitstream Vera Sans Mono','Powerline Symbols',monospace;line-height: 1.300000"><div class="sourceCode"><pre>
+#&gt; <span style="color: #6F7783;"># toml (4 lines, 1 selected element)</span>
+#&gt;   <span style="color: #6F7783;">1 | </span>[table]
+#&gt;   <span style="color: #6F7783;">2 | </span>a = 1
+#&gt; <span style="background-color: #66C2CD;">&gt;</span> <span style="color: #6F7783;">3 | </span>b = [<span style="color: #66C2CD;">10</span>, 20, 30]
+#&gt;   <span style="color: #6F7783;">4 | </span>c = { c1 = true, c2 = [] }
+</pre></div></div><div class="sourceCode r"><p style="display:none"> </p><pre><code><span><span class="fu"><a href="../reference/ts_tree_select.html">ts_tree_select</a></span><span class="op">(</span><span class="va">toml</span>, <span class="st">"table"</span>, <span class="st">"b"</span>, <span class="fl">1</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fl">100</span></span>
+<span><span class="va">toml</span></span></code></pre></div>
+<div class="asciicast" style="color: #B9C0CB;font-family: 'Fira Code',Monaco,Consolas,Menlo,'Bitstream Vera Sans Mono','Powerline Symbols',monospace;line-height: 1.300000"><div class="sourceCode"><pre>
+#&gt; <span style="color: #6F7783;"># toml (4 lines)</span>
+#&gt; <span style="color: #6F7783;">1 | </span>[table]
+#&gt; <span style="color: #6F7783;">2 | </span>a = 1
+#&gt; <span style="color: #6F7783;">3 | </span>b = [100.0, 20, 30]
+#&gt; <span style="color: #6F7783;">4 | </span>c = { c1 = true, c2 = [] }
+</pre></div></div></div></div>
+
+<script>
+function openCity(evt, language) {
+  var currentTab = evt.srcElement.parentElement.parentElement;
+  var i, x, tablinks;
+  x = currentTab.getElementsByClassName("ts-package");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";
+  }
+  tablinks = currentTab.getElementsByClassName("tablink");
+  for (i = 0; i < x.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" w3-active", "");
+  }
+  currentTab.getElementsByClassName("ts-package-" + language)[0].style.display = "block";
+  evt.srcElement.className += " w3-active";
+}
+</script><style>
+.w3-container:after,
+.w3-container:before,
+.w3-panel:after,
+.w3-panel:before,
+.w3-row:after,
+.w3-row:before,
+.w3-row-padding:after,
+.w3-row-padding:before,
+.w3-cell-row:before,
+.w3-cell-row:after,
+.w3-clear:after,
+.w3-clear:before,
+.w3-bar:before,
+.w3-bar:after {
+  content:"";
+  display: table;
+  clear: both
+}.w3-container,
+.w3-panel {
+  padding: 0.01em 16px
+}.w3-panel {
+  margin-top: 16px;
+  margin-bottom: 16px
+}.w3-bar {
+  width: 100%;
+  overflow: hidden
+}.w3-center .w3-bar {
+  display: inline-block;
+  width: auto
+}.w3-bar .w3-bar-item {
+  padding: 8px 16px;
+  float: left;
+  width: auto;
+  border: none;
+  display: block;
+  outline: 0
+}.w3-bar .w3-button {
+  white-space: normal;
+  border: 1px solid;
+}.w3-block {
+  display: block;
+  width: 100%
+}.w3-btn,
+.w3-button {
+  border: none;
+  display: inline-block;
+  padding: 8px 16px;
+  vertical-align: middle;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  background-color: inherit;
+  text-align: center;
+  cursor: pointer;
+  white-space: nowrap
+}.w3-btn,
+.w3-button{
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none
+}.w3-bar .w3-button {
+  white-space: normal
+}.w3-button:hover {
+  color: #000!important;
+  background-color: #ccc!important
+}.w3-active,
+.w3-hover-active:hover {
+  background-color: #aaa;
+  color: #000;
+}.w3-border-0 {
+  border: 0!important
+}.w3-border {
+  border: 1px solid #ccc!important;
+  margin-bottom: 10px;
+}.w3-border-top {
+  border-top: 1px solid #ccc!important
+}.w3-border-bottom {
+  border-bottom: 1px solid #ccc!important
+}.w3-border-left {
+  border-left: 1px solid #ccc!important
+}.w3-border-right{
+  border-right: 1px solid #ccc!important
+}/* undo the gradient in tidytemplate, but add it to the whole tab */
+.ts-package {
+  background-image: linear-gradient(-160deg, #f8f8f8 0, #f1f1f1 100%);
+  margin-bottom: 10px;
+}
+.ts-package pre, code {
+  background-image: none;
+  background-color: #00000000;
+}
+</style><p><code>ts_tree_deleted()</code> is a special marker to delete elements from a
 ts_tree object with <code>ts_tree_select&lt;-</code> or the double bracket operator.</p>
     </div>
     <div class="section level2">

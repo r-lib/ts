@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">tsitter</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.1.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.2.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -30,7 +30,7 @@
   <main id="main" class="col-md-9"><div class="page-header">
 
       <h1>Replace selected elements with a new element in a tree-sitter tree</h1>
-      <small class="dont-index">Source: <a href="https://github.com/r-lib/tsitter/blob/v0.1.0/R/ts-tree-update.R" class="external-link"><code>R/ts-tree-update.R</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/r-lib/tsitter/blob/main/R/ts-tree-update.R" class="external-link"><code>R/ts-tree-update.R</code></a></small>
       <div class="d-none name"><code>ts_tree_update.Rd</code></div>
     </div>
 
@@ -54,12 +54,12 @@
 <dt id="arg-new">new<a class="anchor" aria-label="anchor" href="#arg-new"></a></dt>
 <dd><p>The new element to replace the selected elements with.</p>
 <p>The type of <code>new</code> depends on the parser and the method that implements
-the insertion. See details in the manual of the specific parser.</p>
-<p>See details in the manual of the specific parser.</p></dd>
+the insertion. See details in the manual of the specific parser.</p></dd>
 
 
 <dt id="arg-options">options<a class="anchor" aria-label="anchor" href="#arg-options"></a></dt>
-<dd><p>A list of options for the update.</p></dd>
+<dd><p>A list of options for the update.</p>
+<p>See details in the manual of the specific parser.</p></dd>
 
 
 <dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>
@@ -74,13 +74,165 @@ by the new element.</p>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
     <p>If the tree does not have a selection, the new element replaces the
-whole document.</p>
-<p>If the tree has an empty selection, the new element is inserted at the
-position of where the selected elements would be.</p>
-    </div>
+whole document.</p><div><div class="w3-bar">
+  <button class="w3-bar-item w3-button tablink w3-active" onclick="openCity(event,'jsonc')">
+  JSONC
+</button></div>  <div class="ts-package-jsonc w3-container w3-border ts-package" style="">  <div class="sourceCode r"><p style="display:none"> </p><pre><code><span><span class="va">tree</span> <span class="op">&lt;-</span> <span class="fu">tsjsonc</span><span class="fu">::</span><span class="fu"><a href="https://gaborcsardi.github.io/tsjsonc/reference/ts_parse_jsonc.html" class="external-link">ts_parse_jsonc</a></span><span class="op">(</span><span class="st">"{ \"a\": true, \"b\": [1, 2, 3] }"</span><span class="op">)</span></span>
+<span><span class="va">tree</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/ts_tree_update.html">ts_tree_update</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">as.list</a></span><span class="op">(</span><span class="fl">4</span><span class="op">:</span><span class="fl">6</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<div class="asciicast" style="color: #B9C0CB;font-family: 'Fira Code',Monaco,Consolas,Menlo,'Bitstream Vera Sans Mono','Powerline Symbols',monospace;line-height: 1.300000"><div class="sourceCode"><pre>
+#&gt; <span style="color: #6F7783;"># jsonc (5 lines)</span>
+#&gt; <span style="color: #6F7783;">1 | </span>[
+#&gt; <span style="color: #6F7783;">2 | </span>  4,
+#&gt; <span style="color: #6F7783;">3 | </span>  5,
+#&gt; <span style="color: #6F7783;">4 | </span>  6
+#&gt; <span style="color: #6F7783;">5 | </span>]
+</pre></div></div></div></div>If the tree has an empty selection, the new element is inserted at the
+position of where the selected elements would be.<div><div class="w3-bar">
+  <button class="w3-bar-item w3-button tablink w3-active" onclick="openCity(event,'jsonc')">
+  JSONC
+</button>
+<button class="w3-bar-item w3-button tablink " onclick="openCity(event,'toml')">
+  TOML
+</button></div>  <div class="ts-package-jsonc w3-container w3-border ts-package" style="">  <div class="sourceCode r"><p style="display:none"> </p><pre><code><span><span class="va">tree</span> <span class="op">&lt;-</span> <span class="fu">tsjsonc</span><span class="fu">::</span><span class="fu"><a href="https://gaborcsardi.github.io/tsjsonc/reference/ts_parse_jsonc.html" class="external-link">ts_parse_jsonc</a></span><span class="op">(</span><span class="st">"{ \"a\": true, \"b\": [1, 2, 3] }"</span><span class="op">)</span></span>
+<span><span class="va">tree</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/ts_tree_select.html">ts_tree_select</a></span><span class="op">(</span><span class="st">"new"</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/ts_tree_update.html">ts_tree_update</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">as.list</a></span><span class="op">(</span><span class="fl">4</span><span class="op">:</span><span class="fl">6</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<div class="asciicast" style="color: #B9C0CB;font-family: 'Fira Code',Monaco,Consolas,Menlo,'Bitstream Vera Sans Mono','Powerline Symbols',monospace;line-height: 1.300000"><div class="sourceCode"><pre>
+#&gt; <span style="color: #6F7783;"># jsonc (13 lines)</span>
+#&gt; <span style="color: #6F7783;"> 1 | </span>{
+#&gt; <span style="color: #6F7783;"> 2 | </span>    "a": true,
+#&gt; <span style="color: #6F7783;"> 3 | </span>    "b": [
+#&gt; <span style="color: #6F7783;"> 4 | </span>        1,
+#&gt; <span style="color: #6F7783;"> 5 | </span>        2,
+#&gt; <span style="color: #6F7783;"> 6 | </span>        3
+#&gt; <span style="color: #6F7783;"> 7 | </span>    ],
+#&gt; <span style="color: #6F7783;"> 8 | </span>    "new": [
+#&gt; <span style="color: #6F7783;"> 9 | </span>        4,
+#&gt; <span style="color: #6F7783;">10 | </span>        5,
+#&gt; <span style="color: #6F7783;">ℹ 3 more lines</span>
+#&gt; <span style="color: #6F7783;">ℹ Use `print(n = ...)` to see more lines</span>
+</pre></div></div></div>  <div class="ts-package-toml w3-container w3-border ts-package" style="display:none">  <div class="sourceCode r"><p style="display:none"> </p><pre><code><span><span class="va">tree</span> <span class="op">&lt;-</span> <span class="fu">tstoml</span><span class="fu">::</span><span class="fu"><a href="https://gaborcsardi.github.io/tstoml/reference/ts_parse_toml.html" class="external-link">ts_parse_toml</a></span><span class="op">(</span><span class="st">"a = true\nb = [1, 2, 3]"</span><span class="op">)</span></span>
+<span><span class="va">tree</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/ts_tree_select.html">ts_tree_select</a></span><span class="op">(</span><span class="st">"new"</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/ts_tree_update.html">ts_tree_update</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">as.list</a></span><span class="op">(</span><span class="fl">4</span><span class="op">:</span><span class="fl">6</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<div class="asciicast" style="color: #B9C0CB;font-family: 'Fira Code',Monaco,Consolas,Menlo,'Bitstream Vera Sans Mono','Powerline Symbols',monospace;line-height: 1.300000"><div class="sourceCode"><pre>
+#&gt; <span style="color: #6F7783;"># toml (3 lines)</span>
+#&gt; <span style="color: #6F7783;">1 | </span>a = true
+#&gt; <span style="color: #6F7783;">2 | </span>b = [1, 2, 3]
+#&gt; <span style="color: #6F7783;">3 | </span>new = [ 4, 5, 6 ]
+</pre></div></div></div></div>
+
+<script>
+function openCity(evt, language) {
+  var currentTab = evt.srcElement.parentElement.parentElement;
+  var i, x, tablinks;
+  x = currentTab.getElementsByClassName("ts-package");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";
+  }
+  tablinks = currentTab.getElementsByClassName("tablink");
+  for (i = 0; i < x.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" w3-active", "");
+  }
+  currentTab.getElementsByClassName("ts-package-" + language)[0].style.display = "block";
+  evt.srcElement.className += " w3-active";
+}
+</script><style>
+.w3-container:after,
+.w3-container:before,
+.w3-panel:after,
+.w3-panel:before,
+.w3-row:after,
+.w3-row:before,
+.w3-row-padding:after,
+.w3-row-padding:before,
+.w3-cell-row:before,
+.w3-cell-row:after,
+.w3-clear:after,
+.w3-clear:before,
+.w3-bar:before,
+.w3-bar:after {
+  content:"";
+  display: table;
+  clear: both
+}.w3-container,
+.w3-panel {
+  padding: 0.01em 16px
+}.w3-panel {
+  margin-top: 16px;
+  margin-bottom: 16px
+}.w3-bar {
+  width: 100%;
+  overflow: hidden
+}.w3-center .w3-bar {
+  display: inline-block;
+  width: auto
+}.w3-bar .w3-bar-item {
+  padding: 8px 16px;
+  float: left;
+  width: auto;
+  border: none;
+  display: block;
+  outline: 0
+}.w3-bar .w3-button {
+  white-space: normal;
+  border: 1px solid;
+}.w3-block {
+  display: block;
+  width: 100%
+}.w3-btn,
+.w3-button {
+  border: none;
+  display: inline-block;
+  padding: 8px 16px;
+  vertical-align: middle;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  background-color: inherit;
+  text-align: center;
+  cursor: pointer;
+  white-space: nowrap
+}.w3-btn,
+.w3-button{
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none
+}.w3-bar .w3-button {
+  white-space: normal
+}.w3-button:hover {
+  color: #000!important;
+  background-color: #ccc!important
+}.w3-active,
+.w3-hover-active:hover {
+  background-color: #aaa;
+  color: #000;
+}.w3-border-0 {
+  border: 0!important
+}.w3-border {
+  border: 1px solid #ccc!important;
+  margin-bottom: 10px;
+}.w3-border-top {
+  border-top: 1px solid #ccc!important
+}.w3-border-bottom {
+  border-bottom: 1px solid #ccc!important
+}.w3-border-left {
+  border-left: 1px solid #ccc!important
+}.w3-border-right{
+  border-right: 1px solid #ccc!important
+}/* undo the gradient in tidytemplate, but add it to the whole tab */
+.ts-package {
+  background-image: linear-gradient(-160deg, #f8f8f8 0, #f1f1f1 100%);
+  margin-bottom: 10px;
+}
+.ts-package pre, code {
+  background-image: none;
+  background-color: #00000000;
+}
+</style></div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
-    <div class="dont-index"><p>Other ts_tree generics:
+    <div class="dont-index"><p>Methods in installed packages: <code>ts_tree_update(&lt;ts_tree_tsjsonc&gt;)</code> and <code>ts_tree_update(&lt;ts_tree_tstoml&gt;)</code>.</p>
+<p>Other ts_tree generics:
 <code><a href="double-bracket-ts-tree.html">[[.ts_tree()</a></code>,
 <code><a href="double-bracket-set-ts-tree.html">[[&lt;-.ts_tree()</a></code>,
 <code><a href="format.ts_tree.html">format.ts_tree()</a></code>,
@@ -112,7 +264,7 @@ position of where the selected elements would be.</p>
 <span class="r-in"><span><span class="st">  }</span></span></span>
 <span class="r-in"><span><span class="st">)"</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="fu">ts_tree_update</span><span class="op">(</span><span class="fu"><a href="ts_tree_select.html">ts_tree_select</a></span><span class="op">(</span><span class="va">tree</span>, <span class="st">"version"</span><span class="op">)</span>, <span class="st">"2.0.0"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">tree</span> <span class="op">|&gt;</span> <span class="fu"><a href="ts_tree_select.html">ts_tree_select</a></span><span class="op">(</span><span class="st">"version"</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">ts_tree_update</span><span class="op">(</span><span class="st">"2.0.0"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;"># jsonc (8 lines)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">1 | </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">2 | </span>  {</span>
@@ -130,7 +282,7 @@ position of where the selected elements would be.</p>
 <span class="r-in"><span><span class="st">  depdendencies = { tstoml = "0.1.0" }</span></span></span>
 <span class="r-in"><span><span class="st">)"</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="fu">ts_tree_update</span><span class="op">(</span><span class="fu"><a href="ts_tree_select.html">ts_tree_select</a></span><span class="op">(</span><span class="va">tree</span>, <span class="st">"package"</span>, <span class="st">"version"</span><span class="op">)</span>, <span class="st">"2.0.0"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">tree</span> <span class="op">|&gt;</span> <span class="fu"><a href="ts_tree_select.html">ts_tree_select</a></span><span class="op">(</span><span class="st">"package"</span>, <span class="st">"version"</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">ts_tree_update</span><span class="op">(</span><span class="st">"2.0.0"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;"># toml (4 lines)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">1 | </span>[package]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">2 | </span>  name = "example"</span>

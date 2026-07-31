@@ -2,6 +2,18 @@
 
 Show the structure of a tree-sitter tree as an S-expression.
 
+### Available tree-sitter parsers
+
+This is the manual page of the `ts_tree_sexpr()` S3 generic function.
+Methods in parser packages may override this generic. For the ones that
+do see the links to their manual pages in the table.
+
+|  |  |  |  |
+|----|----|----|----|
+| **Package** | **Version** | **Title** | **Method** |
+| **[tsjsonc](https://gaborcsardi.github.io/tsjsonc/reference/tsjsonc-package.html)** | 0.0.0.9000 | Edit JSON Files. |  |
+| **[tstoml](https://gaborcsardi.github.io/tstoml/reference/tstoml-package.html)** | 0.0.0.9000 | Edit TOML Files. |  |
+
 ## Usage
 
 ``` r
@@ -26,7 +38,7 @@ where each node is represented as a list with its type and children.
 ## See also
 
 Other ts_tree exploration:
-[`[.ts_tree()`](https://r-lib.github.io/tsitter/reference/ts_tree-brackets.md),
+[`ts_tree-brackets`](https://r-lib.github.io/tsitter/reference/ts_tree-brackets.md),
 [`ts_tree_ast()`](https://r-lib.github.io/tsitter/reference/ts_tree_ast.md),
 [`ts_tree_dom()`](https://r-lib.github.io/tsitter/reference/ts_tree_dom.md),
 [`ts_tree_query()`](https://r-lib.github.io/tsitter/reference/ts_tree_query.md)

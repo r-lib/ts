@@ -37,11 +37,62 @@ List of R objects, with one entry for each selected element.
 
 The following two expressions are equivalent:
 
-    ts_tree_unserialize(ts_tree_select(tree, <selectors>))
+ 
+
+    ts_tree_select(tree, <selectors>) |> ts_tree_unserialize()
 
 and
 
+ 
+
     tree[[list(<selectors>)]]
+
+JSONC
+
+TOML
+
+ 
+
+    json <- tsjsonc::ts_parse_jsonc(
+      '{ "a": 1, "b": [10, 20, 30], "c": { "c1": true, "c2": null } }'
+    )
+    json |> ts_tree_select("b", 1)
+
+
+    #> # jsonc (1 line, 1 selected element)
+    #> > 1 | { "a": 1, "b": [10, 20, 30], "c": { "c1": true, "c2": null } }
+
+ 
+
+    json[[list("b", 1)]]
+
+
+    #> [[1]]
+    #> [1] 10
+    #>
+
+ 
+
+    toml <- tstoml::ts_parse_toml(
+      '[table]\na = 1\nb = [10, 20, 30]\nc = { c1 = true, c2 = [] }\n'
+    )
+    toml |> ts_tree_select("table", "b", 1)
+
+
+    #> # toml (4 lines, 1 selected element)
+    #>   1 | [table]
+    #>   2 | a = 1
+    #> > 3 | b = [10, 20, 30]
+    #>   4 | c = { c1 = true, c2 = [] }
+
+ 
+
+    toml[[list("table", "b", 1)]]
+
+
+    #> [[1]]
+    #> [1] 10
+    #>
 
 ### The `[[<-` replacement operator
 
@@ -52,6 +103,75 @@ and
 (and also to the replacement function
 [`ts_tree_select<-()`](https://r-lib.github.io/tsitter/reference/select-set.md)),
 but it might be more readable.
+
+JSONC
+
+TOML
+
+ 
+
+    json <- tsjsonc::ts_parse_jsonc(
+      '{ "a": 1, "b": [10, 20, 30], "c": { "c1": true, "c2": null } }'
+    )
+    json
+
+
+    #> # jsonc (1 line)
+    #> 1 | { "a": 1, "b": [10, 20, 30], "c": { "c1": true, "c2": null } }
+
+ 
+
+    json |> ts_tree_select("b", 1)
+
+
+    #> # jsonc (1 line, 1 selected element)
+    #> > 1 | { "a": 1, "b": [10, 20, 30], "c": { "c1": true, "c2": null } }
+
+ 
+
+    json[[list("b", 1)]] <- 100
+    json
+
+
+    #> # jsonc (1 line)
+    #> 1 | { "a": 1, "b": [100, 20, 30], "c": { "c1": true, "c2": null } }
+
+ 
+
+    toml <- tstoml::ts_parse_toml(
+      '[table]\na = 1\nb = [10, 20, 30]\nc = { c1 = true, c2 = [] }\n'
+    )
+    toml
+
+
+    #> # toml (4 lines)
+    #> 1 | [table]
+    #> 2 | a = 1
+    #> 3 | b = [10, 20, 30]
+    #> 4 | c = { c1 = true, c2 = [] }
+
+ 
+
+    toml |> ts_tree_select("table", "b", 1)
+
+
+    #> # toml (4 lines, 1 selected element)
+    #>   1 | [table]
+    #>   2 | a = 1
+    #> > 3 | b = [10, 20, 30]
+    #>   4 | c = { c1 = true, c2 = [] }
+
+ 
+
+    toml[[list("table", "b", 1)]] <- 100
+    toml
+
+
+    #> # toml (4 lines)
+    #> 1 | [table]
+    #> 2 | a = 1
+    #> 3 | b = [100.0, 20, 30]
+    #> 4 | c = { c1 = true, c2 = [] }
 
 ## See also
 

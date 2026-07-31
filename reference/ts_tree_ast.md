@@ -4,6 +4,18 @@
 This syntax tree contains all tree-sitter nodes, and it shows the source
 code associated with each node, along with line numbers.
 
+### Available tree-sitter parsers
+
+This is the manual page of the `ts_tree_ast()` S3 generic function.
+Methods in parser packages may override this generic. For the ones that
+do see the links to their manual pages in the table.
+
+|  |  |  |  |
+|----|----|----|----|
+| **Package** | **Version** | **Title** | **Method** |
+| **[tsjsonc](https://gaborcsardi.github.io/tsjsonc/reference/tsjsonc-package.html)** | 0.0.0.9000 | Edit JSON Files. |  |
+| **[tstoml](https://gaborcsardi.github.io/tstoml/reference/tstoml-package.html)** | 0.0.0.9000 | Edit TOML Files. |  |
+
 ## Usage
 
 ``` r
@@ -37,13 +49,114 @@ See
 for a tree that shows the semantic structure of the parsed document,
 which may be different from the syntax tree.
 
+JSONC
+
+TOML
+
+ 
+
+    tree <- ts_parse_jsonc("{ \"a\": true, \"b\": [1, 2, 3] }")
+
+ 
+
+    ts_tree_ast(tree)
+
+
+    #> document (1)                   1|
+    #> └─object (2)                    |
+    #>   ├─{ (3)                       |{
+    #>   ├─pair (4)                    |
+    #>   │ ├─string (5)                |
+    #>   │ │ ├─" (6)                   |  "
+    #>   │ │ ├─string_content (7)      |   a
+    #>   │ │ └─" (8)                   |    "
+    #>   │ ├─: (9)                     |     :
+    #>   │ └─true (10)                 |       true
+    #>   ├─, (11)                      |           ,
+    #>   ├─pair (12)                   |
+    #>   │ ├─string (13)               |
+    #>   │ │ ├─" (14)                  |             "
+    #>   │ │ ├─string_content (15)     |              b
+    #>   │ │ └─" (16)                  |               "
+    #>   │ ├─: (17)                    |                :
+    #>   │ └─array (18)                |
+    #>   │   ├─[ (19)                  |                  [
+    #>   │   ├─number (20)             |                   1
+    #>   │   ├─, (21)                  |                    ,
+    #>   │   ├─number (22)             |                      2
+    #>   │   ├─, (23)                  |                       ,
+    #>   │   ├─number (24)             |                         3
+    #>   │   └─] (25)                  |                          ]
+    #>   └─} (26)                      |                            }
+
+ 
+
+    ts_tree_dom(tree)
+
+
+    #> document (1)
+    #> └─object (2)
+    #>   ├─true (10) # a
+    #>   └─array (18) # b
+    #>     ├─number (20)
+    #>     ├─number (22)
+    #>     └─number (24)
+
+ 
+
+    tree <- ts_parse_toml("
+      [package]
+      name = 'tstoml'
+      version = '0.1.0'"
+    )
+
+
+    #>
+
+ 
+
+    ts_tree_ast(tree)
+
+
+    #> document (1)                             1|
+    #> └─table (2)                              2|
+    #>   ├─[ (3)                                 |  [
+    #>   ├─bare_key (4)                          |   package
+    #>   ├─] (5)                                 |          ]
+    #>   ├─pair (6)                             3|
+    #>   │ ├─bare_key (7)                        |  name
+    #>   │ ├─= (8)                               |       =
+    #>   │ └─string (9)                          |
+    #>   │   └─literal_string (10)               |
+    #>   │     ├─' (11)                          |         '
+    #>   │     ├─literal_string_content (12)     |          tstoml
+    #>   │     └─' (13)                          |                '
+    #>   └─pair (14)                            4|
+    #>     ├─bare_key (15)                       |  version
+    #>     ├─= (16)                              |          =
+    #>     └─string (17)                         |
+    #>       └─literal_string (18)               |
+    #>         ├─' (19)                          |            '
+    #>         ├─literal_string_content (20)     |             0.1.0
+    #>         └─' (21)                          |                  '
+
+ 
+
+    ts_tree_dom(tree)
+
+
+    #> document (1)
+    #> └─table (2) # package
+    #>   ├─value (9) # name
+    #>   └─value (17) # version
+
 ## See also
 
 [`ts_tree_dom()`](https://r-lib.github.io/tsitter/reference/ts_tree_dom.md)
 to show the document object model (DOM) of a ts_tree object.
 
 Other ts_tree exploration:
-[`[.ts_tree()`](https://r-lib.github.io/tsitter/reference/ts_tree-brackets.md),
+[`ts_tree-brackets`](https://r-lib.github.io/tsitter/reference/ts_tree-brackets.md),
 [`ts_tree_dom()`](https://r-lib.github.io/tsitter/reference/ts_tree_dom.md),
 [`ts_tree_query()`](https://r-lib.github.io/tsitter/reference/ts_tree_query.md),
 [`ts_tree_sexpr()`](https://r-lib.github.io/tsitter/reference/ts_tree_sexpr.md)

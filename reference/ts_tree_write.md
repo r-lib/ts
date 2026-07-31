@@ -32,6 +32,24 @@ If `tree` was created from a file, then `ts_tree_write()` by default
 writes it back to the same file. Otherwise, the `file` argument must be
 specified.
 
+JSONC
+
+TOML
+
+Format a JSONC file:
+
+ 
+
+    tree <- tsjsonc::ts_read_jsonc("config.json")
+    tree |> ts_tree_format() |> ts_tree_write()
+
+Format a TOML file:
+
+ 
+
+    tree <- tstoml::ts_parse_toml("config.toml")
+    tree |> ts_tree_format() |> ts_tree_write()
+
 To write to a connection, pass a connection object to the `file`
 argument. If the connection is opened in binary mode, the raw bytes are
 written using [`base::writeBin()`](https://rdrr.io/r/base/readBin.html).
@@ -69,5 +87,5 @@ Other ts_tree generics:
 tree <- tsjsonc::ts_parse_jsonc('{"foo": 42, "bar": [1, 2, 3]}')
 
 # Format and write to file
-ts_tree_write(ts_tree_format(tree), "example.json")
+tree |> ts_tree_format() |> ts_tree_write("example.json")
 ```
