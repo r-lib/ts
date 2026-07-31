@@ -18,12 +18,12 @@ Source:
 [`DESCRIPTION`](https://github.com/r-lib/tsitter/blob/main/DESCRIPTION)
 
 Csárdi G (2026). *tsitter: Tree-Sitter Parsing Tools*. R package version
-0.1.0.9000, <https://github.com/r-lib/tsitter>.
+0.2.0.9000, <https://github.com/r-lib/tsitter>.
 
     @Manual{,
       title = {tsitter: Tree-Sitter Parsing Tools},
       author = {Gábor Csárdi},
       year = {2026},
-      note = {R package version 0.1.0.9000},
+      note = {R package version 0.2.0.9000},
       url = {https://github.com/r-lib/tsitter},
     }

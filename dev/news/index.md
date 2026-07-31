@@ -2,9 +2,9 @@
 
 ## tsitter (development version)
 
-- The bundled tree-sitter library now throws an R error if it fails to
-  allocate memory, instead of writing to the standard error and
-  terminating the R process.
+## tsitter 0.2.0
+
+CRAN release: 2026-07-30
 
 - Tsitter now supports R \>= 3.5.
 
